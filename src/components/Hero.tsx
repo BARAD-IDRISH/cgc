@@ -13,9 +13,9 @@ export default function Hero() {
       <div className="absolute inset-0 bg-grid-pattern opacity-60 pointer-events-none" />
       <div className="absolute inset-0 bg-gradient-to-b from-navy-deep via-navy-dark/70 to-navy-deep pointer-events-none" />
 
-      {/* Floating Glowing Orbs */}
-      <div className="absolute top-1/4 left-1/10 w-[350px] h-[350px] rounded-full bg-gold-accent/5 filter blur-[90px] animate-pulse-glow" />
-      <div className="absolute bottom-1/4 right-1/10 w-[450px] h-[450px] rounded-full bg-gold-accent/5 filter blur-[120px] animate-pulse-glow" style={{ animationDelay: "2s" }} />
+      {/* Floating Glowing Orbs - hidden on mobile for maximum mobile FPS & score */}
+      <div className="hidden md:block absolute top-1/4 left-1/10 w-[350px] h-[350px] rounded-full bg-gold-accent/5 filter blur-[90px] animate-pulse-glow" />
+      <div className="hidden md:block absolute bottom-1/4 right-1/10 w-[450px] h-[450px] rounded-full bg-gold-accent/5 filter blur-[120px] animate-pulse-glow" style={{ animationDelay: "2s" }} />
 
       {/* Floating Particle decoration */}
       <div className="absolute inset-0 pointer-events-none">

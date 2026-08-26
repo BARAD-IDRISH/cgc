@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, CheckCircle, MessageSquare, AlertCircle, Clock } from "lucide-react";
 
@@ -37,6 +37,13 @@ export default function ContactPage() {
   const [errorMsg, setErrorMsg] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [showMap, setShowMap] = useState(false);
+
+  useEffect(() => {
+    // Mount map on client after initial paint to prevent third-party script rendering penalties on Mobile PageSpeed
+    const timer = setTimeout(() => setShowMap(true), 300);
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -133,7 +140,7 @@ export default function ContactPage() {
       {/* Banner */}
       <section className="relative py-24 bg-navy-dark border-b border-gold-accent/10 overflow-hidden flex items-center justify-center">
         <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none" />
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-gold-accent/5 filter blur-[100px] pointer-events-none" />
+        <div className="hidden md:block absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-gold-accent/5 filter blur-[100px] pointer-events-none" />
 
         <div className="max-w-4xl mx-auto px-4 text-center space-y-4 relative z-10">
           <motion.h1
@@ -235,16 +242,22 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <iframe
-                title="IFZA Business Park Location Map"
-                src="https://maps.google.com/maps?q=IFZA%20Business%20Park%2C%20Dubai%2C%20United%20Arab%20Emirates&t=&z=15&ie=UTF8&iwloc=&output=embed"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
+              {showMap ? (
+                <iframe
+                  title="IFZA Business Park Location Map"
+                  src="https://maps.google.com/maps?q=IFZA%20Business%20Park%2C%20Dubai%2C%20United%20Arab%20Emirates&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              ) : (
+                <div className="w-full h-full bg-navy-dark flex items-center justify-center text-xs text-gold-accent/70 font-medium">
+                  Loading Location Map...
+                </div>
+              )}
             </div>
           </div>
 

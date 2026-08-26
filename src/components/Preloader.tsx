@@ -8,18 +8,24 @@ export default function Preloader() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    if (typeof window !== "undefined" && sessionStorage.getItem("cgc_loaded")) {
+      setIsLoading(false);
+      return;
+    }
+
     const timer = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(timer);
-          setTimeout(() => setIsLoading(false), 500); // Small delay before fadeout
+          if (typeof window !== "undefined") {
+            sessionStorage.setItem("cgc_loaded", "true");
+          }
+          setTimeout(() => setIsLoading(false), 120);
           return 100;
         }
-        // Increment randomly for natural loading feel
-        const increment = Math.floor(Math.random() * 8) + 2;
-        return Math.min(prev + increment, 100);
+        return prev + 25;
       });
-    }, 80);
+    }, 15);
 
     return () => clearInterval(timer);
   }, []);
@@ -30,12 +36,12 @@ export default function Preloader() {
         <motion.div
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.6, ease: "easeInOut" }}
-          className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-navy-deep"
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+          className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-navy-deep pointer-events-none"
         >
-          {/* Ambient glowing background orbs */}
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-gold-accent/5 filter blur-[100px] animate-pulse-glow" />
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-gold-accent/5 filter blur-[100px] animate-pulse-glow" />
+          {/* Ambient glowing background orbs - hidden on mobile to boost mobile GPU score */}
+          <div className="hidden md:block absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-gold-accent/5 filter blur-[60px]" />
+          <div className="hidden md:block absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-gold-accent/5 filter blur-[60px]" />
 
           {/* Logo and Typography */}
           <div className="relative z-10 text-center flex flex-col items-center">

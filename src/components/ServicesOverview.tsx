@@ -53,10 +53,10 @@ export default function ServicesOverview() {
   ];
 
   return (
-    <section className="relative py-24 bg-navy-dark overflow-hidden">
-      {/* Background orbs */}
-      <div className="absolute top-1/4 right-0 w-96 h-96 rounded-full bg-gold-accent/5 filter blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-1/4 left-0 w-96 h-96 rounded-full bg-gold-accent/5 filter blur-[100px] pointer-events-none" />
+    <section style={{ contentVisibility: "auto" }} className="relative py-24 bg-navy-dark overflow-hidden">
+      {/* Background orbs - hidden on mobile to optimize mobile FPS */}
+      <div className="hidden md:block absolute top-1/4 right-0 w-96 h-96 rounded-full bg-gold-accent/5 filter blur-[80px] pointer-events-none" />
+      <div className="hidden md:block absolute bottom-1/4 left-0 w-96 h-96 rounded-full bg-gold-accent/5 filter blur-[80px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         

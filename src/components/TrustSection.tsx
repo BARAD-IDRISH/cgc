@@ -79,7 +79,7 @@ export default function TrustSection() {
   ];
 
   return (
-    <section className="relative py-16 bg-navy-dark border-y border-gold-accent/10 overflow-hidden">
+    <section style={{ contentVisibility: "auto" }} className="relative py-16 bg-navy-dark border-y border-gold-accent/10 overflow-hidden">
       <div className="absolute inset-0 bg-dot-pattern opacity-40" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

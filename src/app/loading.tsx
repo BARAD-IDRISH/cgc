@@ -4,7 +4,7 @@ export default function Loading() {
   return (
     <div className="relative bg-navy-deep min-h-screen pb-20 pt-24">
       {/* Background Orbs */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-gold-accent/5 filter blur-[120px] pointer-events-none" />
+      <div className="hidden md:block absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-gold-accent/5 filter blur-[120px] pointer-events-none" />
 
       {/* Banner Skeleton */}
       <div className="max-w-4xl mx-auto px-4 text-center space-y-4 mb-16 animate-pulse">

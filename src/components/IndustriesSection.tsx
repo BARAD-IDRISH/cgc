@@ -47,7 +47,7 @@ export default function IndustriesSection() {
   ];
 
   return (
-    <section className="relative py-24 bg-navy-deep overflow-hidden">
+    <section style={{ contentVisibility: "auto" }} className="relative py-24 bg-navy-deep overflow-hidden">
       {/* Background Grid Pattern */}
       <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none" />
 

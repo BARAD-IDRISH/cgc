@@ -74,7 +74,7 @@ export default function AboutPage() {
       {/* Banner */}
       <section className="relative py-24 bg-navy-dark border-b border-gold-accent/10 overflow-hidden flex items-center justify-center">
         <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none" />
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-gold-accent/5 filter blur-[100px] pointer-events-none" />
+        <div className="hidden md:block absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-gold-accent/5 filter blur-[100px] pointer-events-none" />
 
         <div className="max-w-4xl mx-auto px-4 text-center space-y-4 relative z-10">
           <motion.h1
@@ -170,7 +170,7 @@ export default function AboutPage() {
       {/* Chairman's Message */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24">
         <div className="glass-card rounded-2xl p-8 sm:p-12 border border-gold-accent/25 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-80 h-80 bg-gold-accent/5 rounded-full filter blur-[80px] pointer-events-none" />
+          <div className="hidden md:block absolute top-0 right-0 w-80 h-80 bg-gold-accent/5 rounded-full filter blur-[80px] pointer-events-none" />
           
           <div className="relative z-10 space-y-6">
             <h4 className="text-xs font-semibold tracking-widest text-gold-accent uppercase border-l-2 border-gold-accent pl-3">

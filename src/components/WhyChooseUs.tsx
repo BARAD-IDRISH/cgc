@@ -38,9 +38,9 @@ export default function WhyChooseUs() {
   ];
 
   return (
-    <section className="relative py-24 bg-navy-dark overflow-hidden">
-      {/* Background radial glow */}
-      <div className="absolute top-1/2 left-1/4 w-[380px] h-[380px] rounded-full bg-gold-accent/5 filter blur-[110px] pointer-events-none" />
+    <section style={{ contentVisibility: "auto" }} className="relative py-24 bg-navy-dark overflow-hidden">
+      {/* Background radial glow - hidden on mobile for performance */}
+      <div className="hidden md:block absolute top-1/2 left-1/4 w-[380px] h-[380px] rounded-full bg-gold-accent/5 filter blur-[80px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         

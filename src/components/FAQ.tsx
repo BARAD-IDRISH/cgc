@@ -45,7 +45,7 @@ export default function FAQ() {
   };
 
   return (
-    <section className="relative py-24 bg-navy-dark overflow-hidden">
+    <section style={{ contentVisibility: "auto" }} className="relative py-24 bg-navy-dark overflow-hidden">
       <div className="absolute inset-0 bg-dot-pattern opacity-30 pointer-events-none" />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">

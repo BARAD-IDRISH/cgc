@@ -86,7 +86,7 @@ export default function IndustriesPage() {
       {/* Banner */}
       <section className="relative py-24 bg-navy-dark border-b border-gold-accent/10 overflow-hidden flex items-center justify-center">
         <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none" />
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-gold-accent/5 filter blur-[100px] pointer-events-none" />
+        <div className="hidden md:block absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-gold-accent/5 filter blur-[100px] pointer-events-none" />
 
         <div className="max-w-4xl mx-auto px-4 text-center space-y-4 relative z-10">
           <motion.h1
