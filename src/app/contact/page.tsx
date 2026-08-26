@@ -2,7 +2,27 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, CheckCircle, MessageSquare } from "lucide-react";
+import { Mail, Phone, MapPin, CheckCircle, MessageSquare, AlertCircle } from "lucide-react";
+
+// Helper function to sanitize text input and prevent XSS injections
+function sanitizeInput(input: string): string {
+  return input
+    .replace(/<[^>]*>?/gm, "") // Remove HTML tags
+    .replace(/[<>'"]/g, "")    // Remove potentially dangerous characters
+    .trim();
+}
+
+// Helper to validate email format
+function isValidEmail(email: string): boolean {
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  return emailRegex.test(email);
+}
+
+// Helper to validate phone format
+function isValidPhone(phone: string): boolean {
+  const phoneRegex = /^[+]?[(]?[0-9]{1,4}[)]?[-\s./0-9]{5,20}$/;
+  return phoneRegex.test(phone);
+}
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -14,23 +34,57 @@ export default function ContactPage() {
     message: "",
   });
 
+  const [errorMsg, setErrorMsg] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    setErrorMsg("");
+
+    // Sanitize inputs
+    const cleanName = sanitizeInput(formData.name);
+    const cleanCompany = sanitizeInput(formData.company);
+    const cleanEmail = formData.email.trim();
+    const cleanPhone = sanitizeInput(formData.phone);
+    const cleanMessage = sanitizeInput(formData.message);
+
     // Validate inputs
-    if (formData.name && formData.email && formData.phone && formData.message) {
-      setSubmitted(true);
-      setFormData({
-        name: "",
-        company: "",
-        email: "",
-        phone: "",
-        service: "Company Formation",
-        message: "",
-      });
-      setTimeout(() => setSubmitted(false), 8000);
+    if (!cleanName || cleanName.length < 2) {
+      setErrorMsg("Please enter a valid full name (minimum 2 characters).");
+      return;
     }
+
+    if (!isValidEmail(cleanEmail)) {
+      setErrorMsg("Please enter a valid business email address.");
+      return;
+    }
+
+    if (!isValidPhone(cleanPhone)) {
+      setErrorMsg("Please enter a valid contact phone number.");
+      return;
+    }
+
+    if (!cleanMessage || cleanMessage.length < 10) {
+      setErrorMsg("Please provide a message with at least 10 characters detailing your inquiry.");
+      return;
+    }
+
+    if (cleanMessage.length > 2000) {
+      setErrorMsg("Message is too long (maximum 2,000 characters).");
+      return;
+    }
+
+    // Success state
+    setSubmitted(true);
+    setFormData({
+      name: "",
+      company: "",
+      email: "",
+      phone: "",
+      service: "Company Formation",
+      message: "",
+    });
+    setTimeout(() => setSubmitted(false), 8000);
   };
 
   return (
@@ -151,11 +205,18 @@ export default function ContactPage() {
                   </p>
                 </motion.div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-6" noValidate>
                   <div className="border-b border-white/5 pb-4 flex items-center gap-2">
                     <MessageSquare className="w-4 h-4 text-gold-accent" />
                     <h3 className="text-base font-bold text-white uppercase tracking-wider">Book Corporate Consultation</h3>
                   </div>
+
+                  {errorMsg && (
+                    <div className="p-3 bg-red-500/10 border border-red-500/30 rounded-md flex items-center gap-2 text-xs text-red-400">
+                      <AlertCircle className="w-4 h-4 shrink-0" />
+                      <span>{errorMsg}</span>
+                    </div>
+                  )}
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     {/* Name */}
@@ -164,9 +225,11 @@ export default function ContactPage() {
                       <input
                         type="text"
                         required
+                        maxLength={100}
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         className="w-full bg-white/5 border border-white/10 rounded-md py-3 px-4 text-xs text-white focus:outline-none focus:border-gold-accent transition-colors"
+                        placeholder="Full Name"
                       />
                     </div>
                     {/* Company */}
@@ -174,9 +237,11 @@ export default function ContactPage() {
                       <label className="text-[10px] font-bold text-white uppercase tracking-wider block mb-2">Company Name</label>
                       <input
                         type="text"
+                        maxLength={100}
                         value={formData.company}
                         onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                         className="w-full bg-white/5 border border-white/10 rounded-md py-3 px-4 text-xs text-white focus:outline-none focus:border-gold-accent transition-colors"
+                        placeholder="Company or Entity Name"
                       />
                     </div>
                   </div>
@@ -188,9 +253,11 @@ export default function ContactPage() {
                       <input
                         type="email"
                         required
+                        maxLength={120}
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         className="w-full bg-white/5 border border-white/10 rounded-md py-3 px-4 text-xs text-white focus:outline-none focus:border-gold-accent transition-colors"
+                        placeholder="name@company.com"
                       />
                     </div>
                     {/* Phone */}
@@ -199,9 +266,11 @@ export default function ContactPage() {
                       <input
                         type="tel"
                         required
+                        maxLength={30}
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         className="w-full bg-white/5 border border-white/10 rounded-md py-3 px-4 text-xs text-white focus:outline-none focus:border-gold-accent transition-colors"
+                        placeholder="+971 50 123 4567"
                       />
                     </div>
                   </div>
@@ -231,6 +300,7 @@ export default function ContactPage() {
                     <textarea
                       required
                       rows={5}
+                      maxLength={2000}
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       className="w-full bg-white/5 border border-white/10 rounded-md py-3 px-4 text-xs text-white focus:outline-none focus:border-gold-accent transition-colors"
@@ -258,3 +328,4 @@ export default function ContactPage() {
     </div>
   );
 }
+
