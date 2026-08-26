@@ -68,15 +68,15 @@ export default function WhyChooseUs() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="glass-card rounded-xl p-8 hover:border-gold-accent/35 transition-all duration-300 group"
+                className="glass-card rounded-2xl p-8 sm:p-9 hover:border-gold-accent/40 transition-all duration-300 group shadow-md hover:shadow-xl hover:-translate-y-1.5"
               >
-                <div className="w-12 h-12 rounded-lg bg-gold-accent/5 border border-gold-accent/15 flex items-center justify-center text-gold-accent mb-6 group-hover:bg-gold-accent group-hover:text-navy-dark transition-all duration-300">
+                <div className="w-14 h-14 rounded-xl bg-gold-accent/5 border border-gold-accent/20 flex items-center justify-center text-gold-accent mb-6 group-hover:bg-gold-accent group-hover:text-navy-dark group-hover:scale-105 transition-all duration-300 shadow-xs">
                   <Icon className="w-6 h-6" />
                 </div>
                 <h3 className="text-xl font-bold text-white group-hover:text-gold-accent transition-colors duration-200">
                   {v.title}
                 </h3>
-                <p className="text-white/60 text-xs mt-3 leading-relaxed">
+                <p className="text-white/60 text-xs mt-3 leading-relaxed font-normal">
                   {v.desc}
                 </p>
               </motion.div>

@@ -77,16 +77,16 @@ export default function IndustriesSection() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.4, delay: idx * 0.08 }}
-                className="glass-card rounded-xl p-8 hover:border-gold-accent/45 transition-all duration-300 group flex flex-col justify-between"
+                className="glass-card rounded-2xl p-8 sm:p-9 hover:border-gold-accent/45 transition-all duration-300 group flex flex-col justify-between shadow-md hover:shadow-xl hover:-translate-y-1.5"
               >
                 <div>
-                  <div className="w-12 h-12 rounded-lg bg-gold-accent/5 border border-gold-accent/15 flex items-center justify-center text-gold-accent mb-6 group-hover:bg-gold-accent group-hover:text-navy-dark transition-all duration-300">
+                  <div className="w-14 h-14 rounded-xl bg-gold-accent/5 border border-gold-accent/20 flex items-center justify-center text-gold-accent mb-6 group-hover:bg-gold-accent group-hover:text-navy-dark group-hover:scale-105 transition-all duration-300 shadow-xs">
                     <Icon className="w-6 h-6" />
                   </div>
                   <h3 className="text-lg font-bold text-white group-hover:text-gold-accent transition-colors duration-250">
                     {cat.name}
                   </h3>
-                  <p className="text-white/60 text-xs mt-3 leading-relaxed">
+                  <p className="text-white/60 text-xs mt-3 leading-relaxed font-normal">
                     {cat.desc}
                   </p>
                 </div>
@@ -99,10 +99,10 @@ export default function IndustriesSection() {
         <div className="mt-16 text-center">
           <Link
             href="/industries"
-            className="inline-flex items-center gap-2 px-6 py-3 border border-gold-accent/25 hover:border-gold-accent text-white hover:text-gold-accent rounded-md text-xs font-semibold uppercase tracking-wider transition-all duration-300"
+            className="inline-flex items-center gap-2 px-7 py-3.5 border border-gold-accent/30 hover:border-gold-accent text-white hover:text-gold-accent rounded-lg text-xs font-bold uppercase tracking-wider transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 shadow-sm hover:shadow-md group"
           >
             Learn More About Our Client Solutions & Sectors
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
 

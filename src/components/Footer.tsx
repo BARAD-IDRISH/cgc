@@ -173,50 +173,50 @@ export default function Footer() {
         </div>
 
         {/* Contact Info bar */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 py-10 text-sm border-b border-white/5">
-          <div className="flex items-start gap-3.5">
-            <div className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gold-accent shrink-0">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 py-10 text-sm border-b border-white/10">
+          <div className="flex items-start gap-3.5 bg-white/5 border border-white/10 p-4 rounded-xl hover:border-gold-accent/30 transition-all duration-300 shadow-xs">
+            <div className="w-10 h-10 rounded-lg bg-gold-accent/10 border border-gold-accent/20 flex items-center justify-center text-gold-accent shrink-0">
               <MapPin className="w-4.5 h-4.5" />
             </div>
             <div>
-              <h5 className="font-semibold text-white">Our Location</h5>
-              <p className="text-white/55 text-xs mt-1 leading-relaxed">
+              <h5 className="font-bold text-white text-xs uppercase tracking-wider">Our Location</h5>
+              <p className="text-white/60 text-xs mt-1 leading-relaxed font-normal">
                 IFZA Business Park, Dubai, United Arab Emirates
               </p>
             </div>
           </div>
 
-          <div className="flex items-start gap-3.5">
-            <div className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gold-accent shrink-0">
+          <div className="flex items-start gap-3.5 bg-white/5 border border-white/10 p-4 rounded-xl hover:border-gold-accent/30 transition-all duration-300 shadow-xs">
+            <div className="w-10 h-10 rounded-lg bg-gold-accent/10 border border-gold-accent/20 flex items-center justify-center text-gold-accent shrink-0">
               <Clock className="w-4.5 h-4.5" />
             </div>
             <div>
-              <h5 className="font-semibold text-white">Business Hours</h5>
-              <p className="text-white/55 text-xs mt-1 leading-relaxed">
+              <h5 className="font-bold text-white text-xs uppercase tracking-wider">Business Hours</h5>
+              <p className="text-white/60 text-xs mt-1 leading-relaxed font-normal">
                 Mon – Fri: 9:00 AM – 6:00 PM (GST)
               </p>
             </div>
           </div>
 
-          <div className="flex items-start gap-3.5">
-            <div className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gold-accent shrink-0">
+          <div className="flex items-start gap-3.5 bg-white/5 border border-white/10 p-4 rounded-xl hover:border-gold-accent/30 transition-all duration-300 shadow-xs">
+            <div className="w-10 h-10 rounded-lg bg-gold-accent/10 border border-gold-accent/20 flex items-center justify-center text-gold-accent shrink-0">
               <Mail className="w-4.5 h-4.5" />
             </div>
             <div>
-              <h5 className="font-semibold text-white">Email Consultation</h5>
-              <a href="mailto:kaid@charteredgrowth.ae" className="text-white/55 text-xs mt-1 hover:text-gold-accent block">
+              <h5 className="font-bold text-white text-xs uppercase tracking-wider">Email Consultation</h5>
+              <a href="mailto:kaid@charteredgrowth.ae" className="text-white/60 text-xs mt-1 hover:text-gold-accent block font-medium">
                 kaid@charteredgrowth.ae
               </a>
             </div>
           </div>
 
-          <div className="flex items-start gap-3.5">
-            <div className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gold-accent shrink-0">
+          <div className="flex items-start gap-3.5 bg-white/5 border border-white/10 p-4 rounded-xl hover:border-gold-accent/30 transition-all duration-300 shadow-xs">
+            <div className="w-10 h-10 rounded-lg bg-gold-accent/10 border border-gold-accent/20 flex items-center justify-center text-gold-accent shrink-0">
               <Phone className="w-4.5 h-4.5" />
             </div>
             <div>
-              <h5 className="font-semibold text-white">Expert Helpline</h5>
-              <a href="tel:+971527938572" className="text-white/55 text-xs mt-1 hover:text-gold-accent block">
+              <h5 className="font-bold text-white text-xs uppercase tracking-wider">Expert Helpline</h5>
+              <a href="tel:+971527938572" className="text-white/60 text-xs mt-1 hover:text-gold-accent block font-medium">
                 +971 52 793 8572
               </a>
             </div>

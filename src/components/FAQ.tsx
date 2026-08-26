@@ -61,22 +61,22 @@ export default function FAQ() {
         </div>
 
         {/* Accordions */}
-        <div className="space-y-4">
+        <div className="space-y-4 sm:space-y-5">
           {faqs.map((faq, idx) => {
             const isOpen = openIndex === idx;
             return (
               <div
                 key={idx}
-                className="glass-card rounded-xl overflow-hidden border border-gold-accent/10 transition-all duration-300"
+                className="glass-card rounded-2xl overflow-hidden border border-gold-accent/15 hover:border-gold-accent/35 transition-all duration-300 shadow-xs hover:shadow-md"
               >
                 <button
                   onClick={() => toggleFAQ(idx)}
-                  className="w-full flex items-center justify-between p-6 text-left cursor-pointer hover:bg-white/5 transition-colors"
+                  className="w-full flex items-center justify-between p-6 sm:p-7 text-left cursor-pointer hover:bg-white/5 transition-colors group"
                 >
-                  <span className="text-sm font-semibold text-white pr-4">
+                  <span className="text-sm font-bold text-white pr-4 leading-snug group-hover:text-gold-accent transition-colors">
                     {faq.question}
                   </span>
-                  <div className="w-6 h-6 rounded-full bg-gold-accent/5 border border-gold-accent/15 flex items-center justify-center text-gold-accent shrink-0">
+                  <div className="w-7 h-7 rounded-full bg-gold-accent/5 border border-gold-accent/20 flex items-center justify-center text-gold-accent shrink-0 group-hover:bg-gold-accent group-hover:text-navy-dark transition-all duration-300 shadow-xs">
                     {isOpen ? <Minus className="w-3.5 h-3.5" /> : <Plus className="w-3.5 h-3.5" />}
                   </div>
                 </button>
@@ -90,7 +90,7 @@ export default function FAQ() {
                       transition={{ duration: 0.3, ease: "easeInOut" }}
                       className="overflow-hidden"
                     >
-                      <div className="px-6 pb-6 pt-2 text-xs text-white/60 leading-relaxed border-t border-white/5">
+                      <div className="px-6 sm:px-7 pb-6 pt-2 text-xs sm:text-sm text-white/60 leading-relaxed font-normal border-t border-white/5">
                         {faq.answer}
                       </div>
                     </motion.div>
