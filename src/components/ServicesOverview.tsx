@@ -142,14 +142,14 @@ export default function ServicesOverview() {
                         transition={{ duration: 0.35, delay: idx * 0.04 }}
                         className="bg-[#FFFFFF] rounded-xl border-2 border-[#F0EBE1] hover:border-[#A37B3B] transition-all duration-300 flex flex-col justify-between group shadow-[0_4px_16px_rgba(15,33,55,0.05)] hover:shadow-[0_12px_28px_rgba(163,123,59,0.16)] hover:-translate-y-1 relative overflow-hidden text-center sm:text-left"
                       >
-                        {/* 1. Executive Top Header Bar */}
-                        <div className="bg-[#0F2137] px-3.5 py-2 flex items-center justify-between border-b border-[#A37B3B]/30">
-                          <span className="text-[9.5px] font-bold text-[#A37B3B] uppercase tracking-widest flex items-center gap-1.5">
+                        {/* 1. Soft Champagne Silk Header Bar */}
+                        <div className="bg-gradient-to-r from-[#F7F3E9] via-[#F3ECE0] to-[#EFE7D5] px-3.5 py-2 flex items-center justify-between border-b border-[#A37B3B]/35">
+                          <span className="text-[9.5px] font-bold text-[#0F2137] uppercase tracking-widest flex items-center gap-1.5">
                             <span className="w-1.5 h-1.5 rounded-full bg-[#A37B3B] inline-block animate-pulse" />
                             {cat.name}
                           </span>
-                          <div className="w-5 h-5 rounded-md bg-[#A37B3B]/15 border border-[#A37B3B]/30 flex items-center justify-center text-[#A37B3B]">
-                            <ItemIcon className="w-3 h-3" />
+                          <div className="w-5 h-5 rounded-md bg-[#A37B3B]/15 border border-[#A37B3B]/40 flex items-center justify-center text-[#A37B3B]">
+                            <ItemIcon className="w-3 h-3 text-[#A37B3B]" />
                           </div>
                         </div>
 
