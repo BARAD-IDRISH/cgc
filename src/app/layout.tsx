@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { Outfit, Playfair_Display } from "next/font/google";
+import { Suspense } from "react";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Preloader from "@/components/Preloader";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import BackToTop from "@/components/BackToTop";
+import TopProgressBar from "@/components/TopProgressBar";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -124,6 +126,9 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <Suspense fallback={null}>
+          <TopProgressBar />
+        </Suspense>
         <Preloader />
         <Navbar />
         <main className="flex-grow pt-20">
@@ -136,3 +141,4 @@ export default function RootLayout({
     </html>
   );
 }
+
