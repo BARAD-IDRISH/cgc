@@ -6,7 +6,6 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
-  Search,
   CheckCircle2,
   Phone,
   MessageCircle,
@@ -16,7 +15,6 @@ import { SERVICE_CATEGORIES, SERVICES_DATA, ServiceDetail } from "@/data/service
 
 export default function ServicesOverview() {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
-  const [searchQuery, setSearchQuery] = useState<string>("");
 
   // All individual service items
   const allServicesList = useMemo(() => {
@@ -37,17 +35,9 @@ export default function ServicesOverview() {
   // Filtered services list
   const filteredServices = useMemo(() => {
     return allServicesList.filter((service) => {
-      const matchesCategory =
-        selectedCategory === "all" || service.categorySlug === selectedCategory;
-      const matchesSearch =
-        searchQuery.trim() === "" ||
-        service.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        service.shortDesc.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        service.categoryName.toLowerCase().includes(searchQuery.toLowerCase());
-
-      return matchesCategory && matchesSearch;
+      return selectedCategory === "all" || service.categorySlug === selectedCategory;
     });
-  }, [allServicesList, selectedCategory, searchQuery]);
+  }, [allServicesList, selectedCategory]);
 
   const phoneUrl = "tel:+971527938572";
   const whatsappUrl =
@@ -149,23 +139,6 @@ export default function ServicesOverview() {
               })}
             </nav>
 
-            {/* Quick Search Input */}
-            <div className="pt-4 border-t border-[#A37B3B]/20 space-y-2">
-              <label className="text-[10px] font-bold uppercase tracking-wider text-[#A37B3B] block">
-                Search Solutions
-              </label>
-              <div className="relative">
-                <input
-                  type="text"
-                  placeholder="e.g. VAT, Audit, Tax..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-9 pr-3 py-2.5 bg-[#FFFFFF] border border-[#A37B3B]/30 rounded-xl text-xs text-[#0F2137] placeholder-[#94A3B8] focus:outline-none focus:border-[#A37B3B] focus:ring-1 focus:ring-[#A37B3B]"
-                />
-                <Search className="w-4 h-4 text-[#A37B3B] absolute left-3 top-3" />
-              </div>
-            </div>
-
             {/* Direct Consultation Box */}
             <div className="pt-4 border-t border-[#A37B3B]/20 bg-[#FAF6EE] p-4 rounded-xl space-y-3">
               <h4 className="text-xs font-bold text-[#0F2137] uppercase tracking-wider">
@@ -219,11 +192,10 @@ export default function ServicesOverview() {
             {filteredServices.length === 0 ? (
               <div className="bg-[#FFFDF7] rounded-2xl p-12 text-center border-2 border-dashed border-[#A37B3B]/30 space-y-4">
                 <p className="text-sm text-[#475569] font-medium">
-                  No advisory services found matching &ldquo;{searchQuery}&rdquo;.
+                  No advisory services found in this category.
                 </p>
                 <button
                   onClick={() => {
-                    setSearchQuery("");
                     setSelectedCategory("all");
                   }}
                   className="px-4 py-2 bg-[#0F2137] text-white text-xs font-bold uppercase tracking-wider rounded-lg"
