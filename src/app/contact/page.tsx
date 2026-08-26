@@ -282,8 +282,9 @@ export default function ContactPage() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     {/* Name */}
                     <div>
-                      <label className="text-[10px] font-bold text-white uppercase tracking-wider block mb-2">Name *</label>
+                      <label htmlFor="contact-name" className="text-[10px] font-bold text-white uppercase tracking-wider block mb-2">Name *</label>
                       <input
+                        id="contact-name"
                         type="text"
                         required
                         maxLength={100}
@@ -295,8 +296,9 @@ export default function ContactPage() {
                     </div>
                     {/* Company */}
                     <div>
-                      <label className="text-[10px] font-bold text-white uppercase tracking-wider block mb-2">Company Name</label>
+                      <label htmlFor="contact-company" className="text-[10px] font-bold text-white uppercase tracking-wider block mb-2">Company Name</label>
                       <input
+                        id="contact-company"
                         type="text"
                         maxLength={100}
                         value={formData.company}
@@ -310,8 +312,9 @@ export default function ContactPage() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     {/* Email */}
                     <div>
-                      <label className="text-[10px] font-bold text-white uppercase tracking-wider block mb-2">Business Email *</label>
+                      <label htmlFor="contact-email" className="text-[10px] font-bold text-white uppercase tracking-wider block mb-2">Business Email *</label>
                       <input
+                        id="contact-email"
                         type="email"
                         required
                         maxLength={120}
@@ -323,8 +326,9 @@ export default function ContactPage() {
                     </div>
                     {/* Phone */}
                     <div>
-                      <label className="text-[10px] font-bold text-white uppercase tracking-wider block mb-2">Phone Number *</label>
+                      <label htmlFor="contact-phone" className="text-[10px] font-bold text-white uppercase tracking-wider block mb-2">Phone Number *</label>
                       <input
+                        id="contact-phone"
                         type="tel"
                         required
                         maxLength={30}
@@ -338,8 +342,9 @@ export default function ContactPage() {
 
                   {/* Service dropdown */}
                   <div>
-                    <label className="text-[10px] font-bold text-white uppercase tracking-wider block mb-2">Service Required *</label>
+                    <label htmlFor="contact-service" className="text-[10px] font-bold text-white uppercase tracking-wider block mb-2">Service Required *</label>
                     <select
+                      id="contact-service"
                       value={formData.service}
                       onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                       className="w-full bg-navy-dark border border-white/10 rounded-md py-3 px-4 text-xs text-white focus:outline-none focus:border-gold-accent transition-colors cursor-pointer"
@@ -357,8 +362,9 @@ export default function ContactPage() {
 
                   {/* Message */}
                   <div>
-                    <label className="text-[10px] font-bold text-white uppercase tracking-wider block mb-2">Message *</label>
+                    <label htmlFor="contact-message" className="text-[10px] font-bold text-white uppercase tracking-wider block mb-2">Message *</label>
                     <textarea
+                      id="contact-message"
                       required
                       rows={5}
                       maxLength={2000}

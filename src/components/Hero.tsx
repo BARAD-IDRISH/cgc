@@ -135,6 +135,7 @@ export default function Hero() {
                 alt="Chartered Growth Consultants FZCO Dubai"
                 fill
                 priority
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 480px"
                 className="object-contain drop-shadow-[0_20px_50px_rgba(212,175,55,0.18)] rounded-2xl"
               />
 
