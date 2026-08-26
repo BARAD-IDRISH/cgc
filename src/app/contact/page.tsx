@@ -227,7 +227,7 @@ export default function ContactPage() {
             {/* Google Map Integration with Address Overlay */}
             <div className="relative w-full h-[260px] rounded-xl overflow-hidden border border-gold-accent/20 shadow-lg group">
               {/* Address Header Badge */}
-              <div className="absolute top-3 left-3 z-10 bg-navy-deep/90 backdrop-blur-md border border-gold-accent/30 rounded-lg px-3 py-2 flex items-center gap-2 shadow-md">
+              <div className="absolute top-3 right-3 z-10 bg-navy-deep/90 backdrop-blur-md border border-gold-accent/30 rounded-lg px-3 py-2 flex items-center gap-2 shadow-md">
                 <MapPin className="w-4 h-4 text-gold-accent shrink-0" />
                 <div className="flex flex-col">
                   <span className="text-[11px] font-bold text-white tracking-wide">IFZA Business Park</span>
