@@ -1,0 +1,260 @@
+"use client";
+
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { Mail, Phone, MapPin, CheckCircle, MessageSquare } from "lucide-react";
+
+export default function ContactPage() {
+  const [formData, setFormData] = useState({
+    name: "",
+    company: "",
+    email: "",
+    phone: "",
+    service: "Company Formation",
+    message: "",
+  });
+
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Validate inputs
+    if (formData.name && formData.email && formData.phone && formData.message) {
+      setSubmitted(true);
+      setFormData({
+        name: "",
+        company: "",
+        email: "",
+        phone: "",
+        service: "Company Formation",
+        message: "",
+      });
+      setTimeout(() => setSubmitted(false), 8000);
+    }
+  };
+
+  return (
+    <div className="relative bg-navy-deep min-h-screen pb-20">
+      
+      {/* Banner */}
+      <section className="relative py-24 bg-navy-dark border-b border-gold-accent/10 overflow-hidden flex items-center justify-center">
+        <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-gold-accent/5 filter blur-[100px] pointer-events-none" />
+
+        <div className="max-w-4xl mx-auto px-4 text-center space-y-4 relative z-10">
+          <motion.h1
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-4xl sm:text-5xl font-serif font-bold text-white tracking-tight"
+          >
+            Connect With Our Experts
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+            className="text-white/60 text-base sm:text-lg max-w-2xl mx-auto font-light leading-relaxed"
+          >
+            Establish your business operations, secure corporate tax filings, and coordinate golden visas with UAE registry specialists.
+          </motion.p>
+        </div>
+      </section>
+
+      {/* Main Split Content */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+          
+          {/* Left Column (5 cols) */}
+          <div className="lg:col-span-5 space-y-8">
+            <div className="space-y-4">
+              <h4 className="text-xs font-semibold tracking-widest text-gold-accent uppercase border-l-2 border-gold-accent pl-3">
+                Corporate Registry
+              </h4>
+              <h2 className="text-2xl sm:text-3xl font-serif font-bold text-white tracking-tight">
+                Chartered Growth Consultants – FZCO
+              </h2>
+              <p className="text-white/60 text-xs leading-relaxed">
+                Connect with our advisory consultants for bespoke company formations, corporate tax return computations, VAT filing audits, and accounting solutions.
+              </p>
+            </div>
+
+            {/* Contact Details List */}
+            <div className="space-y-4 text-sm">
+              <div className="flex items-start gap-4 p-5 glass-card rounded-xl border border-white/5">
+                <div className="w-10 h-10 rounded-lg bg-gold-accent/10 border border-gold-accent/15 flex items-center justify-center text-gold-accent shrink-0">
+                  <MapPin className="w-5 h-5" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-white uppercase tracking-wider text-xs">Registered Address</h4>
+                  <p className="text-white/65 text-xs mt-1.5 leading-relaxed">
+                    Building A2, IFZA, Dubai Silicon Oasis, Dubai, UAE
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4 p-5 glass-card rounded-xl border border-white/5">
+                <div className="w-10 h-10 rounded-lg bg-gold-accent/10 border border-gold-accent/15 flex items-center justify-center text-gold-accent shrink-0">
+                  <Mail className="w-5 h-5" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-white uppercase tracking-wider text-xs">Email Advisory Desk</h4>
+                  <a href="mailto:kaid@charteredgrowth.ae" className="text-white/65 text-xs mt-1.5 hover:text-gold-accent transition-colors block">
+                    kaid@charteredgrowth.ae
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4 p-5 glass-card rounded-xl border border-white/5">
+                <div className="w-10 h-10 rounded-lg bg-gold-accent/10 border border-gold-accent/15 flex items-center justify-center text-gold-accent shrink-0">
+                  <Phone className="w-5 h-5" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-white uppercase tracking-wider text-xs">Helpline Support</h4>
+                  <a href="tel:+971527938572" className="text-white/65 text-xs mt-1.5 hover:text-gold-accent transition-colors block font-mono">
+                    +971 52 793 8572
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Google Map Integration */}
+            <div className="relative w-full h-[220px] rounded-xl overflow-hidden border border-gold-accent/15">
+              <iframe
+                title="Office Location Map"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3612.3551525997457!2d55.38572200000001!3d25.123555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f657a70a8d3e9%3A0xe54d24f728cf085b!2sIFZA%20Dubai%20(International%20Free%20Zone%20Authority)!5e0!3m2!1sen!2sae!4v1717000000000!5m2!1sen!2sae"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+          </div>
+
+          {/* Right Column Form (7 cols) */}
+          <div className="lg:col-span-7">
+            <div className="glass-card rounded-2xl p-8 border border-gold-accent/15 shadow-2xl relative">
+              {submitted ? (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="flex flex-col items-center justify-center text-center py-20 space-y-4"
+                >
+                  <div className="w-14 h-14 rounded-full bg-gold-accent/15 border border-gold-accent flex items-center justify-center text-gold-accent">
+                    <CheckCircle className="w-8 h-8" />
+                  </div>
+                  <h3 className="text-xl font-bold text-white tracking-wide">Consultation Booked Successfully</h3>
+                  <p className="text-xs text-white/60 max-w-sm leading-relaxed">
+                    Thank you for connecting. One of our regulatory advisors or chartered tax specialists will contact you shortly to schedule your consultation.
+                  </p>
+                </motion.div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="border-b border-white/5 pb-4 flex items-center gap-2">
+                    <MessageSquare className="w-4 h-4 text-gold-accent" />
+                    <h3 className="text-base font-bold text-white uppercase tracking-wider">Book Corporate Consultation</h3>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    {/* Name */}
+                    <div>
+                      <label className="text-[10px] font-bold text-white uppercase tracking-wider block mb-2">Name *</label>
+                      <input
+                        type="text"
+                        required
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        className="w-full bg-white/5 border border-white/10 rounded-md py-3 px-4 text-xs text-white focus:outline-none focus:border-gold-accent transition-colors"
+                      />
+                    </div>
+                    {/* Company */}
+                    <div>
+                      <label className="text-[10px] font-bold text-white uppercase tracking-wider block mb-2">Company Name</label>
+                      <input
+                        type="text"
+                        value={formData.company}
+                        onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                        className="w-full bg-white/5 border border-white/10 rounded-md py-3 px-4 text-xs text-white focus:outline-none focus:border-gold-accent transition-colors"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    {/* Email */}
+                    <div>
+                      <label className="text-[10px] font-bold text-white uppercase tracking-wider block mb-2">Business Email *</label>
+                      <input
+                        type="email"
+                        required
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        className="w-full bg-white/5 border border-white/10 rounded-md py-3 px-4 text-xs text-white focus:outline-none focus:border-gold-accent transition-colors"
+                      />
+                    </div>
+                    {/* Phone */}
+                    <div>
+                      <label className="text-[10px] font-bold text-white uppercase tracking-wider block mb-2">Phone Number *</label>
+                      <input
+                        type="tel"
+                        required
+                        value={formData.phone}
+                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        className="w-full bg-white/5 border border-white/10 rounded-md py-3 px-4 text-xs text-white focus:outline-none focus:border-gold-accent transition-colors"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Service dropdown */}
+                  <div>
+                    <label className="text-[10px] font-bold text-white uppercase tracking-wider block mb-2">Service Required *</label>
+                    <select
+                      value={formData.service}
+                      onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                      className="w-full bg-navy-dark border border-white/10 rounded-md py-3 px-4 text-xs text-white focus:outline-none focus:border-gold-accent transition-colors cursor-pointer"
+                    >
+                      <option value="Company Formation">Company Formation</option>
+                      <option value="Corporate Tax Services">Corporate Tax Services</option>
+                      <option value="VAT Services">VAT Services</option>
+                      <option value="Accounting & Bookkeeping">Accounting & Bookkeeping</option>
+                      <option value="Compliance Services">Compliance Services</option>
+                      <option value="Business Advisory">Business Advisory</option>
+                      <option value="Residency Solutions">Residency Solutions</option>
+                      <option value="Corporate Structuring">Corporate Structuring</option>
+                    </select>
+                  </div>
+
+                  {/* Message */}
+                  <div>
+                    <label className="text-[10px] font-bold text-white uppercase tracking-wider block mb-2">Message *</label>
+                    <textarea
+                      required
+                      rows={5}
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      className="w-full bg-white/5 border border-white/10 rounded-md py-3 px-4 text-xs text-white focus:outline-none focus:border-gold-accent transition-colors"
+                      placeholder="Specify your business needs or tax queries..."
+                    />
+                  </div>
+
+                  {/* Submit Button */}
+                  <div>
+                    <button
+                      type="submit"
+                      className="w-full inline-flex items-center justify-center px-8 py-4 text-xs font-bold tracking-widest text-navy-dark bg-gold-accent hover:bg-gold-light transition-all duration-300 rounded-md shadow-lg uppercase gold-glow-hover cursor-pointer"
+                    >
+                      Submit Booking Inquiry
+                    </button>
+                  </div>
+                </form>
+              )}
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+  );
+}

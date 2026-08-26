@@ -1,0 +1,113 @@
+"use client";
+
+import { motion } from "framer-motion";
+import Link from "next/link";
+import {
+  Rocket,
+  Users2,
+  Building2,
+  Globe2,
+  TrendingUp,
+  Landmark,
+  ArrowRight
+} from "lucide-react";
+
+export default function IndustriesSection() {
+  const clientCategories = [
+    {
+      name: "Entrepreneurs & Startups",
+      icon: Rocket,
+      desc: "End-to-end guidance for launch, company formation, licensing, and scaling in the UAE.",
+    },
+    {
+      name: "Family Businesses",
+      icon: Users2,
+      desc: "Succession planning, governance frameworks, and long-term asset protection.",
+    },
+    {
+      name: "SMEs",
+      icon: Building2,
+      desc: "Operational, financial, bookkeeping, and strategic expansion support.",
+    },
+    {
+      name: "Corporates & Multinationals",
+      icon: Globe2,
+      desc: "Complex corporate structuring, tax compliance, transfer pricing, and statutory audit.",
+    },
+    {
+      name: "Investors",
+      icon: TrendingUp,
+      desc: "Market entry feasibility, legal due diligence, and strategic portfolio advice.",
+    },
+    {
+      name: "Family Offices & HNWIs",
+      icon: Landmark,
+      desc: "Wealth preservation, holding setups, and inheritance planning across jurisdictions.",
+    },
+  ];
+
+  return (
+    <section className="relative py-24 bg-navy-deep overflow-hidden">
+      {/* Background Grid Pattern */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        {/* Section Title */}
+        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <h4 className="text-xs font-semibold tracking-widest text-gold-accent uppercase">
+            Who We Work With &bull; 25+ Sectors Served
+          </h4>
+          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-white tracking-tight leading-tight">
+            Tailored Solutions for Every Business Stage
+          </h2>
+          <p className="text-white/60 text-sm leading-relaxed">
+            From emerging startups to multinational corporations, we deliver practical, sustainable advisory tailored to your unique aspirations.
+          </p>
+        </div>
+
+        {/* Client Categories Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {clientCategories.map((cat, idx) => {
+            const Icon = cat.icon;
+            return (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.4, delay: idx * 0.08 }}
+                className="glass-card rounded-xl p-8 hover:border-gold-accent/45 transition-all duration-300 group flex flex-col justify-between"
+              >
+                <div>
+                  <div className="w-12 h-12 rounded-lg bg-gold-accent/5 border border-gold-accent/15 flex items-center justify-center text-gold-accent mb-6 group-hover:bg-gold-accent group-hover:text-navy-dark transition-all duration-300">
+                    <Icon className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-lg font-bold text-white group-hover:text-gold-accent transition-colors duration-250">
+                    {cat.name}
+                  </h3>
+                  <p className="text-white/60 text-xs mt-3 leading-relaxed">
+                    {cat.desc}
+                  </p>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* CTA Bottom link */}
+        <div className="mt-16 text-center">
+          <Link
+            href="/industries"
+            className="inline-flex items-center gap-2 px-6 py-3 border border-gold-accent/25 hover:border-gold-accent text-white hover:text-gold-accent rounded-md text-xs font-semibold uppercase tracking-wider transition-all duration-300"
+          >
+            Learn More About Our Client Solutions & Sectors
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+
+      </div>
+    </section>
+  );
+}
+
