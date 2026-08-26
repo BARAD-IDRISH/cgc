@@ -56,10 +56,10 @@ export default function Preloader() {
               <Image
                 src="/images/logo.png"
                 alt="Chartered Growth Consultants Logo"
-                width={180}
-                height={70}
+                width={240}
+                height={90}
                 priority
-                className="h-16 w-auto object-contain rounded-lg shadow-xl"
+                className="h-24 sm:h-28 w-auto object-contain rounded-xl shadow-2xl"
               />
             </motion.div>
 

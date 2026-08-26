@@ -73,16 +73,16 @@ export default function Navbar() {
             <Image
               src="/images/logo.png"
               alt="Chartered Growth Consultants Logo"
-              width={140}
-              height={45}
+              width={200}
+              height={65}
               priority
-              className="h-10 w-auto object-contain rounded-md shadow-md transition-transform duration-300 group-hover:scale-105"
+              className="h-14 sm:h-16 w-auto object-contain rounded-lg shadow-md transition-transform duration-300 group-hover:scale-105"
             />
             <div className="flex flex-col border-l border-gold-accent/30 pl-3">
-              <span className="font-serif text-white text-[14px] sm:text-[15px] font-bold uppercase tracking-widest leading-tight">
+              <span className="font-serif text-white text-[15px] sm:text-[17px] font-bold uppercase tracking-widest leading-tight">
                 Chartered Growth
               </span>
-              <span className="text-[10px] text-gold-accent uppercase tracking-[0.3em] font-semibold">
+              <span className="text-[10px] sm:text-[11px] text-gold-accent uppercase tracking-[0.3em] font-semibold">
                 Consultants – FZCO
               </span>
             </div>
