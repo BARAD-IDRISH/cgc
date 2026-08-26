@@ -29,13 +29,15 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="space-y-6">
             <Link href="/" className="flex items-center gap-3.5 group">
-              <Image
-                src="/images/logo-light.png"
-                alt="Chartered Growth Consultants Logo"
-                width={140}
-                height={45}
-                className="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
-              />
+              <div className="bg-white/95 backdrop-blur-md rounded-lg px-2.5 py-1.5 border border-gold-accent/40 shadow-md group-hover:bg-white transition-colors duration-300">
+                <Image
+                  src="/images/logo.png"
+                  alt="Chartered Growth Consultants Logo"
+                  width={130}
+                  height={40}
+                  className="h-8 w-auto object-contain"
+                />
+              </div>
               <div className="flex flex-col border-l border-gold-accent/30 pl-3">
                 <span className="font-serif text-white text-[14px] sm:text-[15px] font-bold uppercase tracking-widest leading-tight">
                   Chartered Growth

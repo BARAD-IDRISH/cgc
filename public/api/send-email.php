@@ -89,7 +89,9 @@ $body = '
                             <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
                                 <tr>
                                     <td align="left" valign="middle">
-                                        <img src="https://cgc-gold.vercel.app/images/logo-light.png" alt="CGC Logo" width="120" style="vertical-align: middle; margin-right: 12px; height: auto;" />
+                                        <span style="display: inline-block; background-color: #FFFFFF; border: 1px solid #D4AF37; padding: 4px 8px; border-radius: 6px; vertical-align: middle; margin-right: 12px;">
+                                            <img src="https://cgc-gold.vercel.app/images/logo.png" alt="CGC Logo" width="110" style="vertical-align: middle; height: auto; display: block;" />
+                                        </span>
                                         <span style="font-size: 11px; font-weight: 800; color: #D4AF37; letter-spacing: 1.5px; text-transform: uppercase; vertical-align: middle;">
                                             CHARTERED GROWTH CONSULTANTS FZCO
                                         </span>

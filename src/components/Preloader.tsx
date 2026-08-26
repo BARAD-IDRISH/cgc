@@ -51,15 +51,15 @@ export default function Preloader() {
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
-              className="mb-6 relative flex items-center justify-center"
+              className="mb-6 relative flex items-center justify-center bg-white/95 rounded-xl px-4 py-2 border border-gold-accent/40 shadow-xl"
             >
               <Image
-                src="/images/logo-light.png"
+                src="/images/logo.png"
                 alt="Chartered Growth Consultants Logo"
                 width={160}
                 height={60}
                 priority
-                className="h-16 w-auto object-contain drop-shadow-[0_10px_20px_rgba(212,175,55,0.2)]"
+                className="h-14 w-auto object-contain"
               />
             </motion.div>
 
