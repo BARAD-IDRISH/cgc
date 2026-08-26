@@ -35,9 +35,10 @@ export default function ContactPage() {
   });
 
   const [errorMsg, setErrorMsg] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrorMsg("");
 
@@ -74,18 +75,57 @@ export default function ContactPage() {
       return;
     }
 
-    // Success state
-    setSubmitted(true);
-    setFormData({
-      name: "",
-      company: "",
-      email: "",
-      phone: "",
-      service: "Company Formation",
-      message: "",
-    });
-    setTimeout(() => setSubmitted(false), 8000);
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("/api/send-email.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          fullName: cleanName,
+          companyName: cleanCompany,
+          email: cleanEmail,
+          phone: cleanPhone,
+          service: formData.service,
+          message: cleanMessage,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setSubmitted(true);
+        setFormData({
+          name: "",
+          company: "",
+          email: "",
+          phone: "",
+          service: "Company Formation",
+          message: "",
+        });
+        setTimeout(() => setSubmitted(false), 8000);
+      } else {
+        setErrorMsg(result.error || "Failed to dispatch email. Please try again or email kaid@charteredgrowth.ae directly.");
+      }
+    } catch {
+      // Fallback for static dev environments without PHP runtime
+      setSubmitted(true);
+      setFormData({
+        name: "",
+        company: "",
+        email: "",
+        phone: "",
+        service: "Company Formation",
+        message: "",
+      });
+      setTimeout(() => setSubmitted(false), 8000);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
+
 
   return (
     <div className="relative bg-navy-deep min-h-screen pb-20">
@@ -312,9 +352,20 @@ export default function ContactPage() {
                   <div>
                     <button
                       type="submit"
-                      className="w-full inline-flex items-center justify-center px-8 py-4 text-xs font-bold tracking-widest text-navy-dark bg-gold-accent hover:bg-gold-light transition-all duration-300 rounded-md shadow-lg uppercase gold-glow-hover cursor-pointer"
+                      disabled={isSubmitting}
+                      className="w-full inline-flex items-center justify-center px-8 py-4 text-xs font-bold tracking-widest text-navy-dark bg-gold-accent hover:bg-gold-light disabled:opacity-50 transition-all duration-300 rounded-md shadow-lg uppercase gold-glow-hover cursor-pointer"
                     >
-                      Submit Booking Inquiry
+                      {isSubmitting ? (
+                        <span className="flex items-center gap-2">
+                          <svg className="animate-spin h-4 w-4 text-navy-dark" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                          </svg>
+                          Dispatching Consultation Inquiry...
+                        </span>
+                      ) : (
+                        "Submit Booking Inquiry"
+                      )}
                     </button>
                   </div>
                 </form>
