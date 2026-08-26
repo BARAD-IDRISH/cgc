@@ -97,7 +97,7 @@ export const SERVICES_DATA: Record<string, ServiceDetail> = {
     tagline: "End-to-End Value Added Tax Advisory, Registration, Filing & Audit Representation",
     shortDesc: "Complete VAT lifecycle management for UAE businesses, ensuring FTA tax law compliance, quarterly filings, input tax optimization, and penalty protection.",
     fullDesc: "Value Added Tax (VAT) was introduced in the UAE on January 1, 2018, at a standard rate of 5%. Managing VAT compliance requires meticulous record-keeping, precise calculations of output and input taxes, and strict adherence to Federal Tax Authority (FTA) deadlines. Chartered Growth Consultants provides complete VAT advisory, from mandatory registration and quarterly return filings to complex FTA tax audit defense and refund claims.",
-    heroImage: "/images/vat-3d.png",
+    heroImage: "/images/services/vat-services.jpg",
     iconName: "FileCheck",
     subServices: [
       "VAT Registration (Mandatory & Voluntary)",
@@ -149,7 +149,7 @@ export const SERVICES_DATA: Record<string, ServiceDetail> = {
     tagline: "Fast & Error-Free Mandatory & Voluntary FTA Registration",
     shortDesc: "Obtain your Tax Registration Number (TRN) quickly with expert documentation review and submission to the Federal Tax Authority.",
     fullDesc: "Navigating VAT registration with the Federal Tax Authority (FTA) requires accurate classification of revenue streams, legal document attestation, and correct entity structuring. Chartered Growth Consultants streamlines the entire registration workflow for mainland, free zone, and offshore entities in the UAE.",
-    heroImage: "/images/vat-3d.png",
+    heroImage: "/images/services/vat-registration.jpg",
     iconName: "FileCheck",
     subServices: [
       "Mandatory VAT Registration (Threshold > AED 375,000)",
@@ -194,7 +194,7 @@ export const SERVICES_DATA: Record<string, ServiceDetail> = {
     tagline: "Proper Legal Cancellation of TRN to Avoid FTA Fines",
     shortDesc: "Safely deregister your business from VAT when closing operations, undergoing restructuring, or falling below revenue thresholds.",
     fullDesc: "Failing to deregister for VAT within the strict timeframe prescribed by the FTA leads to hefty administrative penalties. If your business stops making taxable supplies, liquidates, or falls below the voluntary threshold, our team manages the complete tax clearance and TRN cancellation process.",
-    heroImage: "/images/vat-3d.png",
+    heroImage: "/images/services/vat-deregistration.jpg",
     iconName: "FileCheck",
     subServices: [
       "Mandatory VAT De-Registration",
@@ -237,7 +237,7 @@ export const SERVICES_DATA: Record<string, ServiceDetail> = {
     tagline: "Accurate Quarterly & Monthly VAT Return Preparation",
     shortDesc: "Never miss a deadline. Our tax specialists audit your ledgers, compute output/input taxes, and submit returns directly to the FTA.",
     fullDesc: "VAT Return filing is a recurring legal obligation for every registered business in the UAE. Form VAT201 requires detailed breakdown of standard rated sales by Emirate, zero-rated exports, exempt supplies, reverse charge imports, and recoverable input tax. We ensure flawless filing every quarter.",
-    heroImage: "/images/vat-3d.png",
+    heroImage: "/images/services/vat-return-filing.jpg",
     iconName: "FileCheck",
     subServices: [
       "Quarterly & Monthly VAT201 Return Preparation",
@@ -279,7 +279,7 @@ export const SERVICES_DATA: Record<string, ServiceDetail> = {
     tagline: "FTA Audit Representation & Fast Tax Refund Processing",
     shortDesc: "Recover excess input VAT paid and defend your business during Federal Tax Authority audits with certified tax agents.",
     fullDesc: "When a business accumulates excess input tax credit (e.g., due to heavy capital investment, export business, or zero-rated sales), it is entitled to claim a cash refund from the FTA. Additionally, if the FTA selects your company for a tax audit, our FTA-registered tax agents manage all communications, documentation, and technical queries.",
-    heroImage: "/images/vat-3d.png",
+    heroImage: "/images/services/vat-audit-refund.jpg",
     iconName: "FileCheck",
     subServices: [
       "FTA VAT Refund Claim Submissions",
@@ -323,7 +323,7 @@ export const SERVICES_DATA: Record<string, ServiceDetail> = {
     tagline: "Correct Historical VAT Errors & Submit Voluntary Disclosures (VD)",
     shortDesc: "Rectify invoicing mistakes or return omissions legally via FTA Voluntary Disclosure (Form 211) before an audit catches them.",
     fullDesc: "If a business discovers an error or omission in a previously submitted VAT return or tax assessment that causes an error in payable tax over AED 10,000, it is legally required to submit a Voluntary Disclosure (VD) via Form 211. Our tax experts help correct historical records and minimize penalties.",
-    heroImage: "/images/vat-3d.png",
+    heroImage: "/images/services/vat-amendment.jpg",
     iconName: "FileCheck",
     subServices: [
       "Form 211 Voluntary Disclosure Filing",
@@ -367,7 +367,7 @@ export const SERVICES_DATA: Record<string, ServiceDetail> = {
     tagline: "Strategic Tax Advisory, FTA Registration, Structuring & Filing",
     shortDesc: "Prepare your business for the 9% UAE Corporate Tax regime with expert tax impact assessments, Free Zone 0% structuring, and OECD transfer pricing.",
     fullDesc: "Federal Decree-Law No. 47 of 2022 introduced Corporate Tax in the UAE, imposing a standard rate of 9% on taxable net profits exceeding AED 375,000. All businesses operating in the UAE (including Free Zone entities) are legally required to register for Corporate Tax and file annual returns. Chartered Growth Consultants delivers end-to-end corporate tax advisory to protect profits, leverage Free Zone exemptions, and ensure compliance.",
-    heroImage: "/images/tax-3d.png",
+    heroImage: "/images/services/corporate-tax.jpg",
     iconName: "ShieldCheck",
     subServices: [
       "Corporate Tax Registration with FTA",
@@ -415,7 +415,7 @@ export const SERVICES_DATA: Record<string, ServiceDetail> = {
     tagline: "Obtain Your Corporate Tax Registration Number (CTRN)",
     shortDesc: "Complete mandatory FTA Corporate Tax Registration for mainland, free zone, and foreign entities before deadline penalties apply.",
     fullDesc: "The Federal Tax Authority (FTA) has mandated specific deadlines for all UAE-licensed entities to complete Corporate Tax registration based on trade license issuance months. We handle the entire application on EmaraTax to secure your Corporate Tax Registration Number (CTRN).",
-    heroImage: "/images/tax-3d.png",
+    heroImage: "/images/services/corporate-tax-registration.jpg",
     iconName: "ShieldCheck",
     subServices: [
       "Mandatory Corporate Tax Registration",
@@ -457,7 +457,7 @@ export const SERVICES_DATA: Record<string, ServiceDetail> = {
     tagline: "Annual Tax Return Preparation, Tax Accounting & Compliance",
     shortDesc: "Accurate calculation of taxable income, tax adjustment reconciliations, and annual return filing within the 9-month FTA window.",
     fullDesc: "Every taxable person must file a Corporate Tax Return and pay due tax no later than 9 months after the end of their financial year. Our corporate tax specialists adjust IFRS financial statements for non-deductible expenses, exempt dividends, and relief elections.",
-    heroImage: "/images/tax-3d.png",
+    heroImage: "/images/services/corporate-tax-filing.jpg",
     iconName: "ShieldCheck",
     subServices: [
       "Annual Corporate Tax Return Filing",
@@ -499,7 +499,7 @@ export const SERVICES_DATA: Record<string, ServiceDetail> = {
     tagline: "Financial Policy & Operational Alignment for UAE Corporate Tax",
     shortDesc: "Adapt your chart of accounts, intercompany contracts, and financial reporting systems to be fully compliant with UAE CT law.",
     fullDesc: "Transitioning to Corporate Tax requires operational alignment across your accounting software, intercompany agreements, and financial governance policies. We implement robust tax accounting procedures tailored to your commercial business model.",
-    heroImage: "/images/tax-3d.png",
+    heroImage: "/images/services/corporate-tax-implementation.jpg",
     iconName: "ShieldCheck",
     subServices: [
       "Chart of Accounts Restructuring for Tax Mapping",
@@ -538,7 +538,7 @@ export const SERVICES_DATA: Record<string, ServiceDetail> = {
     tagline: "Maximize Free Zone 0% Tax Relief & Executive Advisory",
     shortDesc: "Bespoke corporate tax structuring for Free Zone entities (QFZP) to secure 0% tax rate on qualifying transactions.",
     fullDesc: "Navigating Qualifying Free Zone Person (QFZP) status requires strict adherence to qualifying activity lists, de minimis rules, and economic substance requirements. Our tax advisors structure your commercial activities to legally achieve 0% Corporate Tax.",
-    heroImage: "/images/tax-3d.png",
+    heroImage: "/images/services/corporate-tax-advisory.jpg",
     iconName: "ShieldCheck",
     subServices: [
       "QFZP (Qualifying Free Zone Person) Eligibility Assessment",
@@ -577,7 +577,7 @@ export const SERVICES_DATA: Record<string, ServiceDetail> = {
     tagline: "Related Party Arm's Length Compliance & Local/Master Files",
     shortDesc: "Ensure all transactions between connected persons and related entities satisfy OECD arm's length principles under UAE Corporate Tax law.",
     fullDesc: "Under UAE Corporate Tax legislation, transactions with Related Parties and Connected Persons must meet the Arm's Length Standard. Businesses exceeding threshold criteria must prepare and maintain Transfer Pricing Master Files and Local Files.",
-    heroImage: "/images/tax-3d.png",
+    heroImage: "/images/services/transfer-pricing.jpg",
     iconName: "ShieldCheck",
     subServices: [
       "Transfer Pricing Local File & Master File Preparation",
@@ -617,7 +617,7 @@ export const SERVICES_DATA: Record<string, ServiceDetail> = {
     tagline: "Excise Goods Registration & Economic Substance Regulations Reporting",
     shortDesc: "Avoid heavy penalties (up to AED 400,000) for ESR non-compliance and maintain full excise tax compliance for regulated products.",
     fullDesc: "The UAE imposes Excise Tax on specific goods harmful to human health or the environment (carbonated drinks, energy drinks, tobacco, electronic smoking devices, sweetened beverages). Additionally, Economic Substance Regulations (ESR) mandate that entities conducting Relevant Activities maintain real operational substance in the UAE.",
-    heroImage: "/images/hero-3d.png",
+    heroImage: "/images/services/excise-esr.jpg",
     iconName: "Scale",
     subServices: [
       "Excise Tax Registration & Price List Declaration",
@@ -658,7 +658,7 @@ export const SERVICES_DATA: Record<string, ServiceDetail> = {
     tagline: "FTA Registration & Product Price Declaration for Excise Goods",
     shortDesc: "Complete Excise Tax registration, product list submission, and monthly return filings for carbonated drinks, tobacco, and energy drinks.",
     fullDesc: "Excise tax is an indirect tax levied on specific goods produced in, imported into, or stockpiled in the UAE. Rates are 50% for carbonated drinks & sweetened beverages, and 100% for tobacco, energy drinks, and electronic smoking devices. We manage registration and price database approvals.",
-    heroImage: "/images/hero-3d.png",
+    heroImage: "/images/services/excise-tax-registration.jpg",
     iconName: "Scale",
     subServices: [
       "Excise Tax Registration with FTA",
@@ -697,7 +697,7 @@ export const SERVICES_DATA: Record<string, ServiceDetail> = {
     tagline: "Annual Economic Substance Notification Submission via Ministry of Finance Portal",
     shortDesc: "File your mandatory annual ESR notification within 6 months of financial year-end to avoid immediate AED 20,000 penalties.",
     fullDesc: "All UAE entities conducting a Relevant Activity must file an annual ESR Notification on the Ministry of Finance (MoF) portal within 6 months after the end of their financial year, even if they claim an exemption.",
-    heroImage: "/images/hero-3d.png",
+    heroImage: "/images/services/esr-notification.jpg",
     iconName: "Scale",
     subServices: [
       "ESR Relevant Activity Assessment",
@@ -734,7 +734,7 @@ export const SERVICES_DATA: Record<string, ServiceDetail> = {
     tagline: "Annual Economic Substance Reporting & CIGA Compliance",
     shortDesc: "Submit your annual ESR report within 12 months and prove adequate physical substance, board meetings, and employees in the UAE.",
     fullDesc: "Entities that derive income from a Relevant Activity and do not qualify for an exemption must satisfy the Economic Substance Test and file an ESR Report within 12 months of the financial year-end. Failure to satisfy the test leads to fines starting at AED 50,000.",
-    heroImage: "/images/hero-3d.png",
+    heroImage: "/images/services/esr-compliance.jpg",
     iconName: "Scale",
     subServices: [
       "Economic Substance Test Evaluation (CIGA Audit)",
@@ -774,7 +774,7 @@ export const SERVICES_DATA: Record<string, ServiceDetail> = {
     tagline: "IFRS Bookkeeping, Outsourced CFO Advisory & Statutory External Audits",
     shortDesc: "Maintain flawless IFRS-compliant financial records, gain strategic CFO guidance, and secure audited financial statements required by UAE authorities.",
     fullDesc: "Proper financial management is essential not only for business performance, but also for statutory compliance under UAE Commercial Companies Law, VAT, and Corporate Tax. Chartered Growth Consultants provides accounting, backlog record cleanup, outsourced CFO services, and independent internal/external audits.",
-    heroImage: "/images/accounting-3d.png",
+    heroImage: "/images/services/accounting-audit.jpg",
     iconName: "FileSpreadsheet",
     subServices: [
       "Accounting & Bookkeeping Services (IFRS Compliant)",
@@ -819,7 +819,7 @@ export const SERVICES_DATA: Record<string, ServiceDetail> = {
     tagline: "Monthly IFRS Bookkeeping, Ledger Management & Financial Reports",
     shortDesc: "Outsource your day-to-day bookkeeping to chartered accountants for accurate ledgers, tax readiness, and real-time financial tracking.",
     fullDesc: "Keeping accurate accounting ledgers is essential for managing cash flow and proving tax deductions during FTA audits. Our chartered accountants handle transaction logging, bank reconciliations, accounts payable/receivable, and monthly management reports.",
-    heroImage: "/images/accounting-3d.png",
+    heroImage: "/images/services/bookkeeping-accounting.jpg",
     iconName: "FileSpreadsheet",
     subServices: [
       "Monthly & Quarterly Bookkeeping",
@@ -858,7 +858,7 @@ export const SERVICES_DATA: Record<string, ServiceDetail> = {
     tagline: "Part-Time Executive Financial Leadership & Strategic Planning",
     shortDesc: "Access senior CFO advisory for cash flow management, budgeting, financial modeling, and investor pitch deck preparation.",
     fullDesc: "Growing businesses need high-level financial strategy, cash flow forecasting, and capital planning, but hiring a full-time CFO can cost AED 50,000+ per month. Our Outsourced CFO service provides high-caliber financial leadership on a flexible part-time basis.",
-    heroImage: "/images/accounting-3d.png",
+    heroImage: "/images/services/outsourced-cfo.jpg",
     iconName: "FileSpreadsheet",
     subServices: [
       "Part-Time / Virtual CFO Advisory",
@@ -897,7 +897,7 @@ export const SERVICES_DATA: Record<string, ServiceDetail> = {
     tagline: "Independent Financial Audits & Internal Governance Controls",
     shortDesc: "Secure official audited financial statements certified by licensed auditors for Free Zone renewals, bank credit, and FTA compliance.",
     fullDesc: "An independent external audit provides credibility to your business's financial statements for shareholders, lenders, and UAE authorities. Additionally, our internal audit services evaluate risk controls, prevent fraud, and ensure operational integrity.",
-    heroImage: "/images/accounting-3d.png",
+    heroImage: "/images/services/internal-external-audit.jpg",
     iconName: "FileSpreadsheet",
     subServices: [
       "Statutory External Audit & Auditor Opinion Letter",
@@ -937,7 +937,7 @@ export const SERVICES_DATA: Record<string, ServiceDetail> = {
     tagline: "Physical Stock Count Verification & Multi-Year Accounting Cleanup",
     shortDesc: "Reconstruct missing historical books and perform physical inventory counts to bring neglected accounting records up to date.",
     fullDesc: "If your company has fallen behind on bookkeeping for months or years, attempting to register for Corporate Tax or submit VAT returns can lead to severe fines. We specialize in backlog accounting cleanup and physical inventory stock verifications.",
-    heroImage: "/images/accounting-3d.png",
+    heroImage: "/images/services/inventory-backlog-audit.jpg",
     iconName: "FileSpreadsheet",
     subServices: [
       "Historical Backlog Accounting Cleanup (Multi-Year)",
@@ -977,7 +977,7 @@ export const SERVICES_DATA: Record<string, ServiceDetail> = {
     tagline: "Business Setup, GoAML, TRC & Customs Registration",
     shortDesc: "One-stop solutions for corporate governance, GoAML registration, tax residency certificates, customs onboarding, and company liquidation.",
     fullDesc: "Operating a compliant enterprise in the UAE requires keeping pace with evolving statutory directives, including Anti-Money Laundering (AML) mandates, Tax Residency Certificates (TRC), Dubai Customs registration, and Ultimate Beneficial Owner (UBO) filings. We handle end-to-end corporate governance.",
-    heroImage: "/images/formation-3d.png",
+    heroImage: "/images/services/corporate-compliance.jpg",
     iconName: "Globe",
     subServices: [
       "Company Formation & Business Setup (Mainland & Free Zone)",
@@ -1023,7 +1023,7 @@ export const SERVICES_DATA: Record<string, ServiceDetail> = {
     tagline: "Mandatory Anti-Money Laundering Registration for UAE Entities",
     shortDesc: "Complete mandatory GoAML registration on the Financial Intelligence Unit (FIU) portal to protect your business against severe AML penalties.",
     fullDesc: "The UAE Ministry of Economy mandates that all Designated Non-Financial Businesses and Professions (DNFBPs) and Financial Institutions register on the GoAML portal. Chartered Growth Consultants manages your SACM and GoAML portal registration, AML policy drafting, and MLRO appointment.",
-    heroImage: "/images/formation-3d.png",
+    heroImage: "/images/services/goaml-registration.jpg",
     iconName: "Globe",
     subServices: [
       "GoAML Portal Registration (Stage 1 SACM & Stage 2 GoAML)",
@@ -1062,7 +1062,7 @@ export const SERVICES_DATA: Record<string, ServiceDetail> = {
     tagline: "Official Ministry of Finance Tax Residence Certificate for Individuals & Companies",
     shortDesc: "Obtain an official UAE Tax Residency Certificate to avoid double taxation globally under UAE's 130+ Double Taxation Treaties.",
     fullDesc: "A Tax Residency Certificate (TRC) issued by the UAE Federal Tax Authority (FTA) enables foreign individuals and entities operating in the UAE to claim benefits under Double Taxation Avoidance Agreements (DTAA) between the UAE and foreign nations.",
-    heroImage: "/images/formation-3d.png",
+    heroImage: "/images/services/tax-residency-certificate.jpg",
     iconName: "Globe",
     subServices: [
       "Corporate Tax Residency Certificate (TRC) Procurement",
@@ -1100,7 +1100,7 @@ export const SERVICES_DATA: Record<string, ServiceDetail> = {
     tagline: "Turnkey Setup in UAE Mainland, Free Zones & Offshore",
     shortDesc: "Form your business in Dubai and across the UAE with fast trade license issuance, office space solutions, and corporate bank account opening assistance.",
     fullDesc: "Setting up a business in the UAE offers 100% foreign ownership, zero personal income tax, and access to global trade hubs. We guide entrepreneurs and multinationals through jurisdiction selection (Mainland, Free Zone, Offshore), activity selection, trade name reservation, and license issuance.",
-    heroImage: "/images/formation-3d.png",
+    heroImage: "/images/services/business-setup.jpg",
     iconName: "Globe",
     subServices: [
       "Mainland Company Formation (100% Foreign Ownership)",
@@ -1140,7 +1140,7 @@ export const SERVICES_DATA: Record<string, ServiceDetail> = {
     tagline: "Obtain Customs Client Code for Importers & Exporters",
     shortDesc: "Register your business with Dubai Customs or UAE Customs to obtain an official Customs Code for import, export, and re-export activities.",
     fullDesc: "Any company wishing to import or export commercial goods into or out of the UAE must register with the respective Customs Authority (e.g., Dubai Customs Mirsal II) and obtain a unique Customs Client Code.",
-    heroImage: "/images/formation-3d.png",
+    heroImage: "/images/services/customs-registration.jpg",
     iconName: "Globe",
     subServices: [
       "Dubai Customs Registration & Client Code Obtainment",
@@ -1177,7 +1177,7 @@ export const SERVICES_DATA: Record<string, ServiceDetail> = {
     tagline: "Official Business Closure, Tax Clearance & License Cancellation",
     shortDesc: "Close your UAE business legally with complete liquidator report issuance, tax deregistration, and authority clearance certificates.",
     fullDesc: "Winding down a business in the UAE requires formal liquidator appointment, public notice publication, clearance certificates from utilities/customs/immigration, FTA tax deregistration, and final license cancellation.",
-    heroImage: "/images/formation-3d.png",
+    heroImage: "/images/services/company-liquidation.jpg",
     iconName: "Globe",
     subServices: [
       "Official Liquidator Appointment & Audit Statement",
@@ -1217,7 +1217,7 @@ export const SERVICES_DATA: Record<string, ServiceDetail> = {
     tagline: "Investor Visas, 10-Year Golden Visas, Employee Visas & PRO Support",
     shortDesc: "Fast-track UAE residency visa processing, Emirates ID, medical fitness tests, family sponsorships, and dedicated corporate PRO liaison.",
     fullDesc: "Navigating UAE immigration and residency requirements requires seamless coordination across the General Directorate of Residency and Foreigners Affairs (GDRFA), Federal Authority for Identity, Citizenship, Customs and Port Security (ICP), and Ministry of Human Resources and Emiratisation (MOHRE). Chartered Growth Consultants provides end-to-end PRO and visa services.",
-    heroImage: "/images/hero-3d.png",
+    heroImage: "/images/services/visa-pro-services.jpg",
     iconName: "Users2",
     subServices: [
       "Investor & Partner Residency Visas (2-Year & 10-Year Golden Visas)",

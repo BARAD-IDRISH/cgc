@@ -219,17 +219,7 @@ export default function ServicesOverview() {
                       {/* Top Cover Image Box */}
                       <div className="relative w-full h-48 overflow-hidden bg-[#FAF6EE]">
                         <Image
-                          src={
-                            service.categorySlug === "vat-services"
-                              ? "/images/editorial/service-vat.png"
-                              : service.categorySlug === "corporate-tax"
-                              ? "/images/editorial/service-tax.png"
-                              : service.categorySlug === "excise-esr"
-                              ? "/images/editorial/executive-meeting.png"
-                              : service.categorySlug === "accounting-audit"
-                              ? "/images/editorial/dubai-office.png"
-                              : "/images/editorial/dubai-skyline.png"
-                          }
+                          src={service.heroImage || `/images/services/${service.slug}.jpg`}
                           alt={service.title}
                           fill
                           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 350px"
