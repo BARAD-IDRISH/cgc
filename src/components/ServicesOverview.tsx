@@ -56,7 +56,7 @@ export default function ServicesOverview() {
   return (
     <section
       style={{ contentVisibility: "auto" }}
-      className="relative py-24 bg-[#FAF6EE] text-[#0F2137] overflow-hidden border-t border-[#A37B3B]/20"
+      className="relative py-24 bg-[#FAF6EE] text-[#0F2137] overflow-x-clip border-t border-[#A37B3B]/20"
     >
       {/* Subtle ambient lighting */}
       <div className="hidden md:block absolute top-1/4 right-0 w-96 h-96 rounded-full bg-[#A37B3B]/10 filter blur-[100px] pointer-events-none" />
@@ -81,7 +81,7 @@ export default function ServicesOverview() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* LEFT SIDEBAR: FILTER BY CATEGORY */}
-          <aside className="lg:col-span-3 lg:sticky lg:top-28 space-y-6 bg-[#FFFDF7] p-6 rounded-2xl border-2 border-[#A37B3B]/25 shadow-md">
+          <aside className="lg:col-span-3 lg:sticky lg:top-28 self-start max-h-[calc(100vh-8rem)] overflow-y-auto space-y-6 bg-[#FFFDF7] p-6 rounded-2xl border-2 border-[#A37B3B]/25 shadow-md">
             
             <div className="flex items-center justify-between border-b border-[#A37B3B]/20 pb-4">
               <div className="flex items-center gap-2 text-[#0F2137]">
