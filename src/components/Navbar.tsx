@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown, Award, Briefcase, FileCheck, ArrowRight, ShieldCheck, Scale, Globe } from "lucide-react";
@@ -68,14 +69,17 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 border border-gold-accent flex items-center justify-center rounded-full group-hover:bg-gold-accent transition-colors duration-300">
-              <span className="font-serif text-gold-accent text-lg font-semibold group-hover:text-navy-dark transition-colors duration-300">
-                C
-              </span>
-            </div>
-            <div className="flex flex-col">
-              <span className="font-serif text-white text-[15px] font-bold uppercase tracking-widest leading-tight">
+          <Link href="/" className="flex items-center gap-3.5 group">
+            <Image
+              src="/images/logo-light.png"
+              alt="Chartered Growth Consultants Logo"
+              width={140}
+              height={45}
+              priority
+              className="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+            />
+            <div className="flex flex-col border-l border-gold-accent/30 pl-3">
+              <span className="font-serif text-white text-[14px] sm:text-[15px] font-bold uppercase tracking-widest leading-tight">
                 Chartered Growth
               </span>
               <span className="text-[10px] text-gold-accent uppercase tracking-[0.3em] font-semibold">

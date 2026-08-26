@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Mail, Phone, MapPin, Send, Shield, ArrowUpRight, Clock } from "lucide-react";
 
 export default function Footer() {
@@ -27,12 +28,16 @@ export default function Footer() {
           
           {/* Brand Column */}
           <div className="space-y-6">
-            <Link href="/" className="flex items-center gap-3">
-              <div className="w-10 h-10 border border-gold-accent flex items-center justify-center rounded-full">
-                <span className="font-serif text-gold-accent text-lg font-semibold">C</span>
-              </div>
-              <div className="flex flex-col">
-                <span className="font-serif text-white text-[15px] font-bold uppercase tracking-widest leading-tight">
+            <Link href="/" className="flex items-center gap-3.5 group">
+              <Image
+                src="/images/logo-light.png"
+                alt="Chartered Growth Consultants Logo"
+                width={140}
+                height={45}
+                className="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+              />
+              <div className="flex flex-col border-l border-gold-accent/30 pl-3">
+                <span className="font-serif text-white text-[14px] sm:text-[15px] font-bold uppercase tracking-widest leading-tight">
                   Chartered Growth
                 </span>
                 <span className="text-[10px] text-gold-accent uppercase tracking-[0.3em] font-semibold">
