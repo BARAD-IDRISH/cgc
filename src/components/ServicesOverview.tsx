@@ -196,7 +196,7 @@ export default function ServicesOverview() {
                               {/* Call Button */}
                               <a
                                 href={phoneUrl}
-                                className="inline-flex items-center justify-center gap-1 py-1.5 px-2 text-[9.5px] font-bold uppercase tracking-wider rounded-md border border-[#0F2137] text-[#0F2137] bg-[#FFFFFF] hover:bg-[#0F2137] hover:text-[#FFFFFF] transition-all duration-200"
+                                className="inline-flex items-center justify-center gap-1 py-1.5 px-2 text-[9.5px] font-bold uppercase tracking-wider rounded-md border border-[#A37B3B] text-[#A37B3B] bg-[#FFFFFF] hover:bg-[#A37B3B] hover:text-[#FFFFFF] hover:border-[#A37B3B] transition-all duration-200 shadow-xs"
                               >
                                 <Phone className="w-3 h-3 shrink-0" />
                                 <span>Call Now</span>
