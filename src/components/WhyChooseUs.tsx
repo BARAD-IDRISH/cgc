@@ -38,21 +38,21 @@ export default function WhyChooseUs() {
   ];
 
   return (
-    <section style={{ contentVisibility: "auto" }} className="relative py-24 bg-navy-dark overflow-hidden">
-      {/* Background radial glow - hidden on mobile for performance */}
-      <div className="hidden md:block absolute top-1/2 left-1/4 w-[380px] h-[380px] rounded-full bg-gold-accent/5 filter blur-[80px] pointer-events-none" />
+    <section style={{ contentVisibility: "auto" }} className="relative py-24 bg-[#FAF6EE] overflow-hidden border-t border-[#A37B3B]/20">
+      {/* Background Grid Pattern */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <h4 className="text-xs font-semibold tracking-widest text-gold-accent uppercase">
+          <h4 className="text-xs font-semibold tracking-widest text-[#A37B3B] uppercase">
             Our Foundation & Values
           </h4>
-          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-white tracking-tight leading-tight">
+          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#0F2137] tracking-tight leading-tight">
             Why Businesses Choose CGC
           </h2>
-          <p className="text-white/60 text-sm leading-relaxed">
+          <p className="text-[#475569] text-sm leading-relaxed font-normal">
             Our core values shape who we are, drive how we work, and reflect our commitment to every client we partner with.
           </p>
         </div>

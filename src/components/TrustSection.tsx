@@ -79,7 +79,7 @@ export default function TrustSection() {
   ];
 
   return (
-    <section style={{ contentVisibility: "auto" }} className="relative py-16 bg-navy-dark border-y border-gold-accent/10 overflow-hidden">
+    <section style={{ contentVisibility: "auto" }} className="relative py-16 bg-[#FAF6EE] border-y border-[#A37B3B]/20 overflow-hidden">
       <div className="absolute inset-0 bg-dot-pattern opacity-40" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -95,25 +95,25 @@ export default function TrustSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.6, delay: idx * 0.15 }}
-                className="glass-card rounded-xl p-6 hover:border-gold-accent/30 transition-all duration-300 group flex flex-col items-center text-center"
+                className="bg-[#FFFFFF] rounded-xl p-6 border border-[#A37B3B]/25 hover:border-[#A37B3B] hover:shadow-[0_12px_28px_rgba(163,123,59,0.16)] transition-all duration-300 group flex flex-col items-center text-center"
               >
                 {/* Icon wrapper */}
-                <div className="w-12 h-12 rounded-lg bg-gold-accent/5 border border-gold-accent/15 flex items-center justify-center text-gold-accent mb-4 group-hover:bg-gold-accent group-hover:text-navy-dark transition-all duration-300">
+                <div className="w-12 h-12 rounded-lg bg-[#A37B3B]/10 border border-[#A37B3B]/25 flex items-center justify-center text-[#A37B3B] mb-4 group-hover:bg-[#A37B3B] group-hover:text-[#FFFFFF] transition-all duration-300">
                   <Icon className="w-6 h-6" />
                 </div>
 
                 {/* Counter */}
-                <h3 className="text-3xl md:text-4xl font-semibold text-white tracking-tight">
+                <h3 className="text-3xl md:text-4xl font-bold text-[#0F2137] tracking-tight">
                   <Counter value={stat.numberValue} suffix={stat.suffix} />
                 </h3>
 
                 {/* Title */}
-                <h4 className="text-sm font-semibold text-gold-accent mt-3 uppercase tracking-wider">
+                <h4 className="text-xs font-bold text-[#A37B3B] mt-3 uppercase tracking-wider">
                   {stat.label}
                 </h4>
 
                 {/* Description */}
-                <p className="text-white/60 text-xs mt-3 leading-relaxed">
+                <p className="text-[#475569] text-xs mt-2.5 leading-relaxed font-normal">
                   {stat.description}
                 </p>
               </motion.div>

@@ -45,17 +45,17 @@ export default function FAQ() {
   };
 
   return (
-    <section style={{ contentVisibility: "auto" }} className="relative py-24 bg-navy-dark overflow-hidden">
+    <section style={{ contentVisibility: "auto" }} className="relative py-24 bg-[#FFFDF7] overflow-hidden border-t border-[#A37B3B]/20">
       <div className="absolute inset-0 bg-dot-pattern opacity-30 pointer-events-none" />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
         
         {/* Header */}
         <div className="text-center mb-16 space-y-4">
-          <h4 className="text-xs font-semibold tracking-widest text-gold-accent uppercase">
+          <h4 className="text-xs font-semibold tracking-widest text-[#A37B3B] uppercase">
             Frequently Asked Questions
           </h4>
-          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#0F2137] tracking-tight">
             Clear Insights on UAE Regulations
           </h2>
         </div>
@@ -67,16 +67,16 @@ export default function FAQ() {
             return (
               <div
                 key={idx}
-                className="glass-card rounded-xl overflow-hidden border border-gold-accent/10 transition-all duration-300"
+                className="bg-[#FFFFFF] rounded-xl overflow-hidden border border-[#A37B3B]/25 hover:border-[#A37B3B] transition-all duration-300 shadow-xs"
               >
                 <button
                   onClick={() => toggleFAQ(idx)}
-                  className="w-full flex items-center justify-between p-6 text-left cursor-pointer hover:bg-white/5 transition-colors"
+                  className="w-full flex items-center justify-between p-6 text-left cursor-pointer hover:bg-[#FAF6EE] transition-colors"
                 >
-                  <span className="text-sm font-semibold text-white pr-4">
+                  <span className="text-sm font-bold text-[#0F2137] pr-4">
                     {faq.question}
                   </span>
-                  <div className="w-6 h-6 rounded-full bg-gold-accent/5 border border-gold-accent/15 flex items-center justify-center text-gold-accent shrink-0">
+                  <div className="w-6 h-6 rounded-full bg-[#A37B3B]/10 border border-[#A37B3B]/30 flex items-center justify-center text-[#A37B3B] shrink-0">
                     {isOpen ? <Minus className="w-3.5 h-3.5" /> : <Plus className="w-3.5 h-3.5" />}
                   </div>
                 </button>
@@ -90,7 +90,7 @@ export default function FAQ() {
                       transition={{ duration: 0.3, ease: "easeInOut" }}
                       className="overflow-hidden"
                     >
-                      <div className="px-6 pb-6 pt-2 text-xs text-white/60 leading-relaxed border-t border-white/5">
+                      <div className="px-6 pb-6 pt-2 text-xs text-[#475569] leading-relaxed border-t border-[#F0EBE1] font-normal">
                         {faq.answer}
                       </div>
                     </motion.div>

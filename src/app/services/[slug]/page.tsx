@@ -90,28 +90,28 @@ export default async function ServiceDetailPage({ params }: PageProps) {
     .filter((s): s is ServiceDetail => s !== undefined);
 
   return (
-    <div className="relative bg-navy-deep min-h-screen pb-24 text-white">
+    <div className="relative bg-[#FAF6EE] min-h-screen pb-24 text-[#0F2137]">
       {/* Background glow effects */}
-      <div className="hidden md:block absolute top-20 left-1/4 w-[500px] h-[500px] rounded-full bg-gold-accent/5 filter blur-[120px] pointer-events-none" />
-      <div className="hidden md:block absolute top-96 right-10 w-[400px] h-[400px] rounded-full bg-gold-accent/5 filter blur-[100px] pointer-events-none" />
+      <div className="hidden md:block absolute top-20 left-1/4 w-[500px] h-[500px] rounded-full bg-[#A37B3B]/5 filter blur-[120px] pointer-events-none" />
+      <div className="hidden md:block absolute top-96 right-10 w-[400px] h-[400px] rounded-full bg-[#A37B3B]/5 filter blur-[100px] pointer-events-none" />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 bg-navy-dark border-b border-gold-accent/15 overflow-hidden">
+      <section className="relative pt-32 pb-20 bg-[#FFFDF7] border-b border-[#A37B3B]/20 overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern opacity-25 pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
           {/* Breadcrumb Navigation */}
-          <nav className="flex items-center gap-2 text-xs text-white/60 mb-8 font-light">
-            <Link href="/" className="hover:text-gold-accent transition-colors">
+          <nav className="flex items-center gap-2 text-xs text-[#475569] mb-8 font-medium">
+            <Link href="/" className="hover:text-[#A37B3B] transition-colors">
               Home
             </Link>
-            <ChevronRight className="w-3.5 h-3.5 text-white/30" />
-            <Link href="/services" className="hover:text-gold-accent transition-colors">
+            <ChevronRight className="w-3.5 h-3.5 text-[#94A3B8]" />
+            <Link href="/services" className="hover:text-[#A37B3B] transition-colors">
               Services
             </Link>
-            <ChevronRight className="w-3.5 h-3.5 text-white/30" />
-            <span className="text-gold-accent font-medium">{service.categoryName}</span>
+            <ChevronRight className="w-3.5 h-3.5 text-[#94A3B8]" />
+            <span className="text-[#A37B3B] font-bold">{service.categoryName}</span>
           </nav>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -120,21 +120,21 @@ export default async function ServiceDetailPage({ params }: PageProps) {
             <div className="lg:col-span-7 space-y-6">
               
               {/* Category Badge */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold-accent/10 border border-gold-accent/20 text-gold-accent text-xs font-semibold uppercase tracking-widest">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#A37B3B]/10 border border-[#A37B3B]/30 text-[#A37B3B] text-xs font-bold uppercase tracking-widest">
                 <IconComponent className="w-4 h-4" />
                 <span>{service.categoryName}</span>
               </div>
 
               {/* Title & Tagline */}
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white tracking-tight leading-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-[#0F2137] tracking-tight leading-tight">
                 {service.title}
               </h1>
 
-              <p className="text-gold-light text-base sm:text-lg font-light leading-relaxed border-l-2 border-gold-accent pl-4">
+              <p className="text-[#A37B3B] text-base sm:text-lg font-medium leading-relaxed border-l-2 border-[#A37B3B] pl-4">
                 {service.tagline}
               </p>
 
-              <p className="text-white/70 text-sm sm:text-base leading-relaxed font-light">
+              <p className="text-[#475569] text-sm sm:text-base leading-relaxed font-normal">
                 {service.shortDesc}
               </p>
 
@@ -142,32 +142,32 @@ export default async function ServiceDetailPage({ params }: PageProps) {
               <div className="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-4 text-xs font-bold tracking-widest text-navy-dark bg-gold-accent hover:bg-gold-light transition-all duration-300 rounded-md shadow-lg uppercase gold-glow-hover"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-4 text-xs font-bold tracking-widest text-[#FFFFFF] bg-[#0F2137] hover:bg-[#A37B3B] transition-all duration-300 rounded-lg shadow-md uppercase gold-glow-hover"
                 >
                   Book Consultation
                   <ArrowRight className="w-4 h-4" />
                 </Link>
                 <a
                   href="tel:+971527938572"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-4 text-xs font-bold tracking-widest text-white border border-white/20 hover:bg-white/5 transition-all duration-300 rounded-md uppercase"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-4 text-xs font-bold tracking-widest text-[#A37B3B] bg-[#FFFFFF] border border-[#A37B3B] hover:bg-[#A37B3B] hover:text-[#FFFFFF] transition-all duration-300 rounded-lg shadow-xs uppercase"
                 >
-                  <PhoneCall className="w-4 h-4 text-gold-accent" />
+                  <PhoneCall className="w-4 h-4 text-[#A37B3B]" />
                   +971 52 793 8572
                 </a>
               </div>
 
               {/* Trust badges */}
-              <div className="pt-6 border-t border-white/5 flex flex-wrap items-center gap-6 text-xs text-white/60">
+              <div className="pt-6 border-t border-[#F0EBE1] flex flex-wrap items-center gap-6 text-xs text-[#475569] font-bold">
                 <span className="flex items-center gap-1.5">
-                  <Shield className="w-4 h-4 text-gold-accent" />
+                  <Shield className="w-4 h-4 text-[#A37B3B]" />
                   FTA Registered Advisors
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <Sparkles className="w-4 h-4 text-gold-accent" />
+                  <Sparkles className="w-4 h-4 text-[#A37B3B]" />
                   100% Guaranteed Compliance
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <Clock className="w-4 h-4 text-gold-accent" />
+                  <Clock className="w-4 h-4 text-[#A37B3B]" />
                   Fast Processing Timelines
                 </span>
               </div>

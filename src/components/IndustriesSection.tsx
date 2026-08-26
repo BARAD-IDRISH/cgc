@@ -47,7 +47,7 @@ export default function IndustriesSection() {
   ];
 
   return (
-    <section style={{ contentVisibility: "auto" }} className="relative py-24 bg-navy-deep overflow-hidden">
+    <section style={{ contentVisibility: "auto" }} className="relative py-24 bg-[#FFFDF7] overflow-hidden">
       {/* Background Grid Pattern */}
       <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none" />
 
@@ -55,13 +55,13 @@ export default function IndustriesSection() {
         
         {/* Section Title */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <h4 className="text-xs font-semibold tracking-widest text-gold-accent uppercase">
+          <h4 className="text-xs font-semibold tracking-widest text-[#A37B3B] uppercase">
             Who We Work With &bull; 25+ Sectors Served
           </h4>
-          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-white tracking-tight leading-tight">
+          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#0F2137] tracking-tight leading-tight">
             Tailored Solutions for Every Business Stage
           </h2>
-          <p className="text-white/60 text-sm leading-relaxed">
+          <p className="text-[#475569] text-sm leading-relaxed">
             From emerging startups to multinational corporations, we deliver practical, sustainable advisory tailored to your unique aspirations.
           </p>
         </div>
@@ -77,27 +77,27 @@ export default function IndustriesSection() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.4, delay: idx * 0.08 }}
-                className="glass-card rounded-xl p-8 border-t-4 border-t-gold-accent border-x border-b border-gold-accent/20 hover:border-gold-accent/60 hover:-translate-y-2 hover:shadow-[0_15px_35px_rgba(212,175,55,0.15)] transition-all duration-300 group flex flex-col justify-between relative overflow-hidden"
+                className="bg-[#FFFFFF] rounded-xl p-8 border-t-4 border-t-[#A37B3B] border-x border-b border-[#A37B3B]/25 hover:border-[#A37B3B] hover:-translate-y-2 hover:shadow-[0_15px_35px_rgba(163,123,59,0.16)] transition-all duration-300 group flex flex-col justify-between relative overflow-hidden"
               >
                 {/* Ambient top light reflection */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gold-accent/5 rounded-full blur-2xl pointer-events-none group-hover:bg-gold-accent/10 transition-colors" />
+                <div className="absolute top-0 right-0 w-32 h-32 bg-[#A37B3B]/5 rounded-full blur-2xl pointer-events-none group-hover:bg-[#A37B3B]/10 transition-colors" />
 
                 <div>
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-gold-accent/25 via-gold-accent/10 to-transparent border border-gold-accent/40 flex items-center justify-center text-gold-accent mb-6 group-hover:scale-110 group-hover:shadow-[0_0_25px_rgba(212,175,55,0.35)] transition-all duration-300">
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#A37B3B]/25 via-[#A37B3B]/10 to-transparent border border-[#A37B3B]/40 flex items-center justify-center text-[#A37B3B] mb-6 group-hover:scale-110 group-hover:shadow-[0_0_25px_rgba(163,123,59,0.35)] transition-all duration-300">
                     <Icon className="w-7 h-7" />
                   </div>
-                  <h3 className="text-xl font-bold text-white group-hover:text-gold-accent transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-[#0F2137] group-hover:text-[#A37B3B] transition-colors duration-300">
                     {cat.name}
                   </h3>
-                  <p className="text-white/70 text-xs mt-3 leading-relaxed">
+                  <p className="text-[#475569] text-xs mt-3 leading-relaxed font-normal">
                     {cat.desc}
                   </p>
                 </div>
 
-                <div className="pt-6 mt-6 border-t border-gold-accent/10">
+                <div className="pt-6 mt-6 border-t border-[#F0EBE1]">
                   <Link
                     href="/industries"
-                    className="w-full py-2.5 px-4 rounded-lg border border-gold-accent/40 bg-gold-accent/10 hover:bg-gold-accent hover:text-navy-dark text-gold-accent font-semibold text-xs transition-all duration-300 flex items-center justify-between group-hover:border-gold-accent shadow-sm"
+                    className="w-full py-2.5 px-4 rounded-lg bg-[#0F2137] hover:bg-[#A37B3B] text-[#FFFFFF] font-bold text-xs uppercase tracking-wider transition-all duration-300 flex items-center justify-between shadow-xs"
                   >
                     <span>View Advisory Framework</span>
                     <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
