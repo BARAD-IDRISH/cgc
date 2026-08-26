@@ -237,13 +237,23 @@ export default function ServicesCatalogPage() {
                       className="bg-[#FFFFFF] rounded-2xl overflow-hidden border-2 border-[#A37B3B]/25 hover:border-[#A37B3B] shadow-md hover:shadow-xl transition-all duration-300 group flex flex-col justify-between"
                     >
                       {/* Top Cover Image Box with Hover Overlay */}
-                      <div className="relative w-full h-48 sm:h-52 overflow-hidden bg-[#FAF6EE]">
+                      <div className="relative w-full h-52 sm:h-56 overflow-hidden bg-[#FAF6EE]">
                         <Image
-                          src={service.heroImage || "/images/vat-3d.png"}
+                          src={
+                            service.categorySlug === "vat-services"
+                              ? "/images/editorial/service-vat.png"
+                              : service.categorySlug === "corporate-tax"
+                              ? "/images/editorial/service-tax.png"
+                              : service.categorySlug === "excise-esr"
+                              ? "/images/editorial/executive-meeting.png"
+                              : service.categorySlug === "accounting-audit"
+                              ? "/images/editorial/dubai-office.png"
+                              : "/images/editorial/dubai-skyline.png"
+                          }
                           alt={service.title}
                           fill
                           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
-                          className="object-contain p-6 group-hover:scale-105 transition-transform duration-500"
+                          className="object-cover group-hover:scale-105 transition-transform duration-500"
                         />
 
                         {/* Top Capsule Hover Badge */}
