@@ -61,6 +61,7 @@ export default function WhyChooseUs() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {values.map((v, idx) => {
             const Icon = v.icon;
+            const number = String(idx + 1).padStart(2, '0');
             return (
               <motion.div
                 key={idx}
@@ -68,17 +69,29 @@ export default function WhyChooseUs() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="glass-card rounded-xl p-8 hover:border-gold-accent/35 transition-all duration-300 group"
+                className="glass-card rounded-xl p-8 border-t-4 border-t-gold-accent border-x border-b border-gold-accent/20 hover:border-gold-accent/60 hover:-translate-y-2 hover:shadow-[0_15px_35px_rgba(212,175,55,0.15)] transition-all duration-300 group relative overflow-hidden flex flex-col justify-between"
               >
-                <div className="w-12 h-12 rounded-lg bg-gold-accent/5 border border-gold-accent/15 flex items-center justify-center text-gold-accent mb-6 group-hover:bg-gold-accent group-hover:text-navy-dark transition-all duration-300">
-                  <Icon className="w-6 h-6" />
+                {/* Ambient top light reflection */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gold-accent/5 rounded-full blur-2xl pointer-events-none group-hover:bg-gold-accent/10 transition-colors" />
+
+                {/* Top Watermark Number & Icon */}
+                <div>
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-gold-accent/25 via-gold-accent/10 to-transparent border border-gold-accent/40 flex items-center justify-center text-gold-accent group-hover:scale-110 group-hover:shadow-[0_0_25px_rgba(212,175,55,0.35)] transition-all duration-300">
+                      <Icon className="w-7 h-7" />
+                    </div>
+                    <span className="text-3xl font-serif font-bold text-gold-accent/20 group-hover:text-gold-accent/50 transition-colors select-none">
+                      {number}
+                    </span>
+                  </div>
+
+                  <h3 className="text-xl font-bold text-white group-hover:text-gold-accent transition-colors duration-300">
+                    {v.title}
+                  </h3>
+                  <p className="text-white/70 text-xs mt-3 leading-relaxed">
+                    {v.desc}
+                  </p>
                 </div>
-                <h3 className="text-xl font-bold text-white group-hover:text-gold-accent transition-colors duration-200">
-                  {v.title}
-                </h3>
-                <p className="text-white/60 text-xs mt-3 leading-relaxed">
-                  {v.desc}
-                </p>
               </motion.div>
             );
           })}
