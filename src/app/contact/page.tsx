@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, CheckCircle, MessageSquare, AlertCircle } from "lucide-react";
+import { Mail, Phone, MapPin, CheckCircle, MessageSquare, AlertCircle, Clock } from "lucide-react";
 
 // Helper function to sanitize text input and prevent XSS injections
 function sanitizeInput(input: string): string {
@@ -180,9 +180,21 @@ export default function ContactPage() {
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-white uppercase tracking-wider text-xs">Registered Address</h4>
+                  <h4 className="font-bold text-white uppercase tracking-wider text-xs">Our Location</h4>
                   <p className="text-white/65 text-xs mt-1.5 leading-relaxed">
-                    Building A2, IFZA, Dubai Silicon Oasis, Dubai, UAE
+                    IFZA Business Park, Dubai, United Arab Emirates
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4 p-5 glass-card rounded-xl border border-white/5">
+                <div className="w-10 h-10 rounded-lg bg-gold-accent/10 border border-gold-accent/15 flex items-center justify-center text-gold-accent shrink-0">
+                  <Clock className="w-5 h-5" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-white uppercase tracking-wider text-xs">Business Hours</h4>
+                  <p className="text-white/65 text-xs mt-1.5 leading-relaxed">
+                    Monday to Friday: 9:00 AM – 6:00 PM (UAE Time)
                   </p>
                 </div>
               </div>

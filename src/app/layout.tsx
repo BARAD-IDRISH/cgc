@@ -90,7 +90,7 @@ export default function RootLayout({
     "priceRange": "$$$",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Building A2, IFZA, Dubai Silicon Oasis",
+      "streetAddress": "IFZA Business Park",
       "addressLocality": "Dubai",
       "addressRegion": "Dubai",
       "postalCode": "00000",

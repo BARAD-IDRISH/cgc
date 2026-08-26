@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Mail, Phone, MapPin, Send, Shield, ArrowUpRight } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Shield, ArrowUpRight, Clock } from "lucide-react";
 
 export default function Footer() {
   const [email, setEmail] = useState("");
@@ -168,15 +168,27 @@ export default function Footer() {
         </div>
 
         {/* Contact Info bar */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 py-10 text-sm border-b border-white/5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 py-10 text-sm border-b border-white/5">
           <div className="flex items-start gap-3.5">
             <div className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gold-accent shrink-0">
               <MapPin className="w-4.5 h-4.5" />
             </div>
             <div>
-              <h5 className="font-semibold text-white">Registered Address</h5>
+              <h5 className="font-semibold text-white">Our Location</h5>
               <p className="text-white/55 text-xs mt-1 leading-relaxed">
-                Building A2, IFZA, Dubai Silicon Oasis, Dubai, UAE
+                IFZA Business Park, Dubai, United Arab Emirates
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-start gap-3.5">
+            <div className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gold-accent shrink-0">
+              <Clock className="w-4.5 h-4.5" />
+            </div>
+            <div>
+              <h5 className="font-semibold text-white">Business Hours</h5>
+              <p className="text-white/55 text-xs mt-1 leading-relaxed">
+                Mon – Fri: 9:00 AM – 6:00 PM (GST)
               </p>
             </div>
           </div>

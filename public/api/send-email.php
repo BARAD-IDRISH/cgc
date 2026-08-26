@@ -196,7 +196,7 @@ $body = '
                             </a>
 
                             <p style="margin: 0; color: #64748B; font-size: 11px; font-weight: 500;">
-                                Chartered Growth Consultants FZCO • IFZA, Dubai Silicon Oasis • ' . $timestamp . '
+                                Chartered Growth Consultants FZCO • IFZA Business Park, Dubai • ' . $timestamp . '
                             </p>
                         </td>
                     </tr>
