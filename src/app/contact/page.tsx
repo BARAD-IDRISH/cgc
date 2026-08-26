@@ -224,11 +224,20 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* Google Map Integration */}
-            <div className="relative w-full h-[220px] rounded-xl overflow-hidden border border-gold-accent/15">
+            {/* Google Map Integration with Address Overlay */}
+            <div className="relative w-full h-[260px] rounded-xl overflow-hidden border border-gold-accent/20 shadow-lg group">
+              {/* Address Header Badge */}
+              <div className="absolute top-3 left-3 z-10 bg-navy-deep/90 backdrop-blur-md border border-gold-accent/30 rounded-lg px-3 py-2 flex items-center gap-2 shadow-md">
+                <MapPin className="w-4 h-4 text-gold-accent shrink-0" />
+                <div className="flex flex-col">
+                  <span className="text-[11px] font-bold text-white tracking-wide">IFZA Business Park</span>
+                  <span className="text-[10px] text-white/70">Dubai, United Arab Emirates</span>
+                </div>
+              </div>
+
               <iframe
-                title="Office Location Map"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3612.3551525997457!2d55.38572200000001!3d25.123555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f657a70a8d3e9%3A0xe54d24f728cf085b!2sIFZA%20Dubai%20(International%20Free%20Zone%20Authority)!5e0!3m2!1sen!2sae!4v1717000000000!5m2!1sen!2sae"
+                title="IFZA Business Park Location Map"
+                src="https://maps.google.com/maps?q=IFZA%20Business%20Park%2C%20Dubai%2C%20United%20Arab%20Emirates&t=&z=15&ie=UTF8&iwloc=&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
