@@ -15,6 +15,7 @@ import {
   ShieldCheck,
   Globe,
   FileCheck,
+  Sparkles,
 } from "lucide-react";
 import { SERVICE_CATEGORIES, SERVICES_DATA } from "@/data/servicesData";
 
@@ -121,11 +122,19 @@ export default function ServicesCatalogPage() {
 
               {/* Sub-Services Cards Grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {cat.itemSlugs.map((itemSlug) => {
+                {cat.itemSlugs.map((itemSlug, idx) => {
                   const service = SERVICES_DATA[itemSlug];
                   if (!service) return null;
 
                   const ItemIcon = ICON_MAP[service.iconName] || CategoryIcon;
+                  const isFeatured = [
+                    "vat-registration",
+                    "company-liquidation-services-uae",
+                    "visa-government-pro-services-uae",
+                    "uae-corporate-tax-advisory-compliance",
+                    "dubai-free-zone-setup",
+                    "customs-registration-services-uae"
+                  ].includes(service.slug) || idx === 0;
 
                   return (
                     <motion.div
@@ -134,33 +143,50 @@ export default function ServicesCatalogPage() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.4 }}
-                      className="glass-card rounded-xl p-6 border border-white/10 hover:border-gold-accent/40 transition-all duration-300 flex flex-col justify-between group"
+                      className={`glass-card rounded-xl p-6 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden ${
+                        isFeatured
+                          ? "border-2 border-gold-accent bg-gradient-to-b from-gold-accent/10 via-navy-dark to-navy-dark shadow-[0_15px_35px_rgba(212,175,55,0.2)] sm:-translate-y-1.5 z-10"
+                          : "border border-white/10 hover:border-gold-accent/40"
+                      }`}
                     >
+                      {/* Top Gold Accent Bar */}
+                      {isFeatured && (
+                        <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-gold-accent via-[#FFF] to-gold-accent" />
+                      )}
+
                       <div className="space-y-4">
-                        {/* Icon & Title */}
-                        <div className="flex items-center justify-between">
-                          <div className="w-10 h-10 rounded-lg bg-gold-accent/5 border border-gold-accent/15 flex items-center justify-center text-gold-accent group-hover:bg-gold-accent group-hover:text-navy-dark transition-all duration-300">
+                        {/* Icon & Title Header */}
+                        <div className="flex items-center justify-between pt-1">
+                          <div className="w-10 h-10 rounded-lg bg-gold-accent/10 border border-gold-accent/30 flex items-center justify-center text-gold-accent group-hover:bg-gold-accent group-hover:text-navy-dark transition-all duration-300 shadow-sm">
                             <ItemIcon className="w-5 h-5" />
                           </div>
-                          <span className="text-[10px] text-gold-accent font-bold uppercase tracking-wider bg-gold-accent/10 px-2.5 py-1 rounded-full">
-                            Standalone Page
-                          </span>
+
+                          {isFeatured ? (
+                            <span className="px-3 py-1 rounded-full bg-gradient-to-r from-gold-accent to-[#B38F38] text-navy-dark text-[10px] font-extrabold uppercase tracking-widest shadow-md flex items-center gap-1">
+                              <Sparkles className="w-3 h-3 text-navy-dark" />
+                              Core Advisory
+                            </span>
+                          ) : (
+                            <span className="text-[10px] text-gold-accent font-bold uppercase tracking-wider bg-gold-accent/10 px-2.5 py-1 rounded-full">
+                              Standalone Page
+                            </span>
+                          )}
                         </div>
 
                         <div>
                           <h3 className="text-lg font-bold text-white group-hover:text-gold-accent transition-colors duration-200">
                             {service.title}
                           </h3>
-                          <p className="text-white/60 text-xs mt-2 leading-relaxed font-light line-clamp-3">
+                          <p className="text-white/70 text-xs mt-2 leading-relaxed font-light line-clamp-3">
                             {service.shortDesc}
                           </p>
                         </div>
 
                         {/* Bullet Highlights */}
                         <div className="pt-2">
-                          <ul className="space-y-1.5 text-[11px] text-white/70">
+                          <ul className="space-y-2 text-[11px] text-white/80">
                             {service.subServices.slice(0, 3).map((sub, sIdx) => (
-                              <li key={sIdx} className="flex items-center gap-2">
+                              <li key={sIdx} className="flex items-center gap-2 p-1 rounded-md hover:bg-gold-accent/10 transition-colors">
                                 <CheckCircle2 className="w-3.5 h-3.5 text-gold-accent shrink-0" />
                                 <span className="truncate">{sub}</span>
                               </li>
@@ -170,10 +196,14 @@ export default function ServicesCatalogPage() {
                       </div>
 
                       {/* CTA Link */}
-                      <div className="pt-6 mt-6 border-t border-white/5">
+                      <div className="pt-6 mt-6 border-t border-white/10">
                         <Link
                           href={`/services/${service.slug}`}
-                          className="inline-flex items-center justify-between w-full text-xs text-gold-accent font-semibold tracking-wider uppercase group-hover:text-white transition-colors"
+                          className={`w-full py-2.5 px-4 rounded-lg font-semibold text-xs transition-all duration-300 flex items-center justify-between shadow-sm ${
+                            isFeatured
+                              ? "bg-gold-accent text-navy-dark hover:bg-white"
+                              : "border border-gold-accent/40 bg-gold-accent/10 text-gold-accent hover:bg-gold-accent hover:text-navy-dark"
+                          }`}
                         >
                           <span>Explore Service</span>
                           <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
