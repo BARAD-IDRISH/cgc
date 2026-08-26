@@ -128,27 +128,30 @@ export default function IndustriesPage() {
             return (
               <div
                 key={idx}
-                className="glass-card rounded-xl p-8 hover:border-gold-accent/40 transition-all duration-300 flex flex-col justify-between group"
+                className="glass-card rounded-xl p-8 border-t-4 border-t-gold-accent border-x border-b border-gold-accent/20 hover:border-gold-accent/60 hover:-translate-y-2 hover:shadow-[0_15px_35px_rgba(212,175,55,0.15)] transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
               >
+                {/* Ambient top light reflection */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gold-accent/5 rounded-full blur-2xl pointer-events-none group-hover:bg-gold-accent/10 transition-colors" />
+
                 <div>
-                  <div className="w-12 h-12 rounded-lg bg-gold-accent/5 border border-gold-accent/15 flex items-center justify-center text-gold-accent mb-6 group-hover:bg-gold-accent group-hover:text-navy-dark transition-all duration-300">
-                    <Icon className="w-6 h-6" />
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-gold-accent/25 via-gold-accent/10 to-transparent border border-gold-accent/40 flex items-center justify-center text-gold-accent mb-6 group-hover:scale-110 group-hover:shadow-[0_0_25px_rgba(212,175,55,0.35)] transition-all duration-300">
+                    <Icon className="w-7 h-7" />
                   </div>
-                  <h3 className="text-xl font-bold text-white group-hover:text-gold-accent transition-colors">
+                  <h3 className="text-xl font-bold text-white group-hover:text-gold-accent transition-colors duration-300">
                     {segment.title}
                   </h3>
-                  <p className="text-white/60 text-xs mt-3 leading-relaxed">
+                  <p className="text-white/70 text-xs mt-3 leading-relaxed">
                     {segment.desc}
                   </p>
 
-                  <div className="mt-6 pt-6 border-t border-white/5 space-y-2">
-                    <span className="text-[10px] font-bold text-gold-accent uppercase tracking-widest block mb-2">
+                  <div className="mt-6 pt-6 border-t border-gold-accent/15 space-y-2">
+                    <span className="text-[10px] font-bold text-gold-accent uppercase tracking-widest block mb-3">
                       Key Advisory Focus:
                     </span>
-                    <ul className="space-y-1.5 text-xs text-white/70">
+                    <ul className="space-y-2 text-xs text-white/80">
                       {segment.solutions.map((sol, sIdx) => (
-                        <li key={sIdx} className="flex items-center gap-2">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-gold-accent shrink-0" />
+                        <li key={sIdx} className="flex items-center gap-2.5 p-1 rounded-md hover:bg-gold-accent/10 transition-colors">
+                          <CheckCircle2 className="w-4 h-4 text-gold-accent shrink-0" />
                           <span>{sol}</span>
                         </li>
                       ))}
@@ -156,13 +159,13 @@ export default function IndustriesPage() {
                   </div>
                 </div>
 
-                <div className="pt-6 mt-6">
+                <div className="pt-6 mt-6 border-t border-gold-accent/10">
                   <Link
                     href="/contact"
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-gold-accent hover:text-white uppercase tracking-wider transition-colors"
+                    className="w-full py-2.5 px-4 rounded-lg border border-gold-accent/40 bg-gold-accent/10 hover:bg-gold-accent hover:text-navy-dark text-gold-accent font-semibold text-xs transition-all duration-300 flex items-center justify-between group-hover:border-gold-accent shadow-sm"
                   >
-                    Discuss your requirements
-                    <ArrowRight className="w-3.5 h-3.5" />
+                    <span>Discuss Your Requirements</span>
+                    <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                   </Link>
                 </div>
               </div>

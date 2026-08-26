@@ -96,7 +96,7 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-navy-dark/95 backdrop-blur-xl border-b border-gold-accent/15 py-3 shadow-[0_4px_30px_rgba(15,33,55,0.05)]"
+          ? "bg-navy-dark/95 backdrop-blur-md border-b border-gold-accent/10 py-3 shadow-lg"
           : "bg-transparent py-5"
       }`}
     >
@@ -110,7 +110,7 @@ export default function Navbar() {
               width={200}
               height={65}
               priority
-              className="h-14 sm:h-16 w-auto object-contain rounded-lg shadow-md transition-transform duration-300 group-hover:scale-[1.03]"
+              className="h-14 sm:h-16 w-auto object-contain rounded-lg shadow-md transition-transform duration-300 group-hover:scale-105"
             />
             <div className="flex flex-col border-l border-gold-accent/30 pl-3">
               <span className="font-serif text-white text-[15px] sm:text-[17px] font-bold uppercase tracking-widest leading-tight">
@@ -126,16 +126,16 @@ export default function Navbar() {
           <nav className="hidden lg:flex items-center gap-8">
             <Link
               href="/"
-              className={`relative py-1 text-sm font-medium uppercase tracking-wider transition-colors duration-300 hover:text-gold-accent after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-gold-accent after:transition-transform after:duration-300 after:origin-left ${
-                pathname === "/" ? "text-gold-accent after:scale-x-100" : "text-white/80 after:scale-x-0 hover:after:scale-x-100"
+              className={`text-sm font-medium uppercase tracking-wider transition-colors duration-300 hover:text-gold-accent ${
+                pathname === "/" ? "text-gold-accent" : "text-white/80"
               }`}
             >
               Home
             </Link>
             <Link
               href="/about"
-              className={`relative py-1 text-sm font-medium uppercase tracking-wider transition-colors duration-300 hover:text-gold-accent after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-gold-accent after:transition-transform after:duration-300 after:origin-left ${
-                pathname === "/about" ? "text-gold-accent after:scale-x-100" : "text-white/80 after:scale-x-0 hover:after:scale-x-100"
+              className={`text-sm font-medium uppercase tracking-wider transition-colors duration-300 hover:text-gold-accent ${
+                pathname === "/about" ? "text-gold-accent" : "text-white/80"
               }`}
             >
               About
@@ -148,12 +148,12 @@ export default function Navbar() {
               onMouseLeave={() => setActiveSubmenu(null)}
             >
               <button
-                className={`flex items-center gap-1.5 py-1 text-sm font-medium uppercase tracking-wider transition-colors duration-300 hover:text-gold-accent cursor-pointer ${
+                className={`flex items-center gap-1 text-sm font-medium uppercase tracking-wider transition-colors duration-300 hover:text-gold-accent cursor-pointer ${
                   pathname.startsWith("/services") ? "text-gold-accent" : "text-white/80"
                 }`}
               >
                 Solutions
-                <ChevronDown className="w-4 h-4 transition-transform duration-300 group-hover:rotate-180 text-gold-accent" />
+                <ChevronDown className="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" />
               </button>
 
               <AnimatePresence>
@@ -163,26 +163,25 @@ export default function Navbar() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 15 }}
                     transition={{ duration: 0.2 }}
-                    className="absolute top-full left-1/2 -translate-x-1/2 w-[860px] bg-navy-dark/98 border border-gold-accent/25 rounded-2xl shadow-2xl p-7 backdrop-blur-2xl"
+                    className="absolute top-full left-1/2 -translate-x-1/2 w-[840px] bg-navy-dark/95 border border-gold-accent/15 rounded-xl shadow-2xl p-6 backdrop-blur-md"
                   >
-                    <div className="pb-3.5 mb-4 border-b border-white/10 flex justify-between items-center">
-                      <h4 className="text-xs font-semibold tracking-widest text-gold-accent uppercase flex items-center gap-2">
-                        <Award className="w-3.5 h-3.5" />
+                    <div className="pb-3 mb-4 border-b border-white/5 flex justify-between items-center">
+                      <h4 className="text-xs font-semibold tracking-widest text-gold-accent uppercase">
                         Comprehensive Tax & Compliance Solutions
                       </h4>
-                      <span className="text-[11px] text-white/50 font-medium">FTA Approved Expert Advisory</span>
+                      <span className="text-[11px] text-white/50">FTA Approved Expert Advisory</span>
                     </div>
 
-                    <div className="grid grid-cols-5 gap-5">
+                    <div className="grid grid-cols-5 gap-4">
                       {serviceCategories.map((cat, catIdx) => {
                         const Icon = cat.icon;
                         return (
-                          <div key={catIdx} className="space-y-2.5">
+                          <div key={catIdx} className="space-y-2">
                             <Link
                               href={cat.href}
-                              className="flex items-center gap-1.5 text-xs font-bold text-gold-accent hover:text-white uppercase tracking-wider transition-colors pb-1.5 border-b border-gold-accent/15 group/cat"
+                              className="flex items-center gap-1.5 text-xs font-bold text-gold-accent hover:text-white uppercase tracking-wider transition-colors pb-1 border-b border-gold-accent/10"
                             >
-                              <Icon className="w-3.5 h-3.5 shrink-0 text-gold-accent group-hover/cat:scale-110 transition-transform" />
+                              <Icon className="w-3.5 h-3.5 shrink-0" />
                               <span>{cat.category}</span>
                             </Link>
                             <ul className="space-y-1.5 pt-1">
@@ -190,7 +189,7 @@ export default function Navbar() {
                                 <li key={itemIdx}>
                                   <Link
                                     href={item.href}
-                                    className="text-[11px] text-white/70 hover:text-gold-light hover:translate-x-1 transition-all duration-200 block leading-snug font-normal"
+                                    className="text-[11px] text-white/70 hover:text-gold-light hover:pl-1 transition-all duration-200 block leading-snug"
                                   >
                                     {item.name}
                                   </Link>
@@ -202,14 +201,14 @@ export default function Navbar() {
                       })}
                     </div>
 
-                    <div className="mt-6 pt-3.5 border-t border-white/10 flex justify-between items-center text-xs">
-                      <span className="text-white/50 font-light">One-Stop Solution Provider for VAT, Corporate Tax, ESR & Accounting in UAE</span>
+                    <div className="mt-5 pt-3 border-t border-white/5 flex justify-between items-center text-xs">
+                      <span className="text-white/50">One-Stop Solution Provider for VAT, Corporate Tax, ESR & Accounting in UAE</span>
                       <Link
                         href="/services"
-                        className="flex items-center gap-1.5 text-gold-accent hover:text-white font-semibold transition-colors group/all"
+                        className="flex items-center gap-1.5 text-gold-accent hover:text-white font-medium transition-colors"
                       >
                         Explore All Solutions
-                        <ArrowRight className="w-3.5 h-3.5 group-hover/all:translate-x-1 transition-transform" />
+                        <ArrowRight className="w-3.5 h-3.5" />
                       </Link>
                     </div>
                   </motion.div>
@@ -219,16 +218,16 @@ export default function Navbar() {
 
             <Link
               href="/industries"
-              className={`relative py-1 text-sm font-medium uppercase tracking-wider transition-colors duration-300 hover:text-gold-accent after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-gold-accent after:transition-transform after:duration-300 after:origin-left ${
-                pathname === "/industries" ? "text-gold-accent after:scale-x-100" : "text-white/80 after:scale-x-0 hover:after:scale-x-100"
+              className={`text-sm font-medium uppercase tracking-wider transition-colors duration-300 hover:text-gold-accent ${
+                pathname === "/industries" ? "text-gold-accent" : "text-white/80"
               }`}
             >
               Industries
             </Link>
             <Link
               href="/contact"
-              className={`relative py-1 text-sm font-medium uppercase tracking-wider transition-colors duration-300 hover:text-gold-accent after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-gold-accent after:transition-transform after:duration-300 after:origin-left ${
-                pathname === "/contact" ? "text-gold-accent after:scale-x-100" : "text-white/80 after:scale-x-0 hover:after:scale-x-100"
+              className={`text-sm font-medium uppercase tracking-wider transition-colors duration-300 hover:text-gold-accent ${
+                pathname === "/contact" ? "text-gold-accent" : "text-white/80"
               }`}
             >
               Contact
@@ -239,7 +238,7 @@ export default function Navbar() {
           <div className="flex items-center gap-4">
             <Link
               href="/contact"
-              className="hidden sm:inline-flex items-center justify-center px-6 py-2.5 text-xs font-bold tracking-widest text-navy-dark bg-gold-accent hover:bg-gold-light transition-all duration-300 rounded-lg shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 uppercase gold-glow-hover focus-visible:ring-2 focus-visible:ring-gold-accent"
+              className="hidden sm:inline-flex items-center justify-center px-5 py-2.5 text-xs font-semibold tracking-widest text-navy-dark bg-gold-accent hover:bg-gold-light transition-colors duration-300 rounded-md shadow-md uppercase"
             >
               Free Consultation
             </Link>

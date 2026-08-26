@@ -77,18 +77,31 @@ export default function IndustriesSection() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.4, delay: idx * 0.08 }}
-                className="glass-card rounded-2xl p-8 sm:p-9 hover:border-gold-accent/45 transition-all duration-300 group flex flex-col justify-between shadow-md hover:shadow-xl hover:-translate-y-1.5"
+                className="glass-card rounded-xl p-8 border-t-4 border-t-gold-accent border-x border-b border-gold-accent/20 hover:border-gold-accent/60 hover:-translate-y-2 hover:shadow-[0_15px_35px_rgba(212,175,55,0.15)] transition-all duration-300 group flex flex-col justify-between relative overflow-hidden"
               >
+                {/* Ambient top light reflection */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gold-accent/5 rounded-full blur-2xl pointer-events-none group-hover:bg-gold-accent/10 transition-colors" />
+
                 <div>
-                  <div className="w-14 h-14 rounded-xl bg-gold-accent/5 border border-gold-accent/20 flex items-center justify-center text-gold-accent mb-6 group-hover:bg-gold-accent group-hover:text-navy-dark group-hover:scale-105 transition-all duration-300 shadow-xs">
-                    <Icon className="w-6 h-6" />
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-gold-accent/25 via-gold-accent/10 to-transparent border border-gold-accent/40 flex items-center justify-center text-gold-accent mb-6 group-hover:scale-110 group-hover:shadow-[0_0_25px_rgba(212,175,55,0.35)] transition-all duration-300">
+                    <Icon className="w-7 h-7" />
                   </div>
-                  <h3 className="text-lg font-bold text-white group-hover:text-gold-accent transition-colors duration-250">
+                  <h3 className="text-xl font-bold text-white group-hover:text-gold-accent transition-colors duration-300">
                     {cat.name}
                   </h3>
-                  <p className="text-white/60 text-xs mt-3 leading-relaxed font-normal">
+                  <p className="text-white/70 text-xs mt-3 leading-relaxed">
                     {cat.desc}
                   </p>
+                </div>
+
+                <div className="pt-6 mt-6 border-t border-gold-accent/10">
+                  <Link
+                    href="/industries"
+                    className="w-full py-2.5 px-4 rounded-lg border border-gold-accent/40 bg-gold-accent/10 hover:bg-gold-accent hover:text-navy-dark text-gold-accent font-semibold text-xs transition-all duration-300 flex items-center justify-between group-hover:border-gold-accent shadow-sm"
+                  >
+                    <span>View Advisory Framework</span>
+                    <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                  </Link>
                 </div>
               </motion.div>
             );
@@ -99,10 +112,10 @@ export default function IndustriesSection() {
         <div className="mt-16 text-center">
           <Link
             href="/industries"
-            className="inline-flex items-center gap-2 px-7 py-3.5 border border-gold-accent/30 hover:border-gold-accent text-white hover:text-gold-accent rounded-lg text-xs font-bold uppercase tracking-wider transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 shadow-sm hover:shadow-md group"
+            className="inline-flex items-center gap-2 px-6 py-3 border border-gold-accent/25 hover:border-gold-accent text-white hover:text-gold-accent rounded-md text-xs font-semibold uppercase tracking-wider transition-all duration-300"
           >
             Learn More About Our Client Solutions & Sectors
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
 

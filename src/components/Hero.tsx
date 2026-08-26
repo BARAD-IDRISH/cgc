@@ -34,10 +34,10 @@ export default function Hero() {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold-accent/10 border border-gold-accent/30 text-gold-accent shadow-xs"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold-accent/10 border border-gold-accent/25 text-gold-accent"
             >
-              <CheckCircle className="w-4 h-4 text-gold-accent" />
-              <span className="text-xs font-bold tracking-widest uppercase">
+              <CheckCircle className="w-4 h-4" />
+              <span className="text-xs font-semibold tracking-widest uppercase">
                 Established 2014 &bull; Dubai, UAE
               </span>
             </motion.div>
@@ -63,19 +63,19 @@ export default function Hero() {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.6 }}
-              className="grid grid-cols-3 gap-4 pt-2 border-y border-white/10 py-5 max-w-xl"
+              className="grid grid-cols-3 gap-4 pt-2 border-y border-white/10 py-4 max-w-xl"
             >
-              <div className="bg-white/80 border border-gold-accent/20 rounded-xl p-3.5 shadow-sm hover:border-gold-accent/40 hover:-translate-y-0.5 transition-all duration-300">
+              <div>
                 <div className="text-2xl font-serif font-bold text-gold-accent">10+</div>
-                <div className="text-[11px] text-white/60 uppercase tracking-wider font-semibold mt-0.5">Years Trusted (2014)</div>
+                <div className="text-[11px] text-white/60 uppercase tracking-wider font-medium">Years Trusted (2014)</div>
               </div>
-              <div className="bg-white/80 border border-gold-accent/20 rounded-xl p-3.5 shadow-sm hover:border-gold-accent/40 hover:-translate-y-0.5 transition-all duration-300">
+              <div>
                 <div className="text-2xl font-serif font-bold text-gold-accent">1,000+</div>
-                <div className="text-[11px] text-white/60 uppercase tracking-wider font-semibold mt-0.5">Clients Advised</div>
+                <div className="text-[11px] text-white/60 uppercase tracking-wider font-medium">Clients Advised</div>
               </div>
-              <div className="bg-white/80 border border-gold-accent/20 rounded-xl p-3.5 shadow-sm hover:border-gold-accent/40 hover:-translate-y-0.5 transition-all duration-300">
+              <div>
                 <div className="text-2xl font-serif font-bold text-gold-accent">25+</div>
-                <div className="text-[11px] text-white/60 uppercase tracking-wider font-semibold mt-0.5">Sectors Served</div>
+                <div className="text-[11px] text-white/60 uppercase tracking-wider font-medium">Sectors Served</div>
               </div>
             </motion.div>
 
@@ -88,14 +88,14 @@ export default function Hero() {
             >
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 text-sm font-bold tracking-widest text-navy-dark bg-gold-accent hover:bg-gold-light transition-all duration-300 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 uppercase gold-glow-hover focus-visible:ring-2 focus-visible:ring-gold-accent"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 text-sm font-semibold tracking-widest text-navy-dark bg-gold-accent hover:bg-gold-light transition-all duration-300 rounded-md shadow-lg uppercase gold-glow-hover"
               >
                 Book Free Consultation
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
                 href="tel:+971527938572"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 text-sm font-bold tracking-widest text-white border border-white/25 hover:bg-white/10 transition-all duration-300 rounded-lg uppercase hover:-translate-y-0.5 active:translate-y-0 shadow-sm"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 text-sm font-semibold tracking-widest text-white border border-white/20 hover:bg-white/5 transition-all duration-300 rounded-md uppercase"
               >
                 <PhoneCall className="w-4 h-4 text-gold-accent" />
                 +971 52 793 8572
@@ -144,14 +144,14 @@ export default function Hero() {
                 initial={{ x: 30, y: 30, opacity: 0 }}
                 animate={{ x: 0, y: 0, opacity: 1 }}
                 transition={{ delay: 0.7, duration: 0.8 }}
-                className="absolute bottom-6 -left-4 md:-left-8 glass-card rounded-2xl p-4 md:p-5 flex items-center gap-4 max-w-[270px] shadow-xl border border-gold-accent/25"
+                className="absolute bottom-6 -left-4 md:-left-8 glass-card rounded-xl p-4 md:p-5 flex items-center gap-4 max-w-[260px]"
               >
-                <div className="w-11 h-11 rounded-xl bg-gold-accent/20 border border-gold-accent/30 flex items-center justify-center text-gold-accent font-bold text-sm shrink-0 shadow-xs">
+                <div className="w-10 h-10 rounded-lg bg-gold-accent/20 border border-gold-accent/30 flex items-center justify-center text-gold-accent font-bold">
                   100%
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-white uppercase tracking-wider">Client Commitment</h4>
-                  <p className="text-[10px] text-white/60 mt-0.5 font-medium">Integrity & Quality Guaranteed</p>
+                  <h4 className="text-xs font-bold text-white uppercase">Client Commitment</h4>
+                  <p className="text-[10px] text-white/60 mt-0.5">Integrity & Quality Guaranteed</p>
                 </div>
               </motion.div>
             </motion.div>

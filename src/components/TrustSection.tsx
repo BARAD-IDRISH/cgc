@@ -85,7 +85,7 @@ export default function TrustSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Main Stats Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {stats.map((stat, idx) => {
             const Icon = stat.icon;
             return (
@@ -95,10 +95,10 @@ export default function TrustSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.6, delay: idx * 0.15 }}
-                className="glass-card rounded-2xl p-8 hover:border-gold-accent/40 transition-all duration-300 group flex flex-col items-center text-center shadow-md hover:shadow-xl hover:-translate-y-1.5"
+                className="glass-card rounded-xl p-6 hover:border-gold-accent/30 transition-all duration-300 group flex flex-col items-center text-center"
               >
                 {/* Icon wrapper */}
-                <div className="w-14 h-14 rounded-xl bg-gold-accent/5 border border-gold-accent/20 flex items-center justify-center text-gold-accent mb-5 group-hover:bg-gold-accent group-hover:text-navy-dark group-hover:scale-105 transition-all duration-300 shadow-xs">
+                <div className="w-12 h-12 rounded-lg bg-gold-accent/5 border border-gold-accent/15 flex items-center justify-center text-gold-accent mb-4 group-hover:bg-gold-accent group-hover:text-navy-dark transition-all duration-300">
                   <Icon className="w-6 h-6" />
                 </div>
 
@@ -108,12 +108,12 @@ export default function TrustSection() {
                 </h3>
 
                 {/* Title */}
-                <h4 className="text-xs font-bold text-gold-accent mt-3 uppercase tracking-widest">
+                <h4 className="text-sm font-semibold text-gold-accent mt-3 uppercase tracking-wider">
                   {stat.label}
                 </h4>
 
                 {/* Description */}
-                <p className="text-white/60 text-xs mt-3 leading-relaxed font-normal">
+                <p className="text-white/60 text-xs mt-3 leading-relaxed">
                   {stat.description}
                 </p>
               </motion.div>
