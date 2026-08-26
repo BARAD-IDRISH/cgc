@@ -115,22 +115,22 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3.5 text-sm">
               <li>
-                <Link href="/services#formation" className="text-white/60 hover:text-gold-accent transition-colors">
+                <Link href="/services/business-setup" className="text-white/60 hover:text-gold-accent transition-colors">
                   Company Formation
                 </Link>
               </li>
               <li>
-                <Link href="/services#corporate-tax" className="text-white/60 hover:text-gold-accent transition-colors">
+                <Link href="/services/corporate-tax" className="text-white/60 hover:text-gold-accent transition-colors">
                   Corporate Tax Services
                 </Link>
               </li>
               <li>
-                <Link href="/services#vat" className="text-white/60 hover:text-gold-accent transition-colors">
+                <Link href="/services/vat-services" className="text-white/60 hover:text-gold-accent transition-colors">
                   VAT Advisory & Filing
                 </Link>
               </li>
               <li>
-                <Link href="/services#accounting" className="text-white/60 hover:text-gold-accent transition-colors">
+                <Link href="/services/accounting-audit" className="text-white/60 hover:text-gold-accent transition-colors">
                   Accounting & Compliance
                 </Link>
               </li>

@@ -5,32 +5,66 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown, Award, Briefcase, FileCheck, ArrowRight, ShieldCheck, Scale, Globe } from "lucide-react";
+import { Menu, X, ChevronDown, Award, Briefcase, FileCheck, ArrowRight, ShieldCheck, Scale, Globe, FileSpreadsheet } from "lucide-react";
 
-const servicesList = [
+const serviceCategories = [
   {
-    title: "Corporate Tax Services",
-    href: "/services#corporate-tax",
-    description: "Corporate registration, calculations, tax returns, planning, and transfer pricing support.",
-    icon: ShieldCheck,
-  },
-  {
-    title: "VAT Services",
-    href: "/services#vat",
-    description: "End-to-end VAT registration, deregistrations, monthly return filings, audits, and refunds.",
+    category: "VAT Solutions",
     icon: FileCheck,
+    href: "/services/vat-services",
+    items: [
+      { name: "VAT Registration", href: "/services/vat-registration" },
+      { name: "VAT De-Registration", href: "/services/vat-deregistration" },
+      { name: "VAT Return Filing", href: "/services/vat-return-filing" },
+      { name: "VAT Audit & Refund", href: "/services/vat-audit-refund" },
+      { name: "VAT Amendment", href: "/services/vat-amendment" },
+    ],
   },
   {
-    title: "Company Formation",
-    href: "/services#formation",
-    description: "Mainland, Free Zone, and Offshore company setups with comprehensive licensing and visas.",
-    icon: Globe,
+    category: "Corporate Tax",
+    icon: ShieldCheck,
+    href: "/services/corporate-tax",
+    items: [
+      { name: "CT Registration", href: "/services/corporate-tax-registration" },
+      { name: "CT Filing", href: "/services/corporate-tax-filing" },
+      { name: "CT Implementation", href: "/services/corporate-tax-implementation" },
+      { name: "CT Advisory & Free Zone", href: "/services/corporate-tax-advisory" },
+      { name: "Transfer Pricing", href: "/services/transfer-pricing" },
+    ],
   },
   {
-    title: "Accounting & Compliance",
-    href: "/services#accounting",
-    description: "Bookkeeping, financial accounting, statutory reports, and UAE regulatory compliance checks.",
+    category: "Excise & ESR",
     icon: Scale,
+    href: "/services/excise-esr",
+    items: [
+      { name: "Excise Registration & Returns", href: "/services/excise-tax-registration" },
+      { name: "ESR Notification", href: "/services/esr-notification" },
+      { name: "ESR Reporting & Audit", href: "/services/esr-compliance" },
+    ],
+  },
+  {
+    category: "Accounting & Audit",
+    icon: FileSpreadsheet,
+    href: "/services/accounting-audit",
+    items: [
+      { name: "Bookkeeping & Accounting", href: "/services/bookkeeping-accounting" },
+      { name: "Outsourced CFO", href: "/services/outsourced-cfo" },
+      { name: "Internal & External Audit", href: "/services/internal-external-audit" },
+      { name: "Inventory & Backlog Audit", href: "/services/inventory-backlog-audit" },
+    ],
+  },
+  {
+    category: "More Solutions",
+    icon: Globe,
+    href: "/services/corporate-compliance",
+    items: [
+      { name: "Business Setup & Setup", href: "/services/business-setup" },
+      { name: "GoAML Registration", href: "/services/goaml-registration" },
+      { name: "Tax Residency Cert (TRC)", href: "/services/tax-residency-certificate" },
+      { name: "Customs Registration", href: "/services/customs-registration" },
+      { name: "Company Liquidation", href: "/services/company-liquidation" },
+      { name: "Visa & PRO Services", href: "/services/visa-pro-services" },
+    ],
   },
 ];
 
@@ -118,7 +152,7 @@ export default function Navbar() {
                   pathname.startsWith("/services") ? "text-gold-accent" : "text-white/80"
                 }`}
               >
-                Services
+                Solutions
                 <ChevronDown className="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" />
               </button>
 
@@ -129,44 +163,51 @@ export default function Navbar() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 15 }}
                     transition={{ duration: 0.2 }}
-                    className="absolute top-full left-1/2 -translate-x-1/2 w-[650px] bg-navy-dark/95 border border-gold-accent/15 rounded-xl shadow-2xl p-6 grid grid-cols-2 gap-6 backdrop-blur-md"
+                    className="absolute top-full left-1/2 -translate-x-1/2 w-[840px] bg-navy-dark/95 border border-gold-accent/15 rounded-xl shadow-2xl p-6 backdrop-blur-md"
                   >
-                    <div className="col-span-2 pb-3 border-b border-white/5">
+                    <div className="pb-3 mb-4 border-b border-white/5 flex justify-between items-center">
                       <h4 className="text-xs font-semibold tracking-widest text-gold-accent uppercase">
-                        Our Strategic Solutions
+                        Comprehensive Tax & Compliance Solutions
                       </h4>
+                      <span className="text-[11px] text-white/50">FTA Approved Expert Advisory</span>
                     </div>
 
-                    {servicesList.map((service, index) => {
-                      const Icon = service.icon;
-                      return (
-                        <Link
-                          key={index}
-                          href={service.href}
-                          className="flex gap-4 p-3 rounded-lg hover:bg-white/5 transition-colors duration-250 group/item"
-                        >
-                          <div className="w-10 h-10 flex items-center justify-center rounded-lg bg-gold-accent/10 border border-gold-accent/20 text-gold-accent group-hover/item:bg-gold-accent group-hover/item:text-navy-dark transition-colors duration-300 shrink-0">
-                            <Icon className="w-5 h-5" />
+                    <div className="grid grid-cols-5 gap-4">
+                      {serviceCategories.map((cat, catIdx) => {
+                        const Icon = cat.icon;
+                        return (
+                          <div key={catIdx} className="space-y-2">
+                            <Link
+                              href={cat.href}
+                              className="flex items-center gap-1.5 text-xs font-bold text-gold-accent hover:text-white uppercase tracking-wider transition-colors pb-1 border-b border-gold-accent/10"
+                            >
+                              <Icon className="w-3.5 h-3.5 shrink-0" />
+                              <span>{cat.category}</span>
+                            </Link>
+                            <ul className="space-y-1.5 pt-1">
+                              {cat.items.map((item, itemIdx) => (
+                                <li key={itemIdx}>
+                                  <Link
+                                    href={item.href}
+                                    className="text-[11px] text-white/70 hover:text-gold-light hover:pl-1 transition-all duration-200 block leading-snug"
+                                  >
+                                    {item.name}
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
                           </div>
-                          <div>
-                            <h5 className="text-sm font-semibold text-white group-hover/item:text-gold-accent transition-colors duration-200">
-                              {service.title}
-                            </h5>
-                            <p className="text-xs text-white/55 mt-1 leading-relaxed">
-                              {service.description}
-                            </p>
-                          </div>
-                        </Link>
-                      );
-                    })}
+                        );
+                      })}
+                    </div>
 
-                    <div className="col-span-2 pt-4 border-t border-white/5 flex justify-between items-center text-xs">
-                      <span className="text-white/50">Comprehensive Business setup & tax compliance partner</span>
+                    <div className="mt-5 pt-3 border-t border-white/5 flex justify-between items-center text-xs">
+                      <span className="text-white/50">One-Stop Solution Provider for VAT, Corporate Tax, ESR & Accounting in UAE</span>
                       <Link
                         href="/services"
                         className="flex items-center gap-1.5 text-gold-accent hover:text-white font-medium transition-colors"
                       >
-                        View All Services
+                        Explore All Solutions
                         <ArrowRight className="w-3.5 h-3.5" />
                       </Link>
                     </div>
@@ -262,20 +303,27 @@ export default function Navbar() {
                       exit={{ opacity: 0, height: 0 }}
                       className="pl-4 mt-2 space-y-2 border-l border-gold-accent/20 overflow-hidden"
                     >
-                      {servicesList.map((service, idx) => (
-                        <Link
-                          key={idx}
-                          href={service.href}
-                          className="block py-2 text-sm text-white/70 hover:text-gold-accent transition-colors"
-                        >
-                          {service.title}
-                        </Link>
+                      {serviceCategories.map((cat, idx) => (
+                        <div key={idx} className="py-1">
+                          <span className="text-xs font-bold text-gold-accent uppercase block mb-1">
+                            {cat.category}
+                          </span>
+                          {cat.items.map((item, itemIdx) => (
+                            <Link
+                              key={itemIdx}
+                              href={item.href}
+                              className="block py-1 text-xs text-white/70 hover:text-gold-accent transition-colors pl-2"
+                            >
+                              {item.name}
+                            </Link>
+                          ))}
+                        </div>
                       ))}
                       <Link
                         href="/services"
-                        className="block py-2 text-sm text-gold-accent font-semibold flex items-center gap-1.5"
+                        className="block py-2 text-sm text-gold-accent font-semibold flex items-center gap-1.5 pt-2"
                       >
-                        All Services <ArrowRight className="w-3.5 h-3.5" />
+                        Explore All Solutions <ArrowRight className="w-3.5 h-3.5" />
                       </Link>
                     </motion.div>
                   )}

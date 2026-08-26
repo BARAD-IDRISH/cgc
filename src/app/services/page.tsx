@@ -11,281 +11,177 @@ import {
   Calculator,
   FileSpreadsheet,
   BookOpenCheck,
-  Briefcase
+  Scale,
+  ShieldCheck,
+  Globe,
+  FileCheck,
 } from "lucide-react";
+import { SERVICE_CATEGORIES, SERVICES_DATA } from "@/data/servicesData";
 
-export default function ServicesPage() {
-  const sections = [
-    {
-      id: "setup-structuring",
-      title: "Business Setup & Structuring",
-      tagline: "UAE Company Formation & Corporate Advisory",
-      desc: "End-to-end company formation and structuring solutions across mainland and free zones in the UAE. We help businesses choose the right structure, obtain licenses, and establish a strong operational foundation.",
-      image: "/images/formation-3d.png",
-      icon: Building2,
-      subServices: [
-        "Company formation in mainland and free zones",
-        "Legal structure advisory & corporate structuring",
-        "Trade license, approvals & government liaison",
-        "Shareholding, governance & regulatory compliance",
-        "Branch, representative office & subsidiary setup",
-        "Holding company setup",
-        "Inheritance planning & succession structuring",
-      ],
-      benefits: [
-        "Optimal entity selection for long-term tax & operational efficiency",
-        "100% full foreign ownership and free zone / mainland flexibility",
-        "Robust corporate governance protecting shareholders and assets",
-      ],
-      steps: ["Consultation & Discovery", "Entity & Name Approval", "License & Document Processing", "Bank Account & Structuring"],
-    },
-    {
-      id: "visa-pro",
-      title: "Visa & PRO Services",
-      tagline: "Immigration, Visas & Government Liaison Solutions",
-      desc: "Comprehensive visa and immigration solutions for investors, partners, employees, and dependents with efficient processing and full PRO support across all government departments.",
-      image: "/images/hero-3d.png",
-      icon: Users2,
-      subServices: [
-        "Investor, partner & employee visa solutions",
-        "Dependent visa processing & renewals",
-        "Emirates ID, medical & insurance assistance",
-        "Labor card, work permits & attestations",
-        "End-to-end PRO & government liaison",
-      ],
-      benefits: [
-        "Seamless residency processing for founders, families, and teams",
-        "Dedicated PRO handling all ministry and authority liaisons",
-        "Timely compliance and renewal tracking without hassle",
-      ],
-      steps: ["Document Preparation", "Entry Permit Approval", "Medical & Emirates ID", "Visa Stamping & PRO Handover"],
-    },
-    {
-      id: "tax-advisory",
-      title: "Tax Advisory",
-      tagline: "UAE Corporate Tax, VAT & Indirect Tax Experts",
-      desc: "Practical tax advisory services to help businesses meet their tax obligations, optimize outcomes, and remain fully compliant with Federal Tax Authority (FTA) laws.",
-      image: "/images/tax-3d.png",
-      icon: Calculator,
-      subServices: [
-        "VAT registration, filing & advisory",
-        "Corporate Tax registration, filing & advisory",
-        "Tax Residency Certificate (TRC)",
-        "Excise Tax & other indirect tax advisory",
-      ],
-      benefits: [
-        "Mitigate FTA audit risks and statutory penalties",
-        "Maximize legal tax exemptions and structured deductions",
-        "Maintain clean tax residency status for cross-border operations",
-      ],
-      steps: ["Tax Assessment & Health Check", "Registration & Setup", "Filing Preparation", "Return Submission & Representation"],
-    },
-    {
-      id: "audit-assurance",
-      title: "Audit & Assurance",
-      tagline: "Independent Audit, Control & Assurance Engagements",
-      desc: "Independent audit and assurance services that strengthen credibility, ensure regulatory compliance, and support informed decision-making for stakeholders and financial institutions.",
-      image: "/images/vat-3d.png",
-      icon: FileSpreadsheet,
-      subServices: [
-        "Statutory audit for mainland & free zone companies",
-        "Internal audit & control review",
-        "Financial reporting & assurance engagements",
-        "Agreed-upon procedures & special purpose reports",
-        "Transfer Pricing report",
-      ],
-      benefits: [
-        "Verifiable financial integrity for banks, investors, and authorities",
-        "Robust internal controls mitigating fraud and financial risk",
-        "Transfer pricing documentation complying with OECD & FTA standards",
-      ],
-      steps: ["Audit Planning & Scoping", "Fieldwork & Control Review", "Reporting & Review", "Final Audit Opinion Delivery"],
-    },
-    {
-      id: "accounting-bookkeeping",
-      title: "Accounting & Bookkeeping",
-      tagline: "Accurate Records, Timely Reporting & Financial Control",
-      desc: "Reliable accounting and bookkeeping services that ensure accurate financial records, timely reporting, and enhanced financial control for businesses of all scales.",
-      image: "/images/accounting-3d.png",
-      icon: BookOpenCheck,
-      subServices: [
-        "Bookkeeping & general ledger maintenance",
-        "Accounts payable & receivable management",
-        "Bank reconciliation & month-end closing",
-        "Financial statements & management reporting",
-        "Payroll processing & WPS compliance",
-      ],
-      benefits: [
-        "IFRS-compliant financial statements prepared by chartered professionals",
-        "Full WPS compliance for UAE wage protection requirements",
-        "Clear financial visibility supporting strategic executive decisions",
-      ],
-      steps: ["Chart of Accounts Setup", "Transaction Logging", "Bank Reconciliation", "Management Reporting & Statements"],
-    },
-    {
-      id: "advisory-consulting",
-      title: "Advisory & Consulting",
-      tagline: "Strategic Business Advisory, Feasibility & Growth",
-      desc: "Strategic advisory services to help businesses navigate challenges, improve operational performance, and achieve sustainable growth across GCC and international markets.",
-      image: "/images/hero-3d.png",
-      icon: Briefcase,
-      subServices: [
-        "Business advisory & growth strategy",
-        "Feasibility studies & market entry advisory",
-        "Financial planning & budgeting",
-        "Process improvement & operational efficiency",
-        "UBO reporting & compliance advisory",
-      ],
-      benefits: [
-        "Data-backed market entry strategies for regional expansion",
-        "Streamlined operational processes boosting profit margins",
-        "Full compliance with UBO, AML, and corporate transparency mandates",
-      ],
-      steps: ["Initial Discovery", "Strategic Analysis", "Implementation Roadmap", "Growth Execution & Review"],
-    },
-  ];
+const ICON_MAP = {
+  FileCheck,
+  ShieldCheck,
+  Scale,
+  FileSpreadsheet,
+  Globe,
+  Users2,
+  Calculator,
+  BookOpenCheck,
+  Building2,
+};
 
+export default function ServicesCatalogPage() {
   return (
-    <div className="relative bg-navy-deep min-h-screen pb-20">
-      
-      {/* Banner */}
-      <section className="relative py-24 bg-navy-dark border-b border-gold-accent/10 overflow-hidden flex items-center justify-center">
+    <div className="relative bg-navy-deep min-h-screen pb-24 text-white">
+      {/* Background glow */}
+      <div className="hidden md:block absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-gold-accent/5 filter blur-[100px] pointer-events-none" />
+      <div className="hidden md:block absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-gold-accent/5 filter blur-[100px] pointer-events-none" />
+
+      {/* Hero Banner */}
+      <section className="relative py-28 bg-navy-dark border-b border-gold-accent/10 overflow-hidden flex items-center justify-center">
         <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none" />
-        <div className="hidden md:block absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-gold-accent/5 filter blur-[100px] pointer-events-none" />
 
         <div className="max-w-4xl mx-auto px-4 text-center space-y-4 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-gold-accent/10 border border-gold-accent/20 text-gold-accent text-xs font-semibold uppercase tracking-widest"
+          >
+            Solutions Directory
+          </motion.div>
           <motion.h1
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-4xl sm:text-5xl font-serif font-bold text-white tracking-tight"
+            className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-white tracking-tight"
           >
-            Our Core Services
+            Comprehensive Advisory Services
           </motion.h1>
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
-            className="text-white/70 text-base sm:text-lg max-w-2xl mx-auto font-light leading-relaxed"
+            className="text-white/70 text-base sm:text-lg max-w-3xl mx-auto font-light leading-relaxed"
           >
-            End-to-end Business Setup, Visa, Tax, Audit, Accounting, and Strategic Advisory Solutions.
+            Explore our standalone tax, audit, accounting, compliance, and corporate setup services tailored for UAE businesses.
           </motion.p>
         </div>
       </section>
 
-      {/* Services Detail Sections */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 space-y-32">
-        {sections.map((section, idx) => {
-          const Icon = section.icon;
-          const isEven = idx % 2 === 0;
+      {/* Quick Jump Category Pills */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
+        <div className="flex flex-wrap items-center justify-center gap-3 py-4 border-b border-white/10 text-xs">
+          {SERVICE_CATEGORIES.map((cat) => (
+            <a
+              key={cat.slug}
+              href={`#${cat.slug}`}
+              className="px-4 py-2 rounded-full glass-card border border-white/10 text-white/75 hover:text-gold-accent hover:border-gold-accent/40 transition-colors uppercase font-medium tracking-wider"
+            >
+              {cat.name}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      {/* Services Categories Sections */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 space-y-24">
+        {SERVICE_CATEGORIES.map((cat, catIdx) => {
+          const CategoryIcon = ICON_MAP[cat.iconName] || FileCheck;
 
           return (
-            <div
-              key={section.id}
-              id={section.id}
-              className={`grid grid-cols-1 lg:grid-cols-12 gap-16 items-center scroll-mt-28 ${
-                isEven ? "" : "lg:flex lg:flex-row-reverse"
-              }`}
-            >
+            <div key={cat.slug} id={cat.slug} className="scroll-mt-28 space-y-8">
               
-              {/* Graphic (5 cols) */}
-              <div className="lg:col-span-5 relative w-full h-[320px] md:h-[400px] flex justify-center items-center">
-                {/* Background glowing frame */}
-                <div className="absolute -inset-4 border border-gold-accent/5 rounded-2xl pointer-events-none animate-pulse-glow" />
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true, margin: "-40px" }}
-                  transition={{ duration: 0.6 }}
-                  className="relative w-full h-full animate-float-slow"
+              {/* Category Header */}
+              <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-gold-accent/15 pb-4 gap-4">
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-9 h-9 rounded-lg bg-gold-accent/10 flex items-center justify-center text-gold-accent shrink-0">
+                      <CategoryIcon className="w-5 h-5" />
+                    </div>
+                    <span className="text-xs font-bold text-gold-accent uppercase tracking-widest">
+                      {cat.tagline}
+                    </span>
+                  </div>
+                  <h2 className="text-2xl sm:text-3xl font-serif font-bold text-white tracking-tight">
+                    {cat.name}
+                  </h2>
+                  <p className="text-white/60 text-xs sm:text-sm font-light max-w-2xl">
+                    {cat.desc}
+                  </p>
+                </div>
+
+                <Link
+                  href={`/services/${cat.slug}`}
+                  className="inline-flex items-center gap-1.5 text-xs text-gold-accent hover:text-white font-semibold uppercase tracking-wider transition-colors shrink-0"
                 >
-                  <Image
-                    src={section.image}
-                    alt={section.title}
-                    fill
-                    className="object-contain drop-shadow-[0_20px_50px_rgba(212,175,55,0.15)] rounded-2xl"
-                  />
-                </motion.div>
+                  View Category Overview
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
               </div>
 
-              {/* Text details (7 cols) */}
-              <div className="lg:col-span-7 space-y-6">
-                
-                {/* Icon & Title */}
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-gold-accent/10 flex items-center justify-center text-gold-accent shrink-0">
-                    <Icon className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <span className="text-[10px] font-bold text-gold-accent uppercase tracking-widest">
-                      {section.tagline}
-                    </span>
-                    <h2 className="text-2xl sm:text-3xl font-serif font-bold text-white tracking-tight mt-0.5">
-                      {section.title}
-                    </h2>
-                  </div>
-                </div>
+              {/* Sub-Services Cards Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {cat.itemSlugs.map((itemSlug) => {
+                  const service = SERVICES_DATA[itemSlug];
+                  if (!service) return null;
 
-                <p className="text-white/75 text-sm leading-relaxed">
-                  {section.desc}
-                </p>
+                  const ItemIcon = ICON_MAP[service.iconName] || CategoryIcon;
 
-                {/* Sub-services Grid */}
-                <div className="space-y-2.5 pt-2">
-                  <h4 className="text-xs font-semibold uppercase text-gold-accent tracking-wider">
-                    Core Offerings & Capabilities:
-                  </h4>
-                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 text-xs text-white/70">
-                    {section.subServices.map((sub, sIdx) => (
-                      <li key={sIdx} className="flex items-start gap-2">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-gold-accent shrink-0 mt-0.5" />
-                        <span>{sub}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                  return (
+                    <motion.div
+                      key={itemSlug}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4 }}
+                      className="glass-card rounded-xl p-6 border border-white/10 hover:border-gold-accent/40 transition-all duration-300 flex flex-col justify-between group"
+                    >
+                      <div className="space-y-4">
+                        {/* Icon & Title */}
+                        <div className="flex items-center justify-between">
+                          <div className="w-10 h-10 rounded-lg bg-gold-accent/5 border border-gold-accent/15 flex items-center justify-center text-gold-accent group-hover:bg-gold-accent group-hover:text-navy-dark transition-all duration-300">
+                            <ItemIcon className="w-5 h-5" />
+                          </div>
+                          <span className="text-[10px] text-gold-accent font-bold uppercase tracking-wider bg-gold-accent/10 px-2.5 py-1 rounded-full">
+                            Standalone Page
+                          </span>
+                        </div>
 
-                {/* Benefits */}
-                <div className="glass-card rounded-xl p-5 border-l-4 border-l-gold-accent space-y-2">
-                  <h4 className="text-xs font-semibold uppercase text-white tracking-wider">
-                    Key Value Outcomes:
-                  </h4>
-                  <ul className="space-y-1.5 text-xs text-white/60 font-light">
-                    {section.benefits.map((benefit, bIdx) => (
-                      <li key={bIdx} className="flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 bg-gold-accent rounded-full shrink-0" />
-                        <span>{benefit}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                        <div>
+                          <h3 className="text-lg font-bold text-white group-hover:text-gold-accent transition-colors duration-200">
+                            {service.title}
+                          </h3>
+                          <p className="text-white/60 text-xs mt-2 leading-relaxed font-light line-clamp-3">
+                            {service.shortDesc}
+                          </p>
+                        </div>
 
-                {/* Workflow process */}
-                <div className="space-y-3">
-                  <h4 className="text-xs font-semibold uppercase text-gold-accent tracking-wider">
-                    Execution Process:
-                  </h4>
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                    {section.steps.map((step, stepIdx) => (
-                      <div key={stepIdx} className="glass-card rounded-lg p-3 text-center border border-white/5 relative">
-                        <span className="text-[10px] text-gold-accent font-bold block mb-1">0{stepIdx + 1}</span>
-                        <span className="text-[10px] text-white font-medium block leading-tight">{step}</span>
+                        {/* Bullet Highlights */}
+                        <div className="pt-2">
+                          <ul className="space-y-1.5 text-[11px] text-white/70">
+                            {service.subServices.slice(0, 3).map((sub, sIdx) => (
+                              <li key={sIdx} className="flex items-center gap-2">
+                                <CheckCircle2 className="w-3.5 h-3.5 text-gold-accent shrink-0" />
+                                <span className="truncate">{sub}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
                       </div>
-                    ))}
-                  </div>
-                </div>
 
-                {/* CTA Button */}
-                <div className="pt-4 flex">
-                  <Link
-                    href="/contact"
-                    className="inline-flex items-center gap-2 px-6 py-3.5 text-xs font-bold tracking-widest text-navy-dark bg-gold-accent hover:bg-gold-light transition-all duration-300 rounded-md uppercase shadow-lg gold-glow-hover"
-                  >
-                    Consult on {section.title}
-                    <ArrowRight className="w-4 h-4" />
-                  </Link>
-                </div>
-
+                      {/* CTA Link */}
+                      <div className="pt-6 mt-6 border-t border-white/5">
+                        <Link
+                          href={`/services/${service.slug}`}
+                          className="inline-flex items-center justify-between w-full text-xs text-gold-accent font-semibold tracking-wider uppercase group-hover:text-white transition-colors"
+                        >
+                          <span>Explore Service</span>
+                          <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
+                        </Link>
+                      </div>
+                    </motion.div>
+                  );
+                })}
               </div>
 
             </div>
@@ -293,7 +189,32 @@ export default function ServicesPage() {
         })}
       </section>
 
+      {/* Bottom CTA Banner */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
+        <div className="glass-card rounded-2xl p-10 md:p-14 border border-gold-accent/30 text-center space-y-6 relative overflow-hidden shadow-2xl">
+          <div className="max-w-2xl mx-auto space-y-3 relative z-10">
+            <h4 className="text-xs font-semibold tracking-widest text-gold-accent uppercase">
+              Bespoke Advisory
+            </h4>
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-white tracking-tight">
+              Need a Custom Advisory Package?
+            </h2>
+            <p className="text-xs sm:text-sm text-white/70 font-light leading-relaxed">
+              Combine tax structuring, bookkeeping, and residency visa services into a tailored corporate retainership.
+            </p>
+          </div>
+
+          <div className="pt-4 flex justify-center relative z-10">
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 text-xs font-bold tracking-widest text-navy-dark bg-gold-accent hover:bg-gold-light transition-all duration-300 rounded-md shadow-lg uppercase gold-glow-hover"
+            >
+              Consult With Our Experts
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
-
