@@ -166,3 +166,46 @@ body {
   background-color: #A37B3B;
   border-radius: 50%;
 }
+
+/* ==========================================================================
+   Modern Responsive SVG Curve Section Dividers
+   ========================================================================== */
+.section-curve-divider {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.section-curve-divider.top-0 {
+  top: 0;
+}
+
+.section-curve-divider.bottom-0 {
+  bottom: 0;
+}
+
+.section-curve-divider svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 70px;
+}
+
+/* Responsive scaling to prevent steep vertical curves on mobile screens */
+@media (max-width: 768px) {
+  .section-curve-divider svg {
+    height: 36px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-curve-divider svg {
+    height: 90px;
+  }
+}
+

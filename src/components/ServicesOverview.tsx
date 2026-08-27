@@ -12,6 +12,7 @@ import {
   SlidersHorizontal,
 } from "lucide-react";
 import { SERVICE_CATEGORIES, SERVICES_DATA, ServiceDetail } from "@/data/servicesData";
+import SectionDivider from "@/components/SectionDivider";
 
 export default function ServicesOverview() {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
@@ -308,7 +309,7 @@ export default function ServicesOverview() {
         </div>
 
         {/* Bottom CTA */}
-        <div className="mt-16 text-center pt-8 border-t border-[#A37B3B]/20">
+        <div className="mt-16 text-center pt-8 border-t border-[#A37B3B]/20 pb-8">
           <Link
             href="/services"
             className="inline-flex items-center gap-2 px-8 py-4 text-xs font-bold tracking-widest text-[#FFFFFF] bg-[#0F2137] hover:bg-[#A37B3B] transition-all duration-300 rounded-lg shadow-md uppercase gold-glow-hover"
@@ -319,6 +320,9 @@ export default function ServicesOverview() {
         </div>
 
       </div>
+
+      {/* Curved SVG Divider Transitioning into White Industries Section */}
+      <SectionDivider position="bottom" fillColor="#FFFFFF" variant="concave" />
     </section>
   );
 }

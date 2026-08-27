@@ -3,6 +3,7 @@
 import { useEffect, useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Award, Building2, Briefcase, Users, ShieldCheck } from "lucide-react";
+import SectionDivider from "@/components/SectionDivider";
 
 interface CounterProps {
   value: number;
@@ -79,8 +80,8 @@ export default function TrustSection() {
   ];
 
   return (
-    <section style={{ contentVisibility: "auto" }} className="relative py-16 bg-[#FAF6EE] border-y border-[#A37B3B]/20 overflow-hidden">
-      <div className="absolute inset-0 bg-dot-pattern opacity-40" />
+    <section style={{ contentVisibility: "auto" }} className="relative pt-20 pb-28 md:pb-32 bg-[#FFFFFF] border-b border-[#A37B3B]/20 overflow-hidden">
+      <div className="absolute inset-0 bg-dot-pattern opacity-30" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -95,7 +96,7 @@ export default function TrustSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.6, delay: idx * 0.15 }}
-                className="bg-[#FFFFFF] rounded-xl p-6 border border-[#A37B3B]/25 hover:border-[#A37B3B] hover:shadow-[0_12px_28px_rgba(163,123,59,0.16)] transition-all duration-300 group flex flex-col items-center text-center"
+                className="bg-[#FAF6EE] rounded-xl p-6 border border-[#A37B3B]/25 hover:border-[#A37B3B] hover:shadow-[0_12px_28px_rgba(163,123,59,0.16)] transition-all duration-300 group flex flex-col items-center text-center"
               >
                 {/* Icon wrapper */}
                 <div className="w-12 h-12 rounded-lg bg-[#A37B3B]/10 border border-[#A37B3B]/25 flex items-center justify-center text-[#A37B3B] mb-4 group-hover:bg-[#A37B3B] group-hover:text-[#FFFFFF] transition-all duration-300">
@@ -122,6 +123,9 @@ export default function TrustSection() {
         </div>
 
       </div>
+
+      {/* Curved SVG Divider Transitioning into Cream ServicesOverview Section */}
+      <SectionDivider position="bottom" fillColor="#FAF6EE" variant="wave" />
     </section>
   );
 }

@@ -4,10 +4,11 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, PhoneCall, CheckCircle, Award, Users, Building2, ShieldCheck } from "lucide-react";
+import SectionDivider from "@/components/SectionDivider";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center pt-28 pb-20 overflow-hidden">
+    <section className="relative min-h-[90vh] flex items-center justify-center pt-28 pb-28 sm:pb-32 overflow-hidden">
       
       {/* Real Dubai Skyline Background Image with Warm Ivory Overlay */}
       <div className="absolute inset-0 z-0">
@@ -174,6 +175,9 @@ export default function Hero() {
 
         </div>
       </div>
+
+      {/* Curved SVG Divider Transitioning into White Trust Section */}
+      <SectionDivider position="bottom" fillColor="#FFFFFF" variant="curve" />
     </section>
   );
 }

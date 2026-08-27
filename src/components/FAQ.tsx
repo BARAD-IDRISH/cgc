@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus, Minus } from "lucide-react";
+import SectionDivider from "@/components/SectionDivider";
 
 interface FAQItem {
   question: string;
@@ -45,7 +46,7 @@ export default function FAQ() {
   };
 
   return (
-    <section style={{ contentVisibility: "auto" }} className="relative py-24 bg-[#FFFDF7] overflow-hidden border-t border-[#A37B3B]/20">
+    <section style={{ contentVisibility: "auto" }} className="relative pt-24 pb-28 md:pb-32 bg-[#FFFFFF] overflow-hidden border-t border-[#A37B3B]/20">
       <div className="absolute inset-0 bg-dot-pattern opacity-30 pointer-events-none" />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
@@ -67,11 +68,11 @@ export default function FAQ() {
             return (
               <div
                 key={idx}
-                className="bg-[#FFFFFF] rounded-xl overflow-hidden border border-[#A37B3B]/25 hover:border-[#A37B3B] transition-all duration-300 shadow-xs"
+                className="bg-[#FAF6EE] rounded-xl overflow-hidden border border-[#A37B3B]/25 hover:border-[#A37B3B] transition-all duration-300 shadow-xs"
               >
                 <button
                   onClick={() => toggleFAQ(idx)}
-                  className="w-full flex items-center justify-between p-6 text-left cursor-pointer hover:bg-[#FAF6EE] transition-colors"
+                  className="w-full flex items-center justify-between p-6 text-left cursor-pointer hover:bg-[#FFFFFF] transition-colors"
                 >
                   <span className="text-sm font-bold text-[#0F2137] pr-4">
                     {faq.question}
@@ -90,7 +91,7 @@ export default function FAQ() {
                       transition={{ duration: 0.3, ease: "easeInOut" }}
                       className="overflow-hidden"
                     >
-                      <div className="px-6 pb-6 pt-2 text-xs text-[#475569] leading-relaxed border-t border-[#F0EBE1] font-normal">
+                      <div className="px-6 pb-6 pt-2 text-xs text-[#475569] leading-relaxed border-t border-[#A37B3B]/20 font-normal bg-[#FFFFFF]">
                         {faq.answer}
                       </div>
                     </motion.div>
@@ -102,6 +103,9 @@ export default function FAQ() {
         </div>
 
       </div>
+
+      {/* Curved SVG Divider Transitioning into Cream CTA Section */}
+      <SectionDivider position="bottom" fillColor="#FAF6EE" variant="curve" />
     </section>
   );
 }

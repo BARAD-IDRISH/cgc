@@ -11,6 +11,7 @@ import {
   Landmark,
   ArrowRight
 } from "lucide-react";
+import SectionDivider from "@/components/SectionDivider";
 
 export default function IndustriesSection() {
   const clientCategories = [
@@ -47,7 +48,7 @@ export default function IndustriesSection() {
   ];
 
   return (
-    <section style={{ contentVisibility: "auto" }} className="relative py-24 bg-[#FFFDF7] overflow-hidden">
+    <section style={{ contentVisibility: "auto" }} className="relative pt-24 pb-28 md:pb-32 bg-[#FFFFFF] border-b border-[#A37B3B]/20 overflow-hidden">
       {/* Background Grid Pattern */}
       <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none" />
 
@@ -61,7 +62,7 @@ export default function IndustriesSection() {
           <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#0F2137] tracking-tight leading-tight">
             Tailored Solutions for Every Business Stage
           </h2>
-          <p className="text-[#475569] text-sm leading-relaxed">
+          <p className="text-[#475569] text-sm leading-relaxed font-normal">
             From emerging startups to multinational corporations, we deliver practical, sustainable advisory tailored to your unique aspirations.
           </p>
         </div>
@@ -77,7 +78,7 @@ export default function IndustriesSection() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.4, delay: idx * 0.08 }}
-                className="bg-[#FFFFFF] rounded-xl p-8 border-t-4 border-t-[#A37B3B] border-x border-b border-[#A37B3B]/25 hover:border-[#A37B3B] hover:-translate-y-2 hover:shadow-[0_15px_35px_rgba(163,123,59,0.16)] transition-all duration-300 group flex flex-col justify-between relative overflow-hidden"
+                className="bg-[#FAF6EE] rounded-xl p-8 border-t-4 border-t-[#A37B3B] border-x border-b border-[#A37B3B]/25 hover:border-[#A37B3B] hover:-translate-y-2 hover:shadow-[0_15px_35px_rgba(163,123,59,0.16)] transition-all duration-300 group flex flex-col justify-between relative overflow-hidden"
               >
                 {/* Ambient top light reflection */}
                 <div className="absolute top-0 right-0 w-32 h-32 bg-[#A37B3B]/5 rounded-full blur-2xl pointer-events-none group-hover:bg-[#A37B3B]/10 transition-colors" />
@@ -94,7 +95,7 @@ export default function IndustriesSection() {
                   </p>
                 </div>
 
-                <div className="pt-6 mt-6 border-t border-[#F0EBE1]">
+                <div className="pt-6 mt-6 border-t border-[#A37B3B]/20">
                   <Link
                     href="/industries"
                     className="w-full py-2.5 px-4 rounded-lg bg-[#0F2137] hover:bg-[#A37B3B] text-[#FFFFFF] font-bold text-xs uppercase tracking-wider transition-all duration-300 flex items-center justify-between shadow-xs"
@@ -109,17 +110,20 @@ export default function IndustriesSection() {
         </div>
 
         {/* CTA Bottom link */}
-        <div className="mt-16 text-center">
+        <div className="mt-16 text-center pb-6">
           <Link
             href="/industries"
-            className="inline-flex items-center gap-2 px-6 py-3 border border-gold-accent/25 hover:border-gold-accent text-white hover:text-gold-accent rounded-md text-xs font-semibold uppercase tracking-wider transition-all duration-300"
+            className="inline-flex items-center gap-2 px-6 py-3 border border-[#A37B3B]/30 hover:border-[#A37B3B] bg-[#0F2137] text-white hover:bg-[#A37B3B] rounded-md text-xs font-semibold uppercase tracking-wider transition-all duration-300 shadow-xs"
           >
-            Learn More About Our Client Solutions & Sectors
+            Learn More About Our Client Solutions &amp; Sectors
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
 
       </div>
+
+      {/* Curved SVG Divider Transitioning into Cream WhyChooseUs Section */}
+      <SectionDivider position="bottom" fillColor="#FAF6EE" variant="asymmetric" />
     </section>
   );
 }
