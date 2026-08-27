@@ -80,7 +80,7 @@ export default function SolutionsDrawer({ isOpen, onClose }: SolutionsDrawerProp
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed top-0 right-0 h-screen z-[2000] w-full md:w-[75vw] max-w-[950px] shadow-2xl flex flex-col md:flex-row overflow-hidden bg-[#FAF8F5]"
+            className="fixed top-0 right-0 left-auto bottom-0 h-screen m-0 p-0 z-[2000] w-full md:w-[75vw] max-w-[950px] shadow-2xl flex flex-col md:flex-row overflow-hidden bg-[#FAF8F5]"
             role="dialog"
             aria-modal="true"
             aria-label="Solutions Directory Navigation Drawer"
