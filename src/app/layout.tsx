@@ -121,7 +121,7 @@ export default function RootLayout({
 
   return (
     <html lang="en" className={`${outfit.variable} ${playfair.variable} scroll-smooth`}>
-      <body className="bg-navy-deep text-white antialiased flex flex-col min-h-screen">
+      <body className="bg-[#FAF6EE] text-[#0F2137] antialiased flex flex-col min-h-screen">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -131,7 +131,7 @@ export default function RootLayout({
         </Suspense>
         <Preloader />
         <Navbar />
-        <main className="flex-grow pt-20">
+        <main className="flex-grow pt-20 bg-[#FFFDF7]">
           {children}
         </main>
         <Footer />

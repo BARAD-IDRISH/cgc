@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -16,6 +16,18 @@ import SectionDivider from "@/components/SectionDivider";
 
 export default function ServicesOverview() {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  // Smoothly scroll back to the top of the solutions section when category filter changes
+  const handleCategorySelect = (categorySlug: string) => {
+    setSelectedCategory(categorySlug);
+    if (sectionRef.current) {
+      const yOffset = -110; // Account for floating fixed navbar
+      const elementPosition = sectionRef.current.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset + yOffset;
+      window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+    }
+  };
 
   // All individual service items
   const allServicesList = useMemo(() => {
@@ -46,6 +58,7 @@ export default function ServicesOverview() {
 
   return (
     <section
+      ref={sectionRef}
       style={{ contentVisibility: "auto" }}
       className="relative py-24 bg-[#FAF6EE] text-[#0F2137] overflow-x-clip border-t border-[#A37B3B]/20"
     >
@@ -91,8 +104,8 @@ export default function ServicesOverview() {
               
               {/* All Services Pill */}
               <button
-                onClick={() => setSelectedCategory("all")}
-                className={`w-full flex items-center justify-between px-4 py-3 rounded-xl text-xs font-bold transition-all duration-200 text-left ${
+                onClick={() => handleCategorySelect("all")}
+                className={`w-full flex items-center justify-between px-4 py-3 rounded-xl text-xs font-bold transition-all duration-200 text-left cursor-pointer ${
                   selectedCategory === "all"
                     ? "bg-[#0F2137] text-[#FFFFFF] shadow-md border border-[#0F2137]"
                     : "bg-[#FFFFFF] text-[#0F2137] hover:bg-[#A37B3B]/10 border border-[#A37B3B]/20"
@@ -118,8 +131,8 @@ export default function ServicesOverview() {
                 return (
                   <button
                     key={cat.slug}
-                    onClick={() => setSelectedCategory(cat.slug)}
-                    className={`w-full flex items-center justify-between px-4 py-3 rounded-xl text-xs transition-all duration-200 text-left ${
+                    onClick={() => handleCategorySelect(cat.slug)}
+                    className={`w-full flex items-center justify-between px-4 py-3 rounded-xl text-xs transition-all duration-200 text-left cursor-pointer ${
                       isActive
                         ? "bg-[#0F2137] text-[#FFFFFF] font-bold shadow-md border border-[#0F2137]"
                         : "bg-[#FFFFFF] text-[#0F2137] hover:bg-[#A37B3B]/10 font-medium border border-[#A37B3B]/20"
@@ -181,8 +194,8 @@ export default function ServicesOverview() {
               
               {selectedCategory !== "all" && (
                 <button
-                  onClick={() => setSelectedCategory("all")}
-                  className="text-xs font-semibold text-[#A37B3B] hover:underline"
+                  onClick={() => handleCategorySelect("all")}
+                  className="text-xs font-semibold text-[#A37B3B] hover:underline cursor-pointer"
                 >
                   Reset Category Filter
                 </button>

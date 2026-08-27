@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import SectionDivider from "@/components/SectionDivider";
 import {
   Rocket,
   Users2,
@@ -143,7 +144,7 @@ export default function IndustriesPage() {
     <div className="relative bg-[#FAF6EE] min-h-screen pb-24 text-[#0F2137]">
       
       {/* Page Hero Banner */}
-      <section className="relative py-28 bg-[#FFFDF7] border-b border-[#A37B3B]/20 overflow-hidden flex items-center justify-center">
+      <section className="relative pt-32 pb-28 md:pb-32 bg-[#FFFDF7] border-b border-[#A37B3B]/20 overflow-hidden flex items-center justify-center">
         <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none" />
         <div className="hidden md:block absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-[#A37B3B]/5 filter blur-[100px] pointer-events-none" />
 
@@ -172,6 +173,9 @@ export default function IndustriesPage() {
             Tailored Advisory Across 6 Client Segments &bull; Deep Sector Expertise in 25+ Industries across the UAE &amp; GCC.
           </motion.p>
         </div>
+
+        {/* Curved SVG Section Divider transition to Cream section */}
+        <SectionDivider position="bottom" fillColor="#FAF6EE" variant="curve" />
       </section>
 
       {/* Quick Jump Pills for Client Segments */}

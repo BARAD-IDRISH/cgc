@@ -8,7 +8,7 @@ import SectionDivider from "@/components/SectionDivider";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center pt-28 pb-28 sm:pb-32 overflow-hidden">
+    <section className="relative min-h-[90vh] flex items-center justify-center -mt-20 pt-36 pb-28 sm:pb-32 bg-[#FFFDF7] overflow-hidden">
       
       {/* Real Dubai Skyline Background Image with Warm Ivory Overlay */}
       <div className="absolute inset-0 z-0">
@@ -20,8 +20,8 @@ export default function Hero() {
           className="object-cover object-center filter brightness-[0.92]"
         />
         {/* Ivory Silk Gradient Overlay to guarantee high text contrast */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#FAF6EE] via-[#FAF6EE]/92 to-[#FAF6EE]/45" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#FAF6EE] via-transparent to-[#FAF6EE]/70" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#FFFDF7] via-[#FFFDF7]/92 to-[#FFFDF7]/45" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#FFFDF7] via-transparent to-[#FFFDF7]" />
         <div className="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none" />
       </div>
 

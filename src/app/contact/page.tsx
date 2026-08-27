@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import SectionDivider from "@/components/SectionDivider";
 import { Mail, Phone, MapPin, CheckCircle, MessageSquare, AlertCircle, Clock } from "lucide-react";
 
 // Helper function to sanitize text input and prevent XSS injections
@@ -135,19 +136,26 @@ export default function ContactPage() {
 
 
   return (
-    <div className="relative bg-navy-deep min-h-screen pb-20">
+    <div className="relative bg-[#FAF6EE] min-h-screen pb-20 text-[#0F2137]">
       
       {/* Banner */}
-      <section className="relative py-24 bg-navy-dark border-b border-gold-accent/10 overflow-hidden flex items-center justify-center">
+      <section className="relative pt-32 pb-28 md:pb-32 bg-[#FFFDF7] border-b border-[#A37B3B]/20 overflow-hidden flex items-center justify-center">
         <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none" />
-        <div className="hidden md:block absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-gold-accent/5 filter blur-[100px] pointer-events-none" />
+        <div className="hidden md:block absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-[#A37B3B]/5 filter blur-[100px] pointer-events-none" />
 
         <div className="max-w-4xl mx-auto px-4 text-center space-y-4 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#A37B3B]/10 border border-[#A37B3B]/30 text-[#A37B3B] text-xs font-bold uppercase tracking-widest"
+          >
+            Chartered Advisory Desk
+          </motion.div>
           <motion.h1
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-4xl sm:text-5xl font-serif font-bold text-white tracking-tight"
+            className="text-4xl sm:text-5xl font-serif font-bold text-[#0F2137] tracking-tight"
           >
             Connect With Our Experts
           </motion.h1>
@@ -155,11 +163,14 @@ export default function ContactPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
-            className="text-white/60 text-base sm:text-lg max-w-2xl mx-auto font-light leading-relaxed"
+            className="text-[#475569] text-base sm:text-lg max-w-2xl mx-auto font-normal leading-relaxed"
           >
             Establish your business operations, secure corporate tax filings, and coordinate golden visas with UAE registry specialists.
           </motion.p>
         </div>
+
+        {/* Curved SVG Section Divider transition to Cream section */}
+        <SectionDivider position="bottom" fillColor="#FAF6EE" variant="curve" />
       </section>
 
       {/* Main Split Content */}

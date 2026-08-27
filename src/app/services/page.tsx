@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import SectionDivider from "@/components/SectionDivider";
 import {
   ArrowRight,
   CheckCircle2,
@@ -21,6 +22,18 @@ import { SERVICE_CATEGORIES, SERVICES_DATA, ServiceDetail } from "@/data/service
 
 export default function ServicesCatalogPage() {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
+  const gridRef = useRef<HTMLDivElement>(null);
+
+  // Smoothly scroll back to the top of the solutions grid when category filter changes
+  const handleCategorySelect = (categorySlug: string) => {
+    setSelectedCategory(categorySlug);
+    if (gridRef.current) {
+      const yOffset = -110; // Account for floating fixed navbar
+      const elementPosition = gridRef.current.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset + yOffset;
+      window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+    }
+  };
 
   // All individual service items (excluding category duplicates if any, or filtering cleanly)
   const allServicesList = useMemo(() => {
@@ -53,7 +66,7 @@ export default function ServicesCatalogPage() {
     <div className="relative bg-[#FAF6EE] min-h-screen pb-24 text-[#0F2137]">
       
       {/* Hero Banner */}
-      <section className="relative py-24 bg-[#FFFDF7] border-b border-[#A37B3B]/20 overflow-hidden flex items-center justify-center">
+      <section className="relative pt-32 pb-28 md:pb-32 bg-[#FFFDF7] border-b border-[#A37B3B]/20 overflow-hidden flex items-center justify-center">
         <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none" />
         <div className="hidden md:block absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-[#A37B3B]/5 filter blur-[100px] pointer-events-none" />
 
@@ -84,10 +97,13 @@ export default function ServicesCatalogPage() {
             Browse our complete catalog of standalone tax advisory, statutory audit, bookkeeping, setup, and compliance solutions across the UAE.
           </motion.p>
         </div>
+
+        {/* Curved SVG Section Divider transition to Cream section */}
+        <SectionDivider position="bottom" fillColor="#FAF6EE" variant="curve" />
       </section>
 
       {/* Main Filter & Card Grid Container (Finves ThemeForest Inspired Sidebar Layout) */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12">
+      <div ref={gridRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* LEFT SIDEBAR: FILTER BY CATEGORY */}
@@ -110,8 +126,8 @@ export default function ServicesCatalogPage() {
               
               {/* All Services Pill */}
               <button
-                onClick={() => setSelectedCategory("all")}
-                className={`w-full flex items-center justify-between px-4 py-3 rounded-xl text-xs font-bold transition-all duration-200 text-left ${
+                onClick={() => handleCategorySelect("all")}
+                className={`w-full flex items-center justify-between px-4 py-3 rounded-xl text-xs font-bold transition-all duration-200 text-left cursor-pointer ${
                   selectedCategory === "all"
                     ? "bg-[#0F2137] text-[#FFFFFF] shadow-md border border-[#0F2137]"
                     : "bg-[#FFFFFF] text-[#0F2137] hover:bg-[#A37B3B]/10 border border-[#A37B3B]/20"
@@ -137,8 +153,8 @@ export default function ServicesCatalogPage() {
                 return (
                   <button
                     key={cat.slug}
-                    onClick={() => setSelectedCategory(cat.slug)}
-                    className={`w-full flex items-center justify-between px-4 py-3 rounded-xl text-xs transition-all duration-200 text-left ${
+                    onClick={() => handleCategorySelect(cat.slug)}
+                    className={`w-full flex items-center justify-between px-4 py-3 rounded-xl text-xs transition-all duration-200 text-left cursor-pointer ${
                       isActive
                         ? "bg-[#0F2137] text-[#FFFFFF] font-bold shadow-md border border-[#0F2137]"
                         : "bg-[#FFFFFF] text-[#0F2137] hover:bg-[#A37B3B]/10 font-medium border border-[#A37B3B]/20"

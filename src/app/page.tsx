@@ -8,7 +8,7 @@ import CTA from "@/components/CTA";
 
 export default function Home() {
   return (
-    <>
+    <div className="relative bg-[#FAF6EE] min-h-screen text-[#0F2137]">
       <Hero />
       <TrustSection />
       <ServicesOverview />
@@ -16,6 +16,6 @@ export default function Home() {
       <WhyChooseUs />
       <FAQ />
       <CTA />
-    </>
+    </div>
   );
 }

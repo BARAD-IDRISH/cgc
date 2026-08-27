@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import SectionDivider from "@/components/SectionDivider";
 import {
   Compass,
   Eye,
@@ -82,7 +83,7 @@ export default function AboutPage() {
     <div className="relative bg-[#FAF6EE] min-h-screen pb-24 text-[#0F2137]">
       
       {/* Page Hero Banner with Dubai Skyline Background */}
-      <section className="relative py-28 bg-[#FFFDF7] border-b border-[#A37B3B]/20 overflow-hidden flex items-center justify-center">
+      <section className="relative pt-32 pb-28 md:pb-32 bg-[#FFFDF7] border-b border-[#A37B3B]/20 overflow-hidden flex items-center justify-center">
         <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none" />
         
         <div className="max-w-4xl mx-auto px-4 text-center space-y-4 relative z-10">
@@ -112,6 +113,9 @@ export default function AboutPage() {
             Founded in 2014 &bull; Registered Free Zone Company (FZCO) &bull; Headquartered at IFZA Business Park, Dubai, UAE.
           </motion.p>
         </div>
+
+        {/* Curved SVG Section Divider transition to Cream section */}
+        <SectionDivider position="bottom" fillColor="#FAF6EE" variant="curve" />
       </section>
 
       {/* Corporate Overview with Real Editorial Photography */}
