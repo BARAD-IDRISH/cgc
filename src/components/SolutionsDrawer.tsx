@@ -70,7 +70,8 @@ export default function SolutionsDrawer({ isOpen, onClose }: SolutionsDrawerProp
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
             onClick={onClose}
-            className="fixed inset-0 z-[1999] bg-black/55 backdrop-blur-xs cursor-pointer"
+            style={{ boxSizing: "border-box", margin: 0, padding: 0 }}
+            className="fixed inset-0 top-0 left-0 w-vw h-vh m-0! p-0! z-[1999] bg-black/55 backdrop-blur-xs cursor-pointer"
             aria-hidden="true"
           />
 
@@ -80,7 +81,8 @@ export default function SolutionsDrawer({ isOpen, onClose }: SolutionsDrawerProp
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed top-0 right-0 left-auto bottom-0 h-screen m-0 p-0 z-[2000] w-full md:w-[75vw] max-w-[950px] shadow-2xl flex flex-col md:flex-row overflow-hidden bg-[#FAF8F5]"
+            style={{ boxSizing: "border-box", margin: 0, marginRight: 0, padding: 0, right: 0 }}
+            className="fixed top-0 right-0! mr-0! left-auto bottom-0 h-screen m-0! p-0! z-[2000] w-full md:w-[75vw] max-w-[950px] shadow-2xl flex flex-col md:flex-row overflow-hidden bg-[#FAF8F5]"
             role="dialog"
             aria-modal="true"
             aria-label="Solutions Directory Navigation Drawer"
