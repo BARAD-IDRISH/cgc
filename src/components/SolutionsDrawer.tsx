@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -25,6 +26,12 @@ interface SolutionsDrawerProps {
 }
 
 export default function SolutionsDrawer({ isOpen, onClose }: SolutionsDrawerProps) {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   // Lock body scroll when drawer is open & enable ESC key listener
   useEffect(() => {
     if (isOpen) {
@@ -59,7 +66,9 @@ export default function SolutionsDrawer({ isOpen, onClose }: SolutionsDrawerProp
     }
   };
 
-  return (
+  if (!mounted) return null;
+
+  return createPortal(
     <AnimatePresence>
       {isOpen && (
         <>
@@ -71,7 +80,7 @@ export default function SolutionsDrawer({ isOpen, onClose }: SolutionsDrawerProp
             transition={{ duration: 0.3 }}
             onClick={onClose}
             style={{ boxSizing: "border-box", margin: 0, padding: 0 }}
-            className="fixed inset-0 top-0 left-0 w-vw h-vh m-0! p-0! z-[1999] bg-black/55 backdrop-blur-xs cursor-pointer"
+            className="fixed inset-0 top-0 left-0 w-screen h-screen m-0! p-0! z-[1999] bg-black/55 backdrop-blur-xs cursor-pointer"
             aria-hidden="true"
           />
 
@@ -81,8 +90,18 @@ export default function SolutionsDrawer({ isOpen, onClose }: SolutionsDrawerProp
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            style={{ boxSizing: "border-box", margin: 0, marginRight: 0, padding: 0, right: 0 }}
-            className="fixed top-0 right-0! mr-0! left-auto bottom-0 h-screen m-0! p-0! z-[2000] w-full md:w-[75vw] max-w-[950px] shadow-2xl flex flex-col md:flex-row overflow-hidden bg-[#FAF8F5]"
+            style={{
+              boxSizing: "border-box",
+              position: "fixed",
+              top: 0,
+              right: 0,
+              left: "auto",
+              margin: 0,
+              marginRight: 0,
+              padding: 0,
+              paddingRight: 0,
+            }}
+            className="fixed top-0! right-0! left-auto! bottom-0! h-screen m-0! mr-0! p-0! pr-0! z-[2000] w-full md:w-[75vw] max-w-[950px] shadow-2xl flex flex-col md:flex-row overflow-hidden bg-[#FAF8F5]"
             role="dialog"
             aria-modal="true"
             aria-label="Solutions Directory Navigation Drawer"
@@ -259,6 +278,7 @@ export default function SolutionsDrawer({ isOpen, onClose }: SolutionsDrawerProp
           </motion.div>
         </>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body
   );
 }
