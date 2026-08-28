@@ -161,7 +161,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                   className="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-xs font-bold tracking-widest text-[#A37B3B] bg-[#FFFFFF] border border-[#A37B3B] hover:bg-[#A37B3B] hover:text-[#FFFFFF] transition-all duration-300 rounded-lg shadow-xs uppercase"
                 >
                   <PhoneCall className="w-4 h-4 text-[#A37B3B]" />
-                  Call {contact.handlerName} ({contact.phoneDisplay})
+                  Call {contact.phoneDisplay}
                 </a>
               </div>
 

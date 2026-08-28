@@ -167,7 +167,7 @@ export default function ServicesOverview() {
                   className="flex-1 inline-flex items-center justify-center gap-1 py-2 text-[10px] font-bold uppercase text-[#A37B3B] bg-[#FFFFFF] border border-[#A37B3B] rounded-lg shadow-xs hover:bg-[#A37B3B] hover:text-[#FFFFFF] transition-all"
                 >
                   <Phone className="w-3 h-3" />
-                  <span>Call {activeContact.handlerName}</span>
+                  <span>Call {activeContact.phoneDisplay}</span>
                 </a>
                 <a
                   href={sidebarWhatsappUrl}
