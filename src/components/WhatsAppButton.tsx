@@ -97,7 +97,7 @@ export default function WhatsAppButton() {
                 Select Department:
               </span>
 
-              {/* TEAM 1 BUTTON: VAT & Corporate/Compliance */}
+              {/* DEPARTMENT 1: VAT & Corporate Compliance (Kaid: +971 52 793 8572) */}
               <a
                 href={kaidTeamUrl}
                 target="_blank"
@@ -110,16 +110,16 @@ export default function WhatsAppButton() {
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="text-xs font-bold text-[#0F2137] group-hover:text-[#A37B3B] transition-colors flex items-center justify-between">
-                    <span className="truncate">+971 52 793 8572</span>
+                    <span className="truncate">VAT &amp; Corporate Compliance</span>
                     <ChevronRight className="w-3.5 h-3.5 text-[#25D366] opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all shrink-0 ml-1" />
                   </div>
                   <p className="text-[10px] text-[#475569] font-normal truncate mt-0.5">
-                    VAT &amp; Corporate / Compliance Solutions
+                    VAT Solutions, TRC &amp; Legal Compliance
                   </p>
                 </div>
               </a>
 
-              {/* TEAM 2 BUTTON: Corporate Tax, Excise & ESR, Accounting & Audit */}
+              {/* DEPARTMENT 2: Corporate Tax, Excise & Audit (Tejasbhai: +971 50 991 5344) */}
               <a
                 href={tejasTeamUrl}
                 target="_blank"
@@ -132,11 +132,11 @@ export default function WhatsAppButton() {
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="text-xs font-bold text-[#0F2137] group-hover:text-[#A37B3B] transition-colors flex items-center justify-between">
-                    <span className="truncate">+971 50 991 5344</span>
+                    <span className="truncate">Corporate Tax &amp; Audit Advisory</span>
                     <ChevronRight className="w-3.5 h-3.5 text-[#25D366] opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all shrink-0 ml-1" />
                   </div>
                   <p className="text-[10px] text-[#475569] font-normal truncate mt-0.5">
-                    Corporate Tax, Excise, ESR &amp; Audit
+                    Corporate Tax, Excise, ESR &amp; Statutory Audit
                   </p>
                 </div>
               </a>
