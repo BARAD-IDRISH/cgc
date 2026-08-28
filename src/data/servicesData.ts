@@ -1269,7 +1269,7 @@ export const KAID_CONTACT: ServiceContact = {
 };
 
 export const TEJASBHAI_CONTACT: ServiceContact = {
-  handlerName: "Tejasbhai",
+  handlerName: "Tejas",
   phoneDisplay: "+971 50 991 5344",
   phoneRaw: "+971509915344",
   whatsappNumber: "971509915344",
@@ -1289,8 +1289,8 @@ export function getServiceContact(categorySlug: string): ServiceContact {
 export function getServiceWhatsAppUrl(categorySlug: string, serviceTitle?: string): string {
   const contact = getServiceContact(categorySlug);
   const text = serviceTitle
-    ? `Hello ${contact.handlerName} (CGC), I would like to inquire about ${serviceTitle}.`
-    : `Hello ${contact.handlerName} (CGC), I would like to inquire about your advisory services.`;
+    ? `Hello ${contact.handlerName}, I would like to inquire about ${serviceTitle}.`
+    : `Hello ${contact.handlerName}, I would like to inquire about your advisory services.`;
   return `https://wa.me/${contact.whatsappNumber}?text=${encodeURIComponent(text)}`;
 }
 

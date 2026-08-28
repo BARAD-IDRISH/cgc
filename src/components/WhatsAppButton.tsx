@@ -12,7 +12,7 @@ export default function WhatsAppButton() {
   const kaidTeamUrl =
     "https://wa.me/971527938572?text=Hello%20Kaid%2C%20I%20would%20like%20to%20inquire%20about%20VAT%20Solutions%20or%20Corporate%20%26%20Compliance%20services.";
   const tejasTeamUrl =
-    "https://wa.me/971509915344?text=Hello%20Tejasbhai%2C%20I%20would%20like%20to%20inquire%20about%20Corporate%20Tax%2C%20Excise%20Tax%2C%20or%20Accounting%20%26%20Audit%20services.";
+    "https://wa.me/971509915344?text=Hello%20Tejas%2C%20I%20would%20like%20to%20inquire%20about%20Corporate%20Tax%2C%20Excise%20Tax%2C%20or%20Accounting%20%26%20Audit%20services.";
 
   // Handle click outside & ESC keypress to close the routing panel
   useEffect(() => {
