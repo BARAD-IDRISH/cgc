@@ -11,7 +11,7 @@ import {
   MessageCircle,
   SlidersHorizontal,
 } from "lucide-react";
-import { SERVICE_CATEGORIES, SERVICES_DATA, ServiceDetail } from "@/data/servicesData";
+import { SERVICE_CATEGORIES, SERVICES_DATA, ServiceDetail, getServiceContact, getServicePhoneUrl, getServiceWhatsAppUrl } from "@/data/servicesData";
 import SectionDivider from "@/components/SectionDivider";
 
 export default function ServicesOverview() {
@@ -52,9 +52,9 @@ export default function ServicesOverview() {
     });
   }, [allServicesList, selectedCategory]);
 
-  const phoneUrl = "tel:+971527938572";
-  const whatsappUrl =
-    "https://wa.me/971527938572?text=Hello%20CGC%2C%20I%20would%20like%20to%20consult%20regarding%20advisory%20services.";
+  const activeContact = getServiceContact(selectedCategory);
+  const sidebarPhoneUrl = getServicePhoneUrl(selectedCategory);
+  const sidebarWhatsappUrl = getServiceWhatsAppUrl(selectedCategory);
 
   return (
     <section
@@ -159,18 +159,18 @@ export default function ServicesOverview() {
                 Need Advisory Assistance?
               </h4>
               <p className="text-[11px] text-[#475569] leading-relaxed">
-                Speak directly with an FTA tax agent or business setup advisor.
+                Speak directly with <strong className="text-[#0F2137]">{activeContact.handlerName}</strong> ({activeContact.phoneDisplay}).
               </p>
               <div className="flex items-center gap-2 pt-1">
                 <a
-                  href={phoneUrl}
+                  href={sidebarPhoneUrl}
                   className="flex-1 inline-flex items-center justify-center gap-1 py-2 text-[10px] font-bold uppercase text-[#A37B3B] bg-[#FFFFFF] border border-[#A37B3B] rounded-lg shadow-xs hover:bg-[#A37B3B] hover:text-[#FFFFFF] transition-all"
                 >
                   <Phone className="w-3 h-3" />
-                  <span>Call</span>
+                  <span>Call {activeContact.handlerName}</span>
                 </a>
                 <a
-                  href={whatsappUrl}
+                  href={sidebarWhatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex-1 inline-flex items-center justify-center gap-1 py-2 text-[10px] font-bold uppercase text-[#FFFFFF] bg-[#25D366] rounded-lg shadow-xs hover:bg-[#1faa53] transition-all"
@@ -220,99 +220,107 @@ export default function ServicesOverview() {
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <AnimatePresence mode="popLayout">
-                  {filteredServices.map((service) => (
-                    <motion.div
-                      key={service.slug}
-                      layout
-                      initial={{ opacity: 0, y: 15 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, scale: 0.95 }}
-                      transition={{ duration: 0.3 }}
-                      className="bg-[#FFFFFF] rounded-2xl overflow-hidden border-2 border-[#A37B3B]/25 hover:border-[#A37B3B] shadow-md hover:shadow-xl transition-all duration-300 group flex flex-col justify-between"
-                    >
-                      {/* Top Cover Image Box */}
-                      <div className="relative w-full h-48 overflow-hidden bg-[#FAF6EE]">
-                        <Image
-                          src={service.heroImage || `/images/services/${service.slug}.jpg`}
-                          alt={service.title}
-                          fill
-                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 350px"
-                          className="object-cover group-hover:scale-105 transition-transform duration-500"
-                        />
+                  {filteredServices.map((service) => {
+                    const cardContact = getServiceContact(service.categorySlug);
+                    const cardPhoneUrl = getServicePhoneUrl(service.categorySlug);
+                    const cardWhatsappUrl = getServiceWhatsAppUrl(service.categorySlug, service.title);
 
-                        {/* Top Capsule Hover Badge */}
-                        <div className="absolute inset-0 bg-[#0F2137]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4">
-                          <Link
-                            href={`/services/${service.slug}`}
-                            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFFFFF] text-[#0F2137] text-[11px] font-bold uppercase tracking-wider shadow-lg hover:bg-[#A37B3B] hover:text-[#FFFFFF] transition-colors"
-                          >
-                            <span>Read Details</span>
-                            <ArrowRight className="w-3 h-3" />
-                          </Link>
-                        </div>
+                    return (
+                      <motion.div
+                        key={service.slug}
+                        layout
+                        initial={{ opacity: 0, y: 15 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, scale: 0.95 }}
+                        transition={{ duration: 0.3 }}
+                        className="bg-[#FFFFFF] rounded-2xl overflow-hidden border-2 border-[#A37B3B]/25 hover:border-[#A37B3B] shadow-md hover:shadow-xl transition-all duration-300 group flex flex-col justify-between"
+                      >
+                        {/* Top Cover Image Box */}
+                        <div className="relative w-full h-48 overflow-hidden bg-[#FAF6EE]">
+                          <Image
+                            src={service.heroImage || `/images/services/${service.slug}.jpg`}
+                            alt={service.title}
+                            fill
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 350px"
+                            className="object-cover group-hover:scale-105 transition-transform duration-500"
+                          />
 
-                        {/* Top Category Badge */}
-                        <div className="absolute top-3 left-3">
-                          <span className="inline-block px-2.5 py-0.5 rounded-full bg-[#FFFFFF]/90 backdrop-blur-md border border-[#A37B3B]/40 text-[#A37B3B] text-[10px] font-bold uppercase tracking-wider shadow-xs">
-                            {service.categoryName}
-                          </span>
-                        </div>
-                      </div>
-
-                      {/* Content Area */}
-                      <div className="p-5 space-y-3 flex-1 flex flex-col justify-between">
-                        <div className="space-y-1.5">
-                          <h3 className="text-base font-serif font-bold text-[#0F2137] group-hover:text-[#A37B3B] transition-colors leading-snug line-clamp-2">
-                            {service.title}
-                          </h3>
-                          <p className="text-[#475569] text-[11px] leading-relaxed line-clamp-2 font-normal">
-                            {service.shortDesc}
-                          </p>
-                        </div>
-
-                        {/* Scope Bullet Highlights */}
-                        <div className="pt-2 border-t border-[#A37B3B]/15 space-y-1 text-[10.5px] text-[#1F2937]">
-                          {service.subServices.slice(0, 2).map((sub, sIdx) => (
-                            <div key={sIdx} className="flex items-center gap-1.5">
-                              <CheckCircle2 className="w-3 h-3 text-[#A37B3B] shrink-0" />
-                              <span className="line-clamp-1 font-medium">{sub}</span>
-                            </div>
-                          ))}
-                        </div>
-
-                        {/* Action Buttons Row */}
-                        <div className="pt-3 border-t border-[#A37B3B]/20 space-y-2">
-                          <div className="grid grid-cols-2 gap-1.5">
-                            <a
-                              href={phoneUrl}
-                              className="inline-flex items-center justify-center gap-1 py-1.5 px-2 text-[9.5px] font-bold uppercase tracking-wider rounded-md border border-[#A37B3B] text-[#A37B3B] bg-[#FFFFFF] hover:bg-[#A37B3B] hover:text-[#FFFFFF] transition-all"
+                          {/* Top Capsule Hover Badge */}
+                          <div className="absolute inset-0 bg-[#0F2137]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4">
+                            <Link
+                              href={`/services/${service.slug}`}
+                              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFFFFF] text-[#0F2137] text-[11px] font-bold uppercase tracking-wider shadow-lg hover:bg-[#A37B3B] hover:text-[#FFFFFF] transition-colors"
                             >
-                              <Phone className="w-3 h-3 shrink-0" />
-                              <span>Call</span>
-                            </a>
-                            <a
-                              href={whatsappUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="inline-flex items-center justify-center gap-1 py-1.5 px-2 text-[9.5px] font-bold uppercase tracking-wider rounded-md bg-[#25D366] hover:bg-[#1faa53] text-[#FFFFFF] transition-all"
-                            >
-                              <MessageCircle className="w-3 h-3 shrink-0" />
-                              <span>WhatsApp</span>
-                            </a>
+                              <span>Read Details</span>
+                              <ArrowRight className="w-3 h-3" />
+                            </Link>
                           </div>
 
-                          <Link
-                            href={`/services/${service.slug}`}
-                            className="w-full py-2 px-2.5 rounded-lg bg-[#0F2137] hover:bg-[#A37B3B] text-[#FFFFFF] font-bold text-[10px] uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-1.5 shadow-xs"
-                          >
-                            <span>Read Details</span>
-                            <ArrowRight className="w-3 h-3 transform group-hover:translate-x-1 transition-transform" />
-                          </Link>
+                          {/* Top Category Badge */}
+                          <div className="absolute top-3 left-3">
+                            <span className="inline-block px-2.5 py-0.5 rounded-full bg-[#FFFFFF]/90 backdrop-blur-md border border-[#A37B3B]/40 text-[#A37B3B] text-[10px] font-bold uppercase tracking-wider shadow-xs">
+                              {service.categoryName}
+                            </span>
+                          </div>
                         </div>
-                      </div>
 
-                    </motion.div>
-                  ))}
+                        {/* Content Area */}
+                        <div className="p-5 space-y-3 flex-1 flex flex-col justify-between">
+                          <div className="space-y-1.5">
+                            <h3 className="text-base font-serif font-bold text-[#0F2137] group-hover:text-[#A37B3B] transition-colors leading-snug line-clamp-2">
+                              {service.title}
+                            </h3>
+                            <p className="text-[#475569] text-[11px] leading-relaxed line-clamp-2 font-normal">
+                              {service.shortDesc}
+                            </p>
+                          </div>
+
+                          {/* Scope Bullet Highlights */}
+                          <div className="pt-2 border-t border-[#A37B3B]/15 space-y-1 text-[10.5px] text-[#1F2937]">
+                            {service.subServices.slice(0, 2).map((sub, sIdx) => (
+                              <div key={sIdx} className="flex items-center gap-1.5">
+                                <CheckCircle2 className="w-3 h-3 text-[#A37B3B] shrink-0" />
+                                <span className="line-clamp-1 font-medium">{sub}</span>
+                              </div>
+                            ))}
+                          </div>
+
+                          {/* Action Buttons Row */}
+                          <div className="pt-3 border-t border-[#A37B3B]/20 space-y-2">
+                            <div className="grid grid-cols-2 gap-1.5">
+                              <a
+                                href={cardPhoneUrl}
+                                title={`Call ${cardContact.handlerName} (${cardContact.phoneDisplay})`}
+                                className="inline-flex items-center justify-center gap-1 py-1.5 px-2 text-[9.5px] font-bold uppercase tracking-wider rounded-md border border-[#A37B3B] text-[#A37B3B] bg-[#FFFFFF] hover:bg-[#A37B3B] hover:text-[#FFFFFF] transition-all"
+                              >
+                                <Phone className="w-3 h-3 shrink-0" />
+                                <span>Call</span>
+                              </a>
+                              <a
+                                href={cardWhatsappUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                title={`WhatsApp ${cardContact.handlerName}`}
+                                className="inline-flex items-center justify-center gap-1 py-1.5 px-2 text-[9.5px] font-bold uppercase tracking-wider rounded-md bg-[#25D366] hover:bg-[#1faa53] text-[#FFFFFF] transition-all"
+                              >
+                                <MessageCircle className="w-3 h-3 shrink-0" />
+                                <span>WhatsApp</span>
+                              </a>
+                            </div>
+
+                            <Link
+                              href={`/services/${service.slug}`}
+                              className="w-full py-2 px-2.5 rounded-lg bg-[#0F2137] hover:bg-[#A37B3B] text-[#FFFFFF] font-bold text-[10px] uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-1.5 shadow-xs"
+                            >
+                              <span>Read Details</span>
+                              <ArrowRight className="w-3 h-3 transform group-hover:translate-x-1 transition-transform" />
+                            </Link>
+                          </div>
+                        </div>
+
+                      </motion.div>
+                    );
+                  })}
                 </AnimatePresence>
               </div>
             )}

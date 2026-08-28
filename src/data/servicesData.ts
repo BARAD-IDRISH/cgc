@@ -1253,3 +1253,48 @@ export const SERVICES_DATA: Record<string, ServiceDetail> = {
     relatedSlugs: ["business-setup", "corporate-compliance", "tax-residency-certificate"],
   },
 };
+
+export interface ServiceContact {
+  handlerName: string;
+  phoneDisplay: string;
+  phoneRaw: string;
+  whatsappNumber: string;
+}
+
+export const KAID_CONTACT: ServiceContact = {
+  handlerName: "Kaid",
+  phoneDisplay: "+971 52 793 8572",
+  phoneRaw: "+971527938572",
+  whatsappNumber: "971527938572",
+};
+
+export const TEJASBHAI_CONTACT: ServiceContact = {
+  handlerName: "Tejasbhai",
+  phoneDisplay: "+971 50 991 5344",
+  phoneRaw: "+971509915344",
+  whatsappNumber: "971509915344",
+};
+
+export function getServiceContact(categorySlug: string): ServiceContact {
+  if (
+    categorySlug === "corporate-tax" ||
+    categorySlug === "excise-esr" ||
+    categorySlug === "accounting-audit"
+  ) {
+    return TEJASBHAI_CONTACT;
+  }
+  return KAID_CONTACT;
+}
+
+export function getServiceWhatsAppUrl(categorySlug: string, serviceTitle?: string): string {
+  const contact = getServiceContact(categorySlug);
+  const text = serviceTitle
+    ? `Hello ${contact.handlerName} (CGC), I would like to inquire about ${serviceTitle}.`
+    : `Hello ${contact.handlerName} (CGC), I would like to inquire about your advisory services.`;
+  return `https://wa.me/${contact.whatsappNumber}?text=${encodeURIComponent(text)}`;
+}
+
+export function getServicePhoneUrl(categorySlug: string): string {
+  const contact = getServiceContact(categorySlug);
+  return `tel:${contact.phoneRaw}`;
+}

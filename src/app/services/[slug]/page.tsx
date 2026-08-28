@@ -22,8 +22,9 @@ import {
   ChevronRight,
   Sparkles,
   PhoneCall,
+  MessageCircle,
 } from "lucide-react";
-import { SERVICES_DATA, SERVICE_CATEGORIES, ServiceDetail } from "@/data/servicesData";
+import { SERVICES_DATA, SERVICE_CATEGORIES, ServiceDetail, getServiceContact, getServicePhoneUrl, getServiceWhatsAppUrl } from "@/data/servicesData";
 
 const ICON_MAP = {
   FileCheck,
@@ -85,6 +86,11 @@ export default async function ServiceDetailPage({ params }: PageProps) {
 
   const IconComponent = ICON_MAP[service.iconName] || FileCheck;
 
+  // Contact routing based on service category handler
+  const contact = getServiceContact(service.categorySlug);
+  const phoneUrl = getServicePhoneUrl(service.categorySlug);
+  const whatsappUrl = getServiceWhatsAppUrl(service.categorySlug, service.title);
+
   // Get related services
   const relatedServices = service.relatedSlugs
     .map((rSlug) => SERVICES_DATA[rSlug])
@@ -140,20 +146,22 @@ export default async function ServiceDetailPage({ params }: PageProps) {
               </p>
 
               {/* Action Buttons */}
-              <div className="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-4 text-xs font-bold tracking-widest text-[#FFFFFF] bg-[#0F2137] hover:bg-[#A37B3B] transition-all duration-300 rounded-lg shadow-md uppercase gold-glow-hover"
-                >
-                  Book Consultation
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
+              <div className="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
                 <a
-                  href="tel:+971527938572"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-4 text-xs font-bold tracking-widest text-[#A37B3B] bg-[#FFFFFF] border border-[#A37B3B] hover:bg-[#A37B3B] hover:text-[#FFFFFF] transition-all duration-300 rounded-lg shadow-xs uppercase"
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-xs font-bold tracking-widest text-[#FFFFFF] bg-[#25D366] hover:bg-[#1faa53] transition-all duration-300 rounded-lg shadow-md uppercase"
+                >
+                  <MessageCircle className="w-4 h-4 text-[#FFFFFF]" />
+                  WhatsApp {contact.handlerName}
+                </a>
+                <a
+                  href={phoneUrl}
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-xs font-bold tracking-widest text-[#A37B3B] bg-[#FFFFFF] border border-[#A37B3B] hover:bg-[#A37B3B] hover:text-[#FFFFFF] transition-all duration-300 rounded-lg shadow-xs uppercase"
                 >
                   <PhoneCall className="w-4 h-4 text-[#A37B3B]" />
-                  +971 52 793 8572
+                  Call {contact.handlerName} ({contact.phoneDisplay})
                 </a>
               </div>
 

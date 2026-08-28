@@ -8,11 +8,11 @@ export default function WhatsAppButton() {
   const [isOpen, setIsOpen] = useState(false);
   const widgetRef = useRef<HTMLDivElement>(null);
 
-  // Pre-filled WhatsApp URLs for the two specialized advisory departments
-  const taxTeamUrl =
-    "https://wa.me/971527938572?text=Hello%20Chartered%20Growth%20Consultants%2C%20I%20would%20like%20to%20inquire%20about%20your%20Corporate%20Tax%20and%20VAT%20services.";
-  const setupTeamUrl =
-    "https://wa.me/971527938572?text=Hello%20Chartered%20Growth%20Consultants%2C%20I%20would%20like%20to%20inquire%20about%20company%20registration%20and%20visa%20processing.";
+  // WhatsApp URLs assigned directly to respective team leads
+  const kaidTeamUrl =
+    "https://wa.me/971527938572?text=Hello%20Kaid%2C%20I%20would%20like%20to%20inquire%20about%20VAT%20Solutions%20or%20Corporate%20%26%20Compliance%20services.";
+  const tejasTeamUrl =
+    "https://wa.me/971509915344?text=Hello%20Tejasbhai%2C%20I%20would%20like%20to%20inquire%20about%20Corporate%20Tax%2C%20Excise%20Tax%2C%20or%20Accounting%20%26%20Audit%20services.";
 
   // Handle click outside & ESC keypress to close the routing panel
   useEffect(() => {
@@ -69,7 +69,7 @@ export default function WhatsAppButton() {
                 </div>
                 <div>
                   <h4 className="text-xs font-bold text-[#FFFFFF] uppercase tracking-wider flex items-center gap-1.5">
-                    <span>Connect with our Experts</span>
+                    <span>Connect with Team Leads</span>
                   </h4>
                   <p className="text-[10.5px] text-[#25D366] font-medium flex items-center gap-1 mt-0.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#25D366] animate-pulse" />
@@ -94,12 +94,12 @@ export default function WhatsAppButton() {
             {/* Department Routing Action Buttons */}
             <div className="p-3.5 space-y-2.5 bg-[#FAF8F5]">
               <span className="text-[9.5px] font-bold uppercase tracking-widest text-[#A37B3B] px-1 block">
-                Select Department:
+                Select Advisory Specialist:
               </span>
 
-              {/* TEAM 1 BUTTON: Tax & Compliance Advisory */}
+              {/* KAID: VAT & Corporate/Compliance */}
               <a
-                href={taxTeamUrl}
+                href={kaidTeamUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsOpen(false)}
@@ -110,18 +110,18 @@ export default function WhatsAppButton() {
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="text-xs font-bold text-[#0F2137] group-hover:text-[#A37B3B] transition-colors flex items-center justify-between">
-                    <span className="truncate">Tax &amp; Compliance Advisory</span>
+                    <span className="truncate">Kaid (+971 52 793 8572)</span>
                     <ChevronRight className="w-3.5 h-3.5 text-[#25D366] opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all shrink-0 ml-1" />
                   </div>
                   <p className="text-[10px] text-[#475569] font-normal truncate mt-0.5">
-                    VAT, Corporate Tax &amp; Audit inquiries
+                    VAT &amp; Corporate / Compliance Solutions
                   </p>
                 </div>
               </a>
 
-              {/* TEAM 2 BUTTON: Company Setup & Visa Services */}
+              {/* TEJASBHAI: Corporate Tax, Excise & ESR, Accounting & Audit */}
               <a
-                href={setupTeamUrl}
+                href={tejasTeamUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsOpen(false)}
@@ -132,11 +132,11 @@ export default function WhatsAppButton() {
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="text-xs font-bold text-[#0F2137] group-hover:text-[#A37B3B] transition-colors flex items-center justify-between">
-                    <span className="truncate">Company Setup &amp; Visa Services</span>
+                    <span className="truncate">Tejasbhai (+971 50 991 5344)</span>
                     <ChevronRight className="w-3.5 h-3.5 text-[#25D366] opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all shrink-0 ml-1" />
                   </div>
                   <p className="text-[10px] text-[#475569] font-normal truncate mt-0.5">
-                    Business licensing &amp; mainland/freezone setup
+                    Corporate Tax, Excise, ESR &amp; Audit
                   </p>
                 </div>
               </a>
