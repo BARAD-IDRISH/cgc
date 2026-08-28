@@ -154,7 +154,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                   className="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-xs font-bold tracking-widest text-[#FFFFFF] bg-[#25D366] hover:bg-[#1faa53] transition-all duration-300 rounded-lg shadow-md uppercase"
                 >
                   <MessageCircle className="w-4 h-4 text-[#FFFFFF]" />
-                  WhatsApp {contact.handlerName}
+                  WhatsApp
                 </a>
                 <a
                   href={phoneUrl}

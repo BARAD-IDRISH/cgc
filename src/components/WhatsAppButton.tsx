@@ -69,7 +69,7 @@ export default function WhatsAppButton() {
                 </div>
                 <div>
                   <h4 className="text-xs font-bold text-[#FFFFFF] uppercase tracking-wider flex items-center gap-1.5">
-                    <span>Connect with Team Leads</span>
+                    <span>Connect with Consultants</span>
                   </h4>
                   <p className="text-[10.5px] text-[#25D366] font-medium flex items-center gap-1 mt-0.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#25D366] animate-pulse" />
@@ -94,10 +94,10 @@ export default function WhatsAppButton() {
             {/* Department Routing Action Buttons */}
             <div className="p-3.5 space-y-2.5 bg-[#FAF8F5]">
               <span className="text-[9.5px] font-bold uppercase tracking-widest text-[#A37B3B] px-1 block">
-                Select Advisory Specialist:
+                Select Department:
               </span>
 
-              {/* KAID: VAT & Corporate/Compliance */}
+              {/* TEAM 1 BUTTON: VAT & Corporate/Compliance */}
               <a
                 href={kaidTeamUrl}
                 target="_blank"
@@ -110,7 +110,7 @@ export default function WhatsAppButton() {
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="text-xs font-bold text-[#0F2137] group-hover:text-[#A37B3B] transition-colors flex items-center justify-between">
-                    <span className="truncate">Kaid (+971 52 793 8572)</span>
+                    <span className="truncate">+971 52 793 8572</span>
                     <ChevronRight className="w-3.5 h-3.5 text-[#25D366] opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all shrink-0 ml-1" />
                   </div>
                   <p className="text-[10px] text-[#475569] font-normal truncate mt-0.5">
@@ -119,7 +119,7 @@ export default function WhatsAppButton() {
                 </div>
               </a>
 
-              {/* TEJASBHAI: Corporate Tax, Excise & ESR, Accounting & Audit */}
+              {/* TEAM 2 BUTTON: Corporate Tax, Excise & ESR, Accounting & Audit */}
               <a
                 href={tejasTeamUrl}
                 target="_blank"
@@ -132,7 +132,7 @@ export default function WhatsAppButton() {
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="text-xs font-bold text-[#0F2137] group-hover:text-[#A37B3B] transition-colors flex items-center justify-between">
-                    <span className="truncate">Tejasbhai (+971 50 991 5344)</span>
+                    <span className="truncate">+971 50 991 5344</span>
                     <ChevronRight className="w-3.5 h-3.5 text-[#25D366] opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all shrink-0 ml-1" />
                   </div>
                   <p className="text-[10px] text-[#475569] font-normal truncate mt-0.5">
